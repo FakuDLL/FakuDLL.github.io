@@ -110,8 +110,8 @@ export default function Home() {
 
           <a
             className="nav-contact"
-            href="mailto:facundorobayna03@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
-            aria-label="Enviar un email a Facundo"
+            href="#contacto"
+            aria-label="Ir a la sección de contacto"
           >
             <span className="status-dot" aria-hidden="true" />
             Contactar

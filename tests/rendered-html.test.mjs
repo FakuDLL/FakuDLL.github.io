@@ -55,6 +55,7 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /Proyecto académico grupal/);
   assert.match(page, /creado y validado mediante un flujo de agentes de IA/);
   assert.match(page, /no está publicado actualmente/);
+  assert.match(page, /className="nav-contact"\s+href="#contacto"/);
   assert.match(page, /aria-disabled="true"/);
   assert.match(layout, /https:\/\/fakudll\.github\.io\//);
   assert.doesNotMatch(layout, /codex-preview|Starter Project/);
