@@ -33,7 +33,8 @@ test("server-renders the final portfolio", async () => {
     html,
     /<title>Facundo Robayna — Desarrollador de Software Junior<\/title>/i,
   );
-  assert.match(html, /Desarrollo software/);
+  assert.match(html, /Construyo soluciones/);
+  assert.match(html, /web y de software/);
   assert.match(html, /StellarMinds/);
   assert.match(html, /Gestión de atenciones/);
   assert.match(html, /Seguimiento nutricional/);

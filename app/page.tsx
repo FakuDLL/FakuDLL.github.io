@@ -82,12 +82,9 @@ export default function Home() {
   return (
     <>
       <header className="site-header">
-        <div className="header-inner container">
+        <div className="nav-shell">
           <a className="brand" href="#inicio" aria-label="Ir al inicio">
-            <span className="brand-mark" aria-hidden="true">
-              FR
-            </span>
-            <span className="brand-name">Facundo Robayna</span>
+            <span aria-hidden="true">FR</span>
           </a>
 
           <nav className="desktop-nav" aria-label="Navegación principal">
@@ -100,160 +97,207 @@ export default function Home() {
           </nav>
 
           <details className="mobile-nav">
-            <summary>Menú</summary>
+            <summary>Secciones</summary>
             <nav aria-label="Navegación móvil">
-              {navItems.map(([label, href]) => (
+              {navItems.map(([label, href], index) => (
                 <a href={href} key={href}>
+                  <span aria-hidden="true">0{index + 1}</span>
                   {label}
                 </a>
               ))}
             </nav>
           </details>
+
+          <a
+            className="nav-contact"
+            href="mailto:facundorobayna03@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
+            aria-label="Enviar un email a Facundo"
+          >
+            <span className="status-dot" aria-hidden="true" />
+            Contactar
+          </a>
         </div>
       </header>
 
       <main>
-        <section className="hero section" id="inicio">
-          <div className="hero-grid container">
+        <section className="hero" id="inicio">
+          <div className="hero-grid-lines" aria-hidden="true" />
+          <div className="hero-inner container">
+            <div className="hero-topline">
+              <p>Facundo Robayna</p>
+              <p>Portfolio / 2026</p>
+            </div>
+
             <div className="hero-copy">
               <p className="eyebrow">
                 <span className="status-dot" aria-hidden="true" />
-                Montevideo, Uruguay · Abierto a oportunidades junior
+                Disponible para oportunidades junior
               </p>
               <h1>
-                Desarrollo software
-                <span>con criterio y propósito.</span>
+                <span>Construyo soluciones</span>
+                <span className="accent-text">web y de software.</span>
               </h1>
-              <p className="hero-intro">
-                Soy <strong>Facundo Robayna</strong>, estudiante de TI y
-                desarrollador de software junior. Construyo soluciones web,
-                APIs y herramientas de gestión con una base técnica clara y
-                ganas de seguir aprendiendo.
-              </p>
-              <div className="hero-actions">
-                <a className="button button-primary" href="#proyectos">
-                  Ver proyectos
-                  <span aria-hidden="true">↓</span>
-                </a>
-                <a
-                  className="button button-secondary"
-                  href="https://github.com/FakuDLL"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub <span aria-hidden="true">↗</span>
-                </a>
-                <a
-                  className="button button-secondary"
-                  href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn <span aria-hidden="true">↗</span>
-                </a>
-              </div>
             </div>
 
-            <aside className="profile-card" aria-label="Resumen profesional">
-              <div className="profile-card-top">
-                <span>Perfil / 2026</span>
-                <span className="profile-status">En formación</span>
-              </div>
-              <div className="monogram" aria-hidden="true">
-                FR
-              </div>
-              <div className="profile-details">
-                <p>Analista en Tecnologías de la Información</p>
-                <strong>Universidad ORT Uruguay</strong>
-              </div>
-              <dl className="profile-facts">
-                <div>
-                  <dt>Avance</dt>
-                  <dd>4.º semestre</dd>
-                </div>
-                <div>
-                  <dt>Graduación estimada</dt>
-                  <dd>Julio de 2027</dd>
-                </div>
-                <div>
-                  <dt>Foco</dt>
-                  <dd>Web · APIs · Datos</dd>
-                </div>
-              </dl>
-            </aside>
-          </div>
-        </section>
-
-        <section className="section section-lined" id="sobre-mi">
-          <div className="container about-grid">
-            <div className="section-heading">
-              <p className="section-number">01 / Sobre mí</p>
-              <h2>Curiosidad técnica, trabajo ordenado.</h2>
-            </div>
-            <div className="about-copy">
-              <p className="large-copy">
-                Soy estudiante de Analista en Tecnologías de la Información en
-                ORT Uruguay, actualmente cursando el cuarto semestre y orientado
-                al desarrollo de software.
-              </p>
-              <p>
-                Me interesa construir soluciones útiles, mantenibles y bien
-                estructuradas, con foco en desarrollo web, APIs, bases de datos
-                e inteligencia artificial aplicada al desarrollo. Valoro
-                entender el problema antes de elegir la herramienta y comunicar
-                con claridad durante el proceso.
-              </p>
-              <div className="principles">
-                <div>
-                  <span>01</span>
-                  <p>Aprender haciendo</p>
-                </div>
-                <div>
-                  <span>02</span>
-                  <p>Estructurar antes de escalar</p>
-                </div>
-                <div>
-                  <span>03</span>
-                  <p>Construir para personas</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="tecnologias">
-          <div className="container">
-            <div className="section-heading section-heading-row">
+            <div className="hero-bottom">
               <div>
-                <p className="section-number">02 / Tecnologías</p>
-                <h2>Herramientas que uso y estudio.</h2>
+                <p className="hero-intro">
+                  Estudiante de TI y Desarrollador de Software Junior en
+                  Montevideo, Uruguay.
+                </p>
+                <div className="hero-actions">
+                  <a className="button button-primary" href="#proyectos">
+                    Ver proyectos <span aria-hidden="true">↘</span>
+                  </a>
+                  <a
+                    className="button button-ghost"
+                    href="https://github.com/FakuDLL"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    className="button button-ghost"
+                    href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    LinkedIn <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
-              <p className="section-note">
-                Una selección honesta de mi stack actual y los conceptos que
-                aplico en proyectos académicos y personales.
+
+              <aside className="profile-panel" aria-label="Resumen profesional">
+                <div className="panel-header">
+                  <span>perfil.json</span>
+                  <span className="panel-state">● activo</span>
+                </div>
+                <dl>
+                  <div>
+                    <dt>Formación</dt>
+                    <dd>Analista en TI · ORT</dd>
+                  </div>
+                  <div>
+                    <dt>Avance</dt>
+                    <dd>4.º semestre</dd>
+                  </div>
+                  <div>
+                    <dt>Graduación</dt>
+                    <dd>Julio 2027</dd>
+                  </div>
+                  <div>
+                    <dt>Foco</dt>
+                    <dd>Web · APIs · Datos</dd>
+                  </div>
+                </dl>
+              </aside>
+            </div>
+
+            <a className="scroll-cue" href="#sobre-mi">
+              Scroll para explorar <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </section>
+
+        <section className="section about-section" id="sobre-mi">
+          <div className="container">
+            <div className="section-label">
+              <span>01</span>
+              <p>Sobre mí</p>
+              <span className="label-line" aria-hidden="true" />
+            </div>
+
+            <div className="about-grid">
+              <h2>
+                Desarrollo con curiosidad,
+                <span>estructura y propósito.</span>
+              </h2>
+              <div className="about-copy">
+                <p className="large-copy">
+                  Soy estudiante de Analista en Tecnologías de la Información en
+                  ORT Uruguay, actualmente cursando el cuarto semestre y
+                  orientado al desarrollo de software.
+                </p>
+                <p>
+                  Me interesa construir soluciones útiles, mantenibles y bien
+                  estructuradas, con foco en desarrollo web, APIs, bases de datos
+                  e inteligencia artificial aplicada al desarrollo. Valoro
+                  entender el problema antes de elegir la herramienta y
+                  comunicar con claridad durante el proceso.
+                </p>
+              </div>
+            </div>
+
+            <div className="principles">
+              <article>
+                <span>01 / Método</span>
+                <h3>Aprender haciendo</h3>
+                <p>
+                  Convertir conceptos en soluciones concretas y revisar cada
+                  decisión con criterio.
+                </p>
+              </article>
+              <article>
+                <span>02 / Estructura</span>
+                <h3>Orden antes de escala</h3>
+                <p>
+                  Priorizar código entendible, responsabilidades claras y bases
+                  mantenibles.
+                </p>
+              </article>
+              <article>
+                <span>03 / Producto</span>
+                <h3>Construir para personas</h3>
+                <p>
+                  Diseñar experiencias directas, accesibles y enfocadas en el
+                  problema real.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section technologies-section" id="tecnologias">
+          <div className="container">
+            <div className="section-label">
+              <span>02</span>
+              <p>Tecnologías</p>
+              <span className="label-line" aria-hidden="true" />
+            </div>
+
+            <div className="section-heading">
+              <h2>Mi stack actual.</h2>
+              <p>
+                Herramientas y conceptos que uso en proyectos académicos y
+                personales, sin inflar experiencia.
               </p>
             </div>
+
             <ul className="tech-grid" aria-label="Tecnologías y conocimientos">
               {technologies.map((technology, index) => (
                 <li key={technology}>
                   <span aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  {technology}
+                  <p>{technology}</p>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        <section className="section section-dark" id="proyectos">
+        <section className="section projects-section" id="proyectos">
           <div className="container">
-            <div className="section-heading section-heading-row project-heading">
-              <div>
-                <p className="section-number">03 / Proyectos</p>
-                <h2>Problemas reales, soluciones concretas.</h2>
-              </div>
-              <p className="section-note">
+            <div className="section-label">
+              <span>03</span>
+              <p>Proyectos</p>
+              <span className="label-line" aria-hidden="true" />
+            </div>
+
+            <div className="section-heading">
+              <h2>Trabajo seleccionado.</h2>
+              <p>
                 Proyectos académicos, personales y experimentales. El código de
                 estos trabajos no está publicado actualmente.
               </p>
@@ -262,7 +306,12 @@ export default function Home() {
             <div className="projects-list">
               {projects.map((project) => (
                 <article className="project-card" key={project.number}>
-                  <div className="project-index">{project.number}</div>
+                  <div className="project-header">
+                    <span className="project-number">{project.number}</span>
+                    <span className="project-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
                   <div className="project-content">
                     <p className="project-type">{project.type}</p>
                     <h3>{project.title}</h3>
@@ -270,7 +319,10 @@ export default function Home() {
                     <p className="project-description">
                       {project.description}
                     </p>
-                    <ul className="tags" aria-label={`Tecnologías de ${project.title}`}>
+                    <ul
+                      className="tags"
+                      aria-label={`Tecnologías de ${project.title}`}
+                    >
                       {project.stack.map((technology) => (
                         <li key={technology}>{technology}</li>
                       ))}
@@ -282,63 +334,83 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" id="experiencia">
-          <div className="container experience-grid">
-            <div className="section-heading">
-              <p className="section-number">04 / Experiencia adicional</p>
-              <h2>Experiencia que complementa mi perfil.</h2>
-              <p className="section-note">
-                Soporte, operación y desarrollo en contextos que exigieron
-                autonomía, diagnóstico y atención al detalle.
-              </p>
+        <section className="section experience-section" id="experiencia">
+          <div className="container">
+            <div className="section-label">
+              <span>04</span>
+              <p>Experiencia adicional</p>
+              <span className="label-line" aria-hidden="true" />
             </div>
-            <div className="timeline">
-              {experience.map((item) => (
-                <article className="timeline-item" key={item.period}>
-                  <p className="timeline-period">{item.period}</p>
-                  <div>
-                    <h3>{item.role}</h3>
-                    <p className="timeline-place">{item.place}</p>
-                    <p>{item.description}</p>
-                  </div>
-                </article>
-              ))}
+
+            <div className="experience-grid">
+              <div className="section-heading">
+                <h2>Más allá del código.</h2>
+                <p>
+                  Experiencias que fortalecieron mi autonomía, diagnóstico y
+                  atención al detalle.
+                </p>
+              </div>
+              <div className="timeline">
+                {experience.map((item, index) => (
+                  <article className="timeline-item" key={item.period}>
+                    <span className="timeline-index">0{index + 1}</span>
+                    <div>
+                      <p className="timeline-period">{item.period}</p>
+                      <h3>{item.role}</h3>
+                      <p className="timeline-place">{item.place}</p>
+                      <p>{item.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section className="section contact-section" id="contacto">
-          <div className="container contact-grid">
-            <div>
-              <p className="section-number">05 / Contacto</p>
-              <h2>¿Construimos algo juntos?</h2>
-              <p>
-                Estoy abierto a conversar sobre oportunidades junior, prácticas
-                y proyectos donde pueda aportar, aprender y crecer.
-              </p>
+          <div className="contact-glow" aria-hidden="true" />
+          <div className="container">
+            <div className="section-label">
+              <span>05</span>
+              <p>Contacto</p>
+              <span className="label-line" aria-hidden="true" />
             </div>
-            <div className="contact-actions">
-              <a
-                className="button button-light"
-                href="mailto:facundorobayna03@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
-              >
-                Escribirme por email <span aria-hidden="true">↗</span>
+
+            <div className="contact-grid">
+              <div>
+                <p className="contact-kicker">¿Tenés una oportunidad o idea?</p>
+                <h2>Hablemos.</h2>
+              </div>
+              <div className="contact-copy">
+                <p>
+                  Estoy abierto a conversar sobre oportunidades junior,
+                  prácticas y proyectos donde pueda aportar, aprender y crecer.
+                </p>
+                <div className="contact-actions">
+                  <a
+                    className="button button-primary"
+                    href="mailto:facundorobayna03@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
+                  >
+                    Escribirme por email <span aria-hidden="true">↗</span>
+                  </a>
+                  <span
+                    className="button button-disabled"
+                    aria-disabled="true"
+                    title="El CV estará disponible cuando se incorpore el archivo PDF"
+                  >
+                    CV · Próximamente
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-details">
+              <a href="mailto:facundorobayna03@gmail.com">
+                facundorobayna03@gmail.com
               </a>
-              <span
-                className="button button-disabled"
-                aria-disabled="true"
-                title="El CV estará disponible cuando se incorpore el archivo PDF"
-              >
-                Descargar CV · Próximamente
-              </span>
+              <a href="tel:+59896402801">096 402 801</a>
+              <span>Montevideo, Uruguay</span>
             </div>
-          </div>
-          <div className="container contact-details">
-            <a href="mailto:facundorobayna03@gmail.com">
-              facundorobayna03@gmail.com
-            </a>
-            <a href="tel:+59896402801">096 402 801</a>
-            <span>Montevideo, Uruguay</span>
           </div>
         </section>
       </main>
@@ -346,7 +418,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Facundo Robayna</p>
-          <p>Diseñado y desarrollado con atención al detalle.</p>
+          <p>Desarrollador de Software Junior · Montevideo</p>
           <a href="#inicio">Volver arriba ↑</a>
         </div>
       </footer>
