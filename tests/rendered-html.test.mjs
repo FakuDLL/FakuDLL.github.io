@@ -57,16 +57,20 @@ test("keeps truthful links and project metadata", async () => {
 
   assert.match(page, /Proyecto académico grupal/);
   assert.match(page, /creado y validado mediante un flujo de agentes de IA/);
-  assert.match(page, /no está publicado actualmente/);
+  assert.match(page, /Algunos\s+repositorios están publicados/);
+  assert.match(page, /otros se mantienen privados/);
+  assert.doesNotMatch(page, /no está publicado actualmente/);
   assert.match(page, /<ConnectProfileButton \/>/);
-  assert.match(page, /<CopyEmailButton \/>/);
+  assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
+  assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
   assert.match(contactControls, /event\.preventDefault\(\)/);
   assert.match(contactControls, /window\.scrollTo\(0, targetTop\)/);
   assert.match(contactControls, /event\.currentTarget\.blur\(\)/);
   assert.match(contactControls, /showModal/);
-  assert.match(contactControls, /connect-profile-title/);
+  assert.match(contactControls, /const titleId = useId\(\)/);
+  assert.match(contactControls, /placement === "contact"/);
   assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
@@ -77,10 +81,15 @@ test("keeps truthful links and project metadata", async () => {
     /\.contact-section h2\s*\{[^}]*font-size:\s*clamp\(4rem,\s*20vw,\s*5\.25rem\)/s,
   );
   assert.doesNotMatch(globalsCss, /font-size:\s*clamp\(6rem,\s*28vw,\s*9rem\)/);
+  assert.match(
+    globalsCss,
+    /\.contact-copy\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto/s,
+  );
+  assert.match(globalsCss, /\.contact-connect\s*\{[^}]*min-width:\s*178px/s);
   assert.match(page, /Servidor FiveM/);
   assert.match(page, /Desarrollé y adapté scripts en Lua/);
-  assert.match(page, /href="\/cv-facundo-robayna\.pdf"/);
-  assert.match(page, /download="Facundo-Robayna-CV\.pdf"/);
+  assert.match(contactControls, /href="\/cv-facundo-robayna\.pdf"/);
+  assert.match(contactControls, /download="Facundo-Robayna-CV\.pdf"/);
   assert.doesNotMatch(page, /aria-disabled="true"/);
   assert.match(layout, /https:\/\/fakudll\.github\.io\//);
   assert.doesNotMatch(layout, /codex-preview|Starter Project/);

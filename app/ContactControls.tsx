@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 const EMAIL = "facundorobayna03@gmail.com";
 
@@ -76,10 +76,18 @@ async function copyEmailToClipboard() {
   }
 }
 
-export function ConnectProfileButton() {
+type ConnectProfileButtonProps = {
+  placement?: "navigation" | "contact";
+};
+
+export function ConnectProfileButton({
+  placement = "navigation",
+}: ConnectProfileButtonProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   const [copied, setCopied] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isContactTrigger = placement === "contact";
 
   useEffect(
     () => () => {
@@ -107,19 +115,26 @@ export function ConnectProfileButton() {
   return (
     <>
       <button
-        className="nav-connect"
+        className={
+          isContactTrigger
+            ? "button button-primary contact-connect"
+            : "nav-connect"
+        }
         type="button"
         onClick={openProfile}
         aria-haspopup="dialog"
       >
-        <span className="status-dot" aria-hidden="true" />
+        {!isContactTrigger && (
+          <span className="status-dot" aria-hidden="true" />
+        )}
         Conectar
+        {isContactTrigger && <span aria-hidden="true">↗</span>}
       </button>
 
       <dialog
         className="connect-dialog"
         ref={dialogRef}
-        aria-labelledby="connect-profile-title"
+        aria-labelledby={titleId}
         onCancel={() => setCopied(false)}
         onClick={(event) => {
           if (event.target === event.currentTarget) closeProfile();
@@ -147,7 +162,7 @@ export function ConnectProfileButton() {
                 <span className="status-dot" aria-hidden="true" />
                 Disponible para oportunidades junior
               </p>
-              <h2 id="connect-profile-title">Facundo Robayna</h2>
+              <h2 id={titleId}>Facundo Robayna</h2>
               <p>Estudiante de TI · Desarrollador de Software Junior</p>
             </div>
           </div>
@@ -199,36 +214,5 @@ export function ConnectProfileButton() {
         </article>
       </dialog>
     </>
-  );
-}
-
-export function CopyEmailButton() {
-  const [copied, setCopied] = useState(false);
-  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(
-    () => () => {
-      if (resetTimer.current) clearTimeout(resetTimer.current);
-    },
-    [],
-  );
-
-  const copyEmail = async () => {
-    await copyEmailToClipboard();
-    setCopied(true);
-    if (resetTimer.current) clearTimeout(resetTimer.current);
-    resetTimer.current = setTimeout(() => setCopied(false), 2600);
-  };
-
-  return (
-    <button
-      className="button button-primary"
-      type="button"
-      onClick={copyEmail}
-      aria-live="polite"
-    >
-      {copied ? "Email copiado" : "Copiar email"}
-      <span aria-hidden="true">{copied ? "✓" : "↗"}</span>
-    </button>
   );
 }

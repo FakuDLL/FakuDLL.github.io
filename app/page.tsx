@@ -1,6 +1,5 @@
 import {
   ConnectProfileButton,
-  CopyEmailButton,
   SectionLink,
 } from "./ContactControls";
 
@@ -306,8 +305,9 @@ export default function Home() {
             <div className="section-heading">
               <h2>Trabajo seleccionado.</h2>
               <p>
-                Proyectos académicos, personales y experimentales. El código de
-                estos trabajos no está publicado actualmente.
+                Proyectos académicos, personales y experimentales. Algunos
+                repositorios están publicados y otros se mantienen privados
+                según el proyecto.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Home() {
             </div>
 
             <div className="contact-grid">
-              <div>
+              <div className="contact-heading">
                 <p className="contact-kicker">¿Tenés una oportunidad o idea?</p>
                 <h2>Hablemos.</h2>
               </div>
@@ -394,17 +394,7 @@ export default function Home() {
                   Estoy abierto a conversar sobre oportunidades junior,
                   prácticas y proyectos donde pueda aportar, aprender y crecer.
                 </p>
-                <div className="contact-actions">
-                  <CopyEmailButton />
-                  <a
-                    className="button button-ghost"
-                    href="/cv-facundo-robayna.pdf"
-                    download="Facundo-Robayna-CV.pdf"
-                  >
-                    Descargar CV
-                    <span aria-hidden="true">↓</span>
-                  </a>
-                </div>
+                <ConnectProfileButton placement="contact" />
               </div>
             </div>
 

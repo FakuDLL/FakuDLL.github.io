@@ -1089,9 +1089,8 @@ a {
 .contact-grid {
   display: grid;
   position: relative;
-  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
-  align-items: end;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(46px, 6vw, 78px);
 }
 
 .contact-kicker {
@@ -1104,8 +1103,19 @@ a {
 }
 
 .contact-section h2 {
-  font-size: clamp(6rem, 15vw, 14rem);
-  line-height: 0.72;
+  max-width: 100%;
+  font-size: clamp(6rem, 14vw, 13rem);
+  line-height: 0.76;
+  white-space: nowrap;
+}
+
+.contact-copy {
+  display: grid;
+  width: min(100%, 820px);
+  align-items: center;
+  justify-self: end;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(28px, 4vw, 54px);
 }
 
 .contact-copy > p {
@@ -1113,13 +1123,11 @@ a {
   margin: 0;
   color: #c1c7c1;
   font-size: 1.03rem;
+  line-height: 1.6;
 }
 
-.contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 32px;
+.contact-connect {
+  min-width: 178px;
 }
 
 .button-disabled {
@@ -1313,7 +1321,6 @@ a {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
     gap: 64px;
   }
 }
@@ -1582,13 +1589,14 @@ a {
     line-height: 1.65;
   }
 
-  .contact-actions {
-    display: grid;
-    gap: 8px;
-    margin-top: 26px;
+  .contact-copy {
+    width: 100%;
+    justify-self: stretch;
+    grid-template-columns: 1fr;
+    gap: 26px;
   }
 
-  .contact-actions .button {
+  .contact-connect {
     width: 100%;
     min-height: 46px;
   }
