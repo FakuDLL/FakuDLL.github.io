@@ -1560,18 +1560,45 @@ a {
     grid-template-columns: 34px 1fr;
   }
 
+  .contact-section {
+    padding-bottom: 64px;
+  }
+
+  .contact-grid {
+    gap: 34px;
+  }
+
   .contact-section h2 {
-    font-size: clamp(6rem, 28vw, 9rem);
+    max-width: 100%;
+    font-size: clamp(4rem, 20vw, 5.25rem);
+    letter-spacing: -0.075em;
+    line-height: 0.86;
+    white-space: nowrap;
+  }
+
+  .contact-copy > p {
+    max-width: none;
+    font-size: 0.94rem;
+    line-height: 1.65;
   }
 
   .contact-actions {
     display: grid;
+    gap: 8px;
+    margin-top: 26px;
+  }
+
+  .contact-actions .button {
+    width: 100%;
+    min-height: 46px;
   }
 
   .contact-details {
     display: grid;
-    margin-top: 76px;
-    gap: 12px;
+    margin-top: 58px;
+    padding-top: 24px;
+    gap: 10px;
+    font-size: 0.64rem;
   }
 
   .footer-inner {

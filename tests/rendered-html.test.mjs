@@ -72,6 +72,11 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /overflow-anchor:\s*none/);
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
+  assert.match(
+    globalsCss,
+    /\.contact-section h2\s*\{[^}]*font-size:\s*clamp\(4rem,\s*20vw,\s*5\.25rem\)/s,
+  );
+  assert.doesNotMatch(globalsCss, /font-size:\s*clamp\(6rem,\s*28vw,\s*9rem\)/);
   assert.match(page, /Servidor FiveM/);
   assert.match(page, /Desarrollé y adapté scripts en Lua/);
   assert.match(page, /href="\/cv-facundo-robayna\.pdf"/);
