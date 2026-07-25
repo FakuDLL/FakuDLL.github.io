@@ -4,6 +4,62 @@ import { useEffect, useRef, useState } from "react";
 
 const EMAIL = "facundorobayna03@gmail.com";
 
+type SectionLinkProps = Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  "href"
+> & {
+  targetId: string;
+};
+
+export function SectionLink({
+  targetId,
+  onClick,
+  ...props
+}: SectionLinkProps) {
+  return (
+    <a
+      {...props}
+      href={`#${targetId}`}
+      onClick={(event) => {
+        onClick?.(event);
+        if (event.defaultPrevented) return;
+
+        event.preventDefault();
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const header = document.querySelector<HTMLElement>(".site-header");
+        const headerOffset =
+          targetId === "inicio"
+            ? 0
+            : Math.ceil((header?.getBoundingClientRect().bottom ?? 0) + 14);
+        const targetTop =
+          targetId === "inicio"
+            ? 0
+            : Math.max(
+                0,
+                Math.round(
+                  window.scrollY +
+                    target.getBoundingClientRect().top -
+                    headerOffset,
+                ),
+              );
+
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${window.location.search}`,
+        );
+        window.scrollTo(0, targetTop);
+        event.currentTarget.blur();
+
+        const mobileMenu = event.currentTarget.closest("details");
+        if (mobileMenu) mobileMenu.open = false;
+      }}
+    />
+  );
+}
+
 async function copyEmailToClipboard() {
   try {
     await navigator.clipboard.writeText(EMAIL);

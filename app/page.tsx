@@ -1,4 +1,8 @@
-import { ConnectProfileButton, CopyEmailButton } from "./ContactControls";
+import {
+  ConnectProfileButton,
+  CopyEmailButton,
+  SectionLink,
+} from "./ContactControls";
 
 const technologies = [
   "C#",
@@ -75,11 +79,11 @@ const experience = [
 ];
 
 const navItems = [
-  ["Inicio", "#inicio"],
-  ["Sobre mí", "#sobre-mi"],
-  ["Tecnologías", "#tecnologias"],
-  ["Proyectos", "#proyectos"],
-  ["Contacto", "#contacto"],
+  ["Inicio", "inicio"],
+  ["Sobre mí", "sobre-mi"],
+  ["Tecnologías", "tecnologias"],
+  ["Proyectos", "proyectos"],
+  ["Contacto", "contacto"],
 ];
 
 export default function Home() {
@@ -87,27 +91,31 @@ export default function Home() {
     <>
       <header className="site-header">
         <div className="nav-shell">
-          <a className="brand" href="#inicio" aria-label="Ir al inicio">
+          <SectionLink
+            className="brand"
+            targetId="inicio"
+            aria-label="Ir al inicio"
+          >
             <span aria-hidden="true">FR</span>
-          </a>
+          </SectionLink>
 
           <nav className="desktop-nav" aria-label="Navegación principal">
-            {navItems.map(([label, href], index) => (
-              <a href={href} key={href}>
+            {navItems.map(([label, targetId], index) => (
+              <SectionLink targetId={targetId} key={targetId}>
                 <span aria-hidden="true">0{index + 1}</span>
                 {label}
-              </a>
+              </SectionLink>
             ))}
           </nav>
 
           <details className="mobile-nav">
             <summary>Secciones</summary>
             <nav aria-label="Navegación móvil">
-              {navItems.map(([label, href], index) => (
-                <a href={href} key={href}>
+              {navItems.map(([label, targetId], index) => (
+                <SectionLink targetId={targetId} key={targetId}>
                   <span aria-hidden="true">0{index + 1}</span>
                   {label}
-                </a>
+                </SectionLink>
               ))}
             </nav>
           </details>
@@ -143,9 +151,12 @@ export default function Home() {
                   Montevideo, Uruguay.
                 </p>
                 <div className="hero-actions">
-                  <a className="button button-primary" href="#proyectos">
+                  <SectionLink
+                    className="button button-primary"
+                    targetId="proyectos"
+                  >
                     Ver proyectos <span aria-hidden="true">↘</span>
-                  </a>
+                  </SectionLink>
                   <a
                     className="button button-ghost"
                     href="https://github.com/FakuDLL"
@@ -191,9 +202,9 @@ export default function Home() {
               </aside>
             </div>
 
-            <a className="scroll-cue" href="#sobre-mi">
+            <SectionLink className="scroll-cue" targetId="sobre-mi">
               Scroll para explorar <span aria-hidden="true">↓</span>
-            </a>
+            </SectionLink>
           </div>
         </section>
 
@@ -410,7 +421,7 @@ export default function Home() {
         <div className="container footer-inner">
           <p>© {new Date().getFullYear()} Facundo Robayna</p>
           <p>Desarrollador de Software Junior · Montevideo</p>
-          <a href="#inicio">Volver arriba ↑</a>
+          <SectionLink targetId="inicio">Volver arriba ↑</SectionLink>
         </div>
       </footer>
     </>

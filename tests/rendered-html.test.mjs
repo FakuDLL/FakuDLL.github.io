@@ -60,12 +60,17 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /no está publicado actualmente/);
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<CopyEmailButton \/>/);
+  assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
+  assert.match(contactControls, /event\.preventDefault\(\)/);
+  assert.match(contactControls, /window\.scrollTo\(0, targetTop\)/);
+  assert.match(contactControls, /event\.currentTarget\.blur\(\)/);
   assert.match(contactControls, /showModal/);
   assert.match(contactControls, /connect-profile-title/);
   assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
+  assert.match(globalsCss, /overflow-anchor:\s*none/);
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
   assert.match(page, /Servidor FiveM/);
   assert.match(page, /Desarrollé y adapté scripts en Lua/);
