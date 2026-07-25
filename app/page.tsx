@@ -1,3 +1,5 @@
+import { ContactNavButton, CopyEmailButton } from "./ContactControls";
+
 const technologies = [
   "C#",
   ".NET",
@@ -51,6 +53,15 @@ const projects = [
       "Prototipo funcional creado y validado mediante un flujo de agentes de IA. Permitía registrar alimentos por texto, chat e imágenes, calcular calorías y macronutrientes y consultar una base precargada de alimentos. Gemini apoyaba el análisis de la información nutricional. No fue publicado comercialmente.",
     stack: ["Inteligencia artificial", "Gemini", "Desarrollo Android"],
   },
+  {
+    number: "04",
+    type: "Proyecto independiente · Mar 2023 — Ene 2024",
+    title: "Servidor FiveM",
+    subtitle: "Desarrollo para servidor multijugador de GTA V",
+    description:
+      "Desarrollé y adapté scripts en Lua, diseñé y administré una base de datos de jugadores con MySQL y HeidiSQL, y trabajé sobre la configuración, estabilidad, seguridad y rendimiento del servidor. También desarrollé su página promocional con HTML, CSS y JavaScript.",
+    stack: ["Lua", "MySQL", "HeidiSQL", "HTML", "CSS", "JavaScript"],
+  },
 ];
 
 const experience = [
@@ -60,13 +71,6 @@ const experience = [
     place: "SONDA",
     description:
       "Diagnóstico y resolución de incidencias de hardware y software, además de configuración y mantenimiento de equipos.",
-  },
-  {
-    period: "Mar 2023 — Ene 2024",
-    role: "Desarrollador y administrador de servidor",
-    place: "FiveM / GTA V",
-    description:
-      "Desarrollo y adaptación de scripts Lua, gestión de MySQL con HeidiSQL, configuración del servidor y trabajo sobre estabilidad, seguridad y rendimiento. También desarrollé una página promocional con HTML, CSS y JavaScript.",
   },
 ];
 
@@ -108,14 +112,7 @@ export default function Home() {
             </nav>
           </details>
 
-          <a
-            className="nav-contact"
-            href="#contacto"
-            aria-label="Ir a la sección de contacto"
-          >
-            <span className="status-dot" aria-hidden="true" />
-            Contactar
-          </a>
+          <ContactNavButton />
         </div>
       </header>
 
@@ -387,27 +384,21 @@ export default function Home() {
                   prácticas y proyectos donde pueda aportar, aprender y crecer.
                 </p>
                 <div className="contact-actions">
+                  <CopyEmailButton />
                   <a
-                    className="button button-primary"
-                    href="mailto:facundorobayna03@gmail.com?subject=Contacto%20desde%20tu%20portfolio"
+                    className="button button-ghost"
+                    href="/cv-facundo-robayna.pdf"
+                    download="Facundo-Robayna-CV.pdf"
                   >
-                    Escribirme por email <span aria-hidden="true">↗</span>
+                    Descargar CV
+                    <span aria-hidden="true">↓</span>
                   </a>
-                  <span
-                    className="button button-disabled"
-                    aria-disabled="true"
-                    title="El CV estará disponible cuando se incorpore el archivo PDF"
-                  >
-                    CV · Próximamente
-                  </span>
                 </div>
               </div>
             </div>
 
             <div className="contact-details">
-              <a href="mailto:facundorobayna03@gmail.com">
-                facundorobayna03@gmail.com
-              </a>
+              <span>facundorobayna03@gmail.com</span>
               <a href="tel:+59896402801">096 402 801</a>
               <span>Montevideo, Uruguay</span>
             </div>

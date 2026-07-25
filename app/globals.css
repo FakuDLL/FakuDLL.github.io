@@ -55,6 +55,7 @@ a {
 }
 
 a:focus-visible,
+button:focus-visible,
 summary:focus-visible {
   border-radius: 4px;
   outline: 2px solid var(--accent);
@@ -157,9 +158,12 @@ a {
   align-items: center;
   gap: 8px;
   padding: 8px 15px;
+  cursor: pointer;
+  border: 0;
   border-radius: 999px;
   background: var(--text);
   color: var(--bg);
+  font-family: inherit;
   font-size: 0.72rem;
   font-weight: 700;
   transition:
@@ -327,8 +331,10 @@ a {
   justify-content: center;
   gap: 12px;
   padding: 11px 18px;
+  cursor: pointer;
   border: 1px solid transparent;
   border-radius: 999px;
+  font-family: inherit;
   font-size: 0.8rem;
   font-weight: 650;
   transition:
@@ -632,6 +638,11 @@ a {
 .project-card:first-child {
   grid-column: 1 / -1;
   min-height: 470px;
+}
+
+.project-card:last-child:nth-child(even) {
+  grid-column: 1 / -1;
+  min-height: 440px;
 }
 
 .project-card::after {
@@ -1129,7 +1140,7 @@ a {
   }
 
   .nav-contact::after {
-    content: "Email";
+    content: "Contacto";
     font-size: 0.68rem;
   }
 
@@ -1274,7 +1285,8 @@ a {
   }
 
   .project-card,
-  .project-card:first-child {
+  .project-card:first-child,
+  .project-card:last-child:nth-child(even) {
     min-height: 520px;
     grid-column: auto;
     padding: 22px;

@@ -50,23 +50,10 @@ elementos de la plantilla inicial.
   `public/og.png` si cambia la identidad visual.
 - **Datos de contacto:** buscar la sección `Contacto` en `app/page.tsx`.
 
-### Agregar el CV
+### Actualizar el CV
 
-1. Guardar el PDF como `public/cv-facundo-robayna.pdf`.
-2. En `app/page.tsx`, reemplazar el elemento deshabilitado
-   “Descargar CV · Próximamente” por:
-
-```tsx
-<a
-  className="button button-light"
-  href="/cv-facundo-robayna.pdf"
-  download
->
-  Descargar CV
-</a>
-```
-
-De esta forma el sitio no publica enlaces rotos mientras el PDF no exista.
+El botón “Descargar CV” apunta a `public/cv-facundo-robayna.pdf`. Para publicar
+una versión nueva, reemplazar ese archivo manteniendo el mismo nombre.
 
 ## Publicación
 
@@ -84,9 +71,10 @@ git push
 
 ## Privacidad y contenido
 
-El formulario se reemplazó por un enlace `mailto:` para no exponer secretos ni
-depender de un servicio externo. Los proyectos enlazan a código únicamente
-cuando existe un repositorio público verificable.
+El formulario se reemplazó por acciones locales para ir a la sección de contacto
+y copiar el email, sin exponer secretos ni depender de una aplicación de correo.
+Los proyectos enlazan a código únicamente cuando existe un repositorio público
+verificable.
 
 ## Contacto
 
