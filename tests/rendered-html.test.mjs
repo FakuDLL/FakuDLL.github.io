@@ -42,17 +42,19 @@ test("server-renders the final portfolio", async () => {
   assert.match(html, /facundorobayna03@gmail\.com/);
   assert.match(html, /lang="es"/);
   assert.match(html, /og\.png/);
+  assert.match(html, /favicon-fr\.svg/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|Skeleton/i);
 });
 
 test("keeps truthful links and project metadata", async () => {
-  const [page, contactControls, globalsCss, layout, packageJson] =
+  const [page, contactControls, globalsCss, layout, packageJson, favicon] =
     await Promise.all([
       readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/ContactControls.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
+      readFile(new URL("../public/favicon-fr.svg", import.meta.url), "utf8"),
     ]);
 
   assert.match(page, /Proyecto académico grupal/);
@@ -97,6 +99,9 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /download="Facundo-Robayna-CV\.pdf"/);
   assert.doesNotMatch(page, /aria-disabled="true"/);
   assert.match(layout, /https:\/\/fakudll\.github\.io\//);
+  assert.match(layout, /url:\s*"\/favicon-fr\.svg"/);
+  assert.match(favicon, />FR<\/text>/);
+  assert.match(favicon, /#b8f24a/);
   assert.doesNotMatch(layout, /codex-preview|Starter Project/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });

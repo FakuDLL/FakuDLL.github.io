@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Facundo Robayna" }],
   creator: "Facundo Robayna",
+  icons: {
+    icon: [{ url: "/favicon-fr.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon-fr.svg",
+  },
   openGraph: {
     type: "website",
     locale: "es_UY",
