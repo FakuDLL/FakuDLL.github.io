@@ -78,7 +78,12 @@ test("keeps truthful links and project metadata", async () => {
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
   assert.match(
     globalsCss,
-    /\.contact-section h2\s*\{[^}]*font-size:\s*clamp\(4rem,\s*20vw,\s*5\.25rem\)/s,
+    /\.contact-heading h2\s*\{[^}]*font-size:\s*clamp\(4rem,\s*20vw,\s*5\.25rem\)/s,
+  );
+  assert.doesNotMatch(globalsCss, /\.contact-section h2\s*\{/);
+  assert.match(
+    globalsCss,
+    /\.connect-identity h2\s*\{[^}]*font-size:\s*clamp\(2\.25rem,\s*6vw,\s*4\.5rem\)/s,
   );
   assert.doesNotMatch(globalsCss, /font-size:\s*clamp\(6rem,\s*28vw,\s*9rem\)/);
   assert.match(
