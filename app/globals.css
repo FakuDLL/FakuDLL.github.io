@@ -21,7 +21,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   background: var(--bg);
 }
 
@@ -152,7 +152,7 @@ a {
   color: var(--text);
 }
 
-.nav-contact {
+.nav-connect {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
@@ -171,7 +171,7 @@ a {
     transform 180ms ease;
 }
 
-.nav-contact:hover {
+.nav-connect:hover {
   background: var(--accent);
   transform: translateY(-1px);
 }
@@ -185,9 +185,245 @@ a {
   box-shadow: 0 0 0 4px rgba(184, 242, 74, 0.1);
 }
 
-.nav-contact .status-dot {
+.nav-connect .status-dot {
   background: #1c2708;
   box-shadow: none;
+}
+
+.connect-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(720px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid rgba(242, 244, 239, 0.2);
+  border-radius: 24px;
+  background: transparent;
+  color: var(--text);
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(184, 242, 74, 0.04);
+}
+
+.connect-dialog[open] {
+  animation: connect-dialog-in 180ms ease-out both;
+}
+
+.connect-dialog::backdrop {
+  background: rgba(2, 4, 5, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.connect-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: inherit;
+  background:
+    linear-gradient(rgba(184, 242, 74, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 242, 74, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 88% 12%, rgba(184, 242, 74, 0.12), transparent 30%),
+    rgba(13, 16, 18, 0.93);
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto,
+    auto;
+  backdrop-filter: blur(24px) saturate(120%);
+}
+
+.connect-card::after {
+  position: absolute;
+  right: -90px;
+  bottom: -110px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(184, 242, 74, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 42px rgba(184, 242, 74, 0.018);
+  content: "";
+  pointer-events: none;
+}
+
+.connect-card-topline {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.connect-close {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.connect-close:hover {
+  border-color: rgba(184, 242, 74, 0.45);
+  background: var(--accent-soft);
+  transform: rotate(5deg);
+}
+
+.connect-identity {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  margin-top: 36px;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+}
+
+.connect-monogram {
+  display: grid;
+  width: 80px;
+  height: 80px;
+  place-items: center;
+  border: 1px solid rgba(184, 242, 74, 0.32);
+  border-radius: 20px;
+  background: rgba(184, 242, 74, 0.08);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.connect-availability {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 8px;
+  color: #cbd1ca;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.connect-identity h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.connect-identity > div > p:last-child {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.connect-facts {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  margin: 38px 0 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.connect-facts div {
+  padding: 17px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.connect-facts dt {
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.connect-facts dd {
+  margin: 5px 0 0;
+  color: #dfe3dd;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.connect-actions {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  grid-template-columns: 1.45fr repeat(3, 1fr);
+  gap: 8px;
+}
+
+.connect-actions a,
+.connect-actions button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.connect-actions button {
+  border-color: transparent;
+  background: var(--accent);
+  color: #101506;
+}
+
+.connect-actions a:hover,
+.connect-actions button:hover {
+  border-color: rgba(184, 242, 74, 0.45);
+  transform: translateY(-2px);
+}
+
+.connect-actions a:hover {
+  background: var(--accent-soft);
+}
+
+@keyframes connect-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .mobile-nav {
@@ -954,32 +1190,6 @@ a {
   }
 }
 
-@supports (animation-timeline: view()) {
-  .section-label,
-  .section-heading,
-  .about-grid,
-  .principles,
-  .project-card,
-  .timeline-item,
-  .contact-grid {
-    animation: section-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 8% cover 27%;
-  }
-
-  @keyframes section-reveal {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
 @media (max-width: 1020px) {
   .section {
     padding: 110px 0;
@@ -1133,19 +1343,73 @@ a {
     height: 38px;
   }
 
-  .nav-contact {
+  .nav-connect {
     min-height: 38px;
     padding: 7px 12px;
     font-size: 0;
   }
 
-  .nav-contact::after {
-    content: "Contacto";
+  .nav-connect::after {
+    content: "Conectar";
     font-size: 0.68rem;
   }
 
-  .nav-contact .status-dot {
+  .nav-connect .status-dot {
     display: none;
+  }
+
+  .connect-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 20px;
+  }
+
+  .connect-card {
+    max-height: calc(100dvh - 26px);
+    padding: 22px;
+    overflow-y: auto;
+  }
+
+  .connect-identity {
+    margin-top: 24px;
+    grid-template-columns: 56px 1fr;
+    gap: 14px;
+  }
+
+  .connect-monogram {
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+    font-size: 0.86rem;
+  }
+
+  .connect-availability {
+    font-size: 0.53rem;
+  }
+
+  .connect-identity h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .connect-identity > div > p:last-child {
+    font-size: 0.73rem;
+  }
+
+  .connect-facts {
+    margin-top: 26px;
+    grid-template-columns: 1fr;
+  }
+
+  .connect-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .connect-actions button {
+    grid-column: 1 / -1;
+  }
+
+  .connect-actions a:last-child {
+    grid-column: 1 / -1;
   }
 
   .mobile-nav summary {

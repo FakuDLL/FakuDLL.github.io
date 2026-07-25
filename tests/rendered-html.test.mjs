@@ -46,21 +46,27 @@ test("server-renders the final portfolio", async () => {
 });
 
 test("keeps truthful links and project metadata", async () => {
-  const [page, contactControls, layout, packageJson] = await Promise.all([
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/ContactControls.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-  ]);
+  const [page, contactControls, globalsCss, layout, packageJson] =
+    await Promise.all([
+      readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/ContactControls.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+      readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../package.json", import.meta.url), "utf8"),
+    ]);
 
   assert.match(page, /Proyecto académico grupal/);
   assert.match(page, /creado y validado mediante un flujo de agentes de IA/);
   assert.match(page, /no está publicado actualmente/);
-  assert.match(page, /<ContactNavButton \/>/);
+  assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<CopyEmailButton \/>/);
   assert.doesNotMatch(page, /mailto:/);
-  assert.match(contactControls, /scrollIntoView/);
+  assert.match(contactControls, /showModal/);
+  assert.match(contactControls, /connect-profile-title/);
+  assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
+  assert.match(globalsCss, /scroll-behavior:\s*auto/);
+  assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
   assert.match(page, /Servidor FiveM/);
   assert.match(page, /Desarrollé y adapté scripts en Lua/);
   assert.match(page, /href="\/cv-facundo-robayna\.pdf"/);

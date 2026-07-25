@@ -1,4 +1,4 @@
-import { ContactNavButton, CopyEmailButton } from "./ContactControls";
+import { ConnectProfileButton, CopyEmailButton } from "./ContactControls";
 
 const technologies = [
   "C#",
@@ -112,7 +112,7 @@ export default function Home() {
             </nav>
           </details>
 
-          <ContactNavButton />
+          <ConnectProfileButton />
         </div>
       </header>
 

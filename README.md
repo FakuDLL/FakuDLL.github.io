@@ -27,6 +27,7 @@ Incluye:
 
 - Navegación responsive entre secciones.
 - Presentación de proyectos y tecnologías.
+- Mini perfil flotante desde el botón “Conectar”.
 - Copia directa del email sin depender de una aplicación de correo.
 - Descarga del CV en PDF.
 - Navegación por teclado y soporte para `prefers-reduced-motion`.
