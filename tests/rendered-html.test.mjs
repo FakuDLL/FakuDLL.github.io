@@ -83,6 +83,13 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /\/projects\/stellarminds\/login\.webp/);
   assert.match(page, /\/projects\/stellarminds\/arquitectura-capas\.webp/);
   assert.match(page, /\/projects\/stellarminds\/swagger-api\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/equipos-admin\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/alta-prestamo-coordinador\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/devoluciones-coordinador\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/mis-prestamos-socio\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/auditoria-admin\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/socios-telescopio-admin\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/ranking-objetos\.webp/);
   assert.match(page, /\/projects\/portfolio\/vista-inicio\.webp/);
   assert.match(page, /\/projects\/portfolio\/seccion-proyectos\.webp/);
   assert.match(page, /\/projects\/portfolio\/sobre-mi-desktop\.webp/);

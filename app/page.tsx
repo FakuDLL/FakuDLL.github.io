@@ -43,12 +43,47 @@ const projects = [
       "Préstamos y devoluciones de equipamiento",
       "Sesiones de observación y evaluación asistida por Gemini",
     ],
-    galleryTitle: "Diseño y documentación",
+    galleryTitle: "Sistema, roles y arquitectura",
     gallery: [
       {
         src: "/projects/stellarminds/presentacion.svg",
         alt: "Presentación visual del proyecto StellarMinds",
         caption: "Presentación general del sistema",
+      },
+      {
+        src: "/projects/stellarminds/equipos-admin.webp",
+        alt: "Catálogo de equipos astronómicos administrado en StellarMinds",
+        caption: "Administrador · catálogo y disponibilidad de equipos",
+      },
+      {
+        src: "/projects/stellarminds/alta-prestamo-coordinador.webp",
+        alt: "Formulario de alta de préstamos para el rol coordinador en StellarMinds",
+        caption: "Coordinador · alta de préstamo y selección de equipamiento",
+      },
+      {
+        src: "/projects/stellarminds/devoluciones-coordinador.webp",
+        alt: "Gestión de devoluciones de préstamos en StellarMinds",
+        caption: "Coordinador · préstamos pendientes de devolución",
+      },
+      {
+        src: "/projects/stellarminds/mis-prestamos-socio.webp",
+        alt: "Consulta mensual de préstamos del rol socio en StellarMinds",
+        caption: "Socio · consulta de préstamos y atrasos",
+      },
+      {
+        src: "/projects/stellarminds/auditoria-admin.webp",
+        alt: "Historial de auditoría de préstamos y devoluciones en StellarMinds",
+        caption: "Administrador · auditoría de operaciones",
+      },
+      {
+        src: "/projects/stellarminds/socios-telescopio-admin.webp",
+        alt: "Consulta de socios asociados a un telescopio en StellarMinds",
+        caption: "Consulta de socios por telescopio",
+      },
+      {
+        src: "/projects/stellarminds/ranking-objetos.webp",
+        alt: "Ranking de objetos celestes observados en StellarMinds",
+        caption: "Ranking de objetos celestes por observaciones",
       },
       {
         src: "/projects/stellarminds/login.webp",
