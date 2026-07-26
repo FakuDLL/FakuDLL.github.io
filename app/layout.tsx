@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { LanguageProvider } from "./LanguageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://fakudll.github.io/",
   ),
-  title: "Facundo Robayna — Desarrollador de Software Junior",
+  title: "Facundo Robayna — Junior Software Developer",
   description:
-    "Portfolio de Facundo Robayna, estudiante de TI y desarrollador de software junior en Montevideo, Uruguay.",
+    "Portfolio of Facundo Robayna, an IT student and junior software developer based in Montevideo, Uruguay.",
   keywords: [
     "Facundo Robayna",
     "desarrollador junior",
@@ -25,25 +26,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "es_UY",
-    title: "Facundo Robayna — Desarrollador de Software Junior",
+    locale: "en_US",
+    alternateLocale: ["es_UY"],
+    title: "Facundo Robayna — Junior Software Developer",
     description:
-      "Software con criterio y propósito. Proyectos, tecnologías y experiencia de Facundo Robayna.",
+      "Purposeful software. Projects, technologies and experience from Facundo Robayna.",
     siteName: "Portfolio de Facundo Robayna",
     images: [
       {
         url: "/og.png",
         width: 1732,
         height: 909,
-        alt: "Facundo Robayna — Desarrollador de Software Junior",
+        alt: "Facundo Robayna — Junior Software Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Facundo Robayna — Desarrollador de Software Junior",
+    title: "Facundo Robayna — Junior Software Developer",
     description:
-      "Software con criterio y propósito. Proyectos, tecnologías y experiencia.",
+      "Purposeful software. Projects, technologies and experience.",
     images: ["/og.png"],
   },
   robots: {
@@ -64,8 +66,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="en">
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

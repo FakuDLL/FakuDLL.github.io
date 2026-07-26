@@ -148,6 +148,39 @@ a {
   color: var(--text);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 6px;
+}
+
+.language-reopen {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.language-reopen:hover {
+  border-color: rgba(184, 242, 74, 0.48);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
 .nav-connect {
   display: inline-flex;
   min-height: 42px;
@@ -184,6 +217,210 @@ a {
 .nav-connect .status-dot {
   background: #1c2708;
   box-shadow: none;
+}
+
+.language-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(760px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid rgba(242, 244, 239, 0.2);
+  border-radius: 24px;
+  background: transparent;
+  color: var(--text);
+  box-shadow:
+    0 36px 120px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(184, 242, 74, 0.045);
+}
+
+.language-dialog[open] {
+  animation: connect-dialog-in 180ms ease-out both;
+}
+
+.language-dialog::backdrop {
+  background: rgba(2, 4, 5, 0.82);
+  backdrop-filter: blur(16px);
+}
+
+.language-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(26px, 5vw, 52px);
+  border-radius: inherit;
+  background:
+    linear-gradient(rgba(184, 242, 74, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 242, 74, 0.032) 1px, transparent 1px),
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(184, 242, 74, 0.12),
+      transparent 28%
+    ),
+    rgba(13, 16, 18, 0.975);
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto,
+    auto;
+}
+
+.language-card::after {
+  position: absolute;
+  right: -80px;
+  bottom: -130px;
+  width: 290px;
+  height: 290px;
+  border: 1px solid rgba(184, 242, 74, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 46px rgba(184, 242, 74, 0.016);
+  content: "";
+  pointer-events: none;
+}
+
+.language-card-topline {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.language-card-topline span:last-child {
+  color: var(--accent);
+}
+
+.language-card-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin-top: clamp(38px, 7vw, 66px);
+}
+
+.language-card-copy > p:first-child {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.language-card-copy h2 {
+  max-width: 660px;
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  font-weight: 510;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+.language-card-copy > p:last-child {
+  max-width: 560px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.language-options {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  margin-top: 38px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.language-options button {
+  display: grid;
+  position: relative;
+  min-height: 156px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text);
+  font: inherit;
+  grid-template-rows: auto 1fr auto;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.language-options button:hover,
+.language-options button:focus-visible {
+  border-color: rgba(184, 242, 74, 0.52);
+  background: rgba(184, 242, 74, 0.07);
+  transform: translateY(-2px);
+}
+
+.language-options button[data-recommended="true"] {
+  border-color: rgba(184, 242, 74, 0.3);
+}
+
+.language-option-index {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
+
+.language-options strong {
+  align-self: end;
+  padding: 30px 34px 0 0;
+  font-size: clamp(1rem, 2.3vw, 1.3rem);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+}
+
+.language-options small {
+  width: max-content;
+  margin-top: 12px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.language-option-arrow {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  color: var(--muted-dark);
+  font-size: 1rem;
+}
+
+.language-device-hint {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  gap: 9px;
+  margin: 20px 0 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  line-height: 1.5;
+}
+
+.language-device-hint span {
+  color: var(--accent);
+  font-size: 0.48rem;
 }
 
 .connect-dialog {
@@ -1907,17 +2144,61 @@ a {
 
   .nav-connect {
     min-height: 38px;
-    padding: 7px 12px;
-    font-size: 0;
-  }
-
-  .nav-connect::after {
-    content: "Conectar";
+    padding: 7px 10px;
     font-size: 0.68rem;
   }
 
   .nav-connect .status-dot {
     display: none;
+  }
+
+  .nav-actions {
+    gap: 4px;
+  }
+
+  .language-reopen {
+    width: 36px;
+    height: 36px;
+    font-size: 0.55rem;
+  }
+
+  .language-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 20px;
+  }
+
+  .language-card {
+    max-height: calc(100dvh - 26px);
+    padding: 24px 20px;
+    overflow-y: auto;
+  }
+
+  .language-card-copy {
+    margin-top: 34px;
+  }
+
+  .language-card-copy h2 {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+  }
+
+  .language-card-copy > p:last-child {
+    margin-top: 18px;
+    font-size: 0.8rem;
+  }
+
+  .language-options {
+    margin-top: 26px;
+    grid-template-columns: 1fr;
+  }
+
+  .language-options button {
+    min-height: 118px;
+    padding: 16px;
+  }
+
+  .language-options strong {
+    padding-top: 20px;
   }
 
   .connect-dialog {

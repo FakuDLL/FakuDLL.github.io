@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { uiCopy } from "./i18n";
+import { useLanguage } from "./LanguageContext";
 
 export type ProjectShowcaseItem = {
   number: string;
@@ -26,6 +28,8 @@ type ProjectShowcaseProps = {
 };
 
 export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
+  const { locale } = useLanguage();
+  const copy = uiCopy[locale].projectDialog;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
@@ -128,7 +132,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
               type="button"
               onClick={() => openProject(projectIndex)}
               aria-haspopup="dialog"
-              aria-label={`Abrir detalles de ${project.title}`}
+              aria-label={`${copy.openDetails} ${project.title}`}
             />
             <div className="project-header">
               <span className="project-number">{project.number}</span>
@@ -143,7 +147,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
               <p className="project-description">{project.description}</p>
               <ul
                 className="tags"
-                aria-label={`Tecnologías de ${project.title}`}
+                aria-label={`${copy.technologiesOf} ${project.title}`}
               >
                 {project.stack.map((technology) => (
                   <li key={technology}>{technology}</li>
@@ -168,15 +172,17 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
           <article className="project-dialog-shell">
             <header className="project-dialog-topline">
               <div>
-                <span>proyecto_{activeProject.number}</span>
-                <span className="project-dialog-state">● ficha de proyecto</span>
+                <span>
+                  {copy.filePrefix}_{activeProject.number}
+                </span>
+                <span className="project-dialog-state">{copy.sheet}</span>
               </div>
               <button
                 className="project-dialog-close"
                 type="button"
                 ref={closeButtonRef}
                 onClick={closeProject}
-                aria-label={`Cerrar detalles de ${activeProject.title}`}
+                aria-label={`${copy.closeDetails} ${activeProject.title}`}
               >
                 ×
               </button>
@@ -197,13 +203,13 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
               {activeProject.gallery?.length && activeMedia ? (
                 <section
                   className="project-gallery"
-                  aria-label={`Galería de ${activeProject.title}`}
+                  aria-label={`${copy.galleryOf} ${activeProject.title}`}
                 >
                   <div className="project-gallery-heading">
                     <div>
-                      <span>Material del proyecto</span>
+                      <span>{copy.material}</span>
                       <h3>
-                        {activeProject.galleryTitle ?? "Capturas reales"}
+                        {activeProject.galleryTitle ?? copy.realScreenshots}
                       </h3>
                     </div>
                     <span>
@@ -219,7 +225,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                           className="project-gallery-arrow project-gallery-arrow--previous"
                           type="button"
                           onClick={showPreviousMedia}
-                          aria-label="Ver contenido anterior"
+                          aria-label={copy.previous}
                         >
                           ←
                         </button>
@@ -227,7 +233,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                           className="project-gallery-arrow project-gallery-arrow--next"
                           type="button"
                           onClick={showNextMedia}
-                          aria-label="Ver contenido siguiente"
+                          aria-label={copy.next}
                         >
                           →
                         </button>
@@ -242,7 +248,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         poster={activeMedia.poster}
                       >
                         <source src={activeMedia.src} />
-                        Tu navegador no puede reproducir este video.
+                        {copy.videoFallback}
                       </video>
                     ) : (
                       <a
@@ -250,7 +256,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         href={activeMedia.src}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`Abrir imagen en tamaño completo: ${activeMedia.caption}`}
+                        aria-label={`${copy.openFullImage}: ${activeMedia.caption}`}
                       >
                         <img src={activeMedia.src} alt={activeMedia.alt} />
                       </a>
@@ -275,7 +281,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         type="button"
                         key={media.src}
                         onClick={() => setActiveImageIndex(imageIndex)}
-                        aria-label={`Ver contenido ${imageIndex + 1}: ${media.caption}`}
+                        aria-label={`${copy.viewContent} ${imageIndex + 1}: ${media.caption}`}
                         aria-pressed={imageIndex === activeImageIndex}
                       >
                         {media.mediaType === "video" ? (
@@ -303,8 +309,8 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                     <div className="project-gallery-toggle">
                       <p>
                         {showAllMedia
-                          ? `${activeGalleryLength} contenidos visibles`
-                          : `Mostrando 3 de ${activeGalleryLength} contenidos`}
+                          ? `${activeGalleryLength} ${copy.visibleContent}`
+                          : `${copy.showing} 3 ${copy.of} ${activeGalleryLength} ${copy.contents}`}
                       </p>
                       <button
                         type="button"
@@ -312,8 +318,8 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         aria-expanded={showAllMedia}
                       >
                         {showAllMedia
-                          ? "Mostrar menos"
-                          : "Mostrar todo el contenido"}
+                          ? copy.showLess
+                          : copy.showAll}
                         <span aria-hidden="true">
                           {showAllMedia ? "↑" : "↓"}
                         </span>
@@ -325,15 +331,15 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                 <div className="project-gallery-empty">
                   <span aria-hidden="true">◇</span>
                   <div>
-                    <p>Material visual</p>
-                    <strong>Capturas disponibles próximamente.</strong>
+                    <p>{copy.visualMaterial}</p>
+                    <strong>{copy.comingSoon}</strong>
                   </div>
                 </div>
               )}
 
               <div className="project-dialog-details">
                 <section>
-                  <p className="project-dialog-label">Qué incluye</p>
+                  <p className="project-dialog-label">{copy.includes}</p>
                   <ul className="project-highlights">
                     {activeProject.highlights.map((highlight) => (
                       <li key={highlight}>{highlight}</li>
@@ -342,10 +348,12 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                 </section>
 
                 <aside>
-                  <p className="project-dialog-label">Tecnologías</p>
+                  <p className="project-dialog-label">
+                    {copy.technologies}
+                  </p>
                   <ul
                     className="tags project-dialog-tags"
-                    aria-label={`Tecnologías de ${activeProject.title}`}
+                    aria-label={`${copy.technologiesOf} ${activeProject.title}`}
                   >
                     {activeProject.stack.map((technology) => (
                       <li key={technology}>{technology}</li>
@@ -358,7 +366,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Ver código en GitHub <span aria-hidden="true">↗</span>
+                      {copy.viewCode} <span aria-hidden="true">↗</span>
                     </a>
                   )}
                 </aside>

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { uiCopy } from "./i18n";
+import { useLanguage } from "./LanguageContext";
 
 const EMAIL = "facundorobayna03@gmail.com";
 
@@ -83,6 +85,8 @@ type ConnectProfileButtonProps = {
 export function ConnectProfileButton({
   placement = "navigation",
 }: ConnectProfileButtonProps) {
+  const { locale } = useLanguage();
+  const copy = uiCopy[locale].connect;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const [copied, setCopied] = useState(false);
@@ -127,7 +131,7 @@ export function ConnectProfileButton({
         {!isContactTrigger && (
           <span className="status-dot" aria-hidden="true" />
         )}
-        Conectar
+        {copy.trigger}
         {isContactTrigger && <span aria-hidden="true">↗</span>}
       </button>
 
@@ -142,12 +146,12 @@ export function ConnectProfileButton({
       >
         <article className="connect-card">
           <div className="connect-card-topline">
-            <span>perfil.local</span>
+            <span>{copy.file}</span>
             <button
               className="connect-close"
               type="button"
               onClick={closeProfile}
-              aria-label="Cerrar perfil"
+              aria-label={copy.close}
             >
               ×
             </button>
@@ -164,35 +168,25 @@ export function ConnectProfileButton({
             <div>
               <p className="connect-availability">
                 <span className="status-dot" aria-hidden="true" />
-                Disponible para oportunidades junior
+                {copy.availability}
               </p>
               <h2 id={titleId}>Facundo Robayna</h2>
-              <p>Estudiante de TI · Desarrollador de Software Junior</p>
+              <p>{copy.role}</p>
             </div>
           </div>
 
           <dl className="connect-facts">
-            <div>
-              <dt>Ubicación</dt>
-              <dd>Montevideo, Uruguay</dd>
-            </div>
-            <div>
-              <dt>Formación</dt>
-              <dd>Analista en TI · ORT Uruguay</dd>
-            </div>
-            <div>
-              <dt>Foco</dt>
-              <dd>Web · APIs · Datos</dd>
-            </div>
-            <div>
-              <dt>Stack</dt>
-              <dd>C# · .NET · SQL · JavaScript</dd>
-            </div>
+            {copy.facts.map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
           </dl>
 
           <div className="connect-actions">
             <button type="button" onClick={copyEmail} aria-live="polite">
-              {copied ? "Email copiado ✓" : "Copiar email"}
+              {copied ? copy.emailCopied : copy.copyEmail}
             </button>
             <a
               href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"

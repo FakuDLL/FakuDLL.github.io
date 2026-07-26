@@ -31,16 +31,16 @@ test("server-renders the final portfolio", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Facundo Robayna — Desarrollador de Software Junior<\/title>/i,
+    /<title>Facundo Robayna — Junior Software Developer<\/title>/i,
   );
-  assert.match(html, /Construyo soluciones/);
-  assert.match(html, /web y de software/);
+  assert.match(html, /I build web and/);
+  assert.match(html, /software solutions/);
   assert.match(html, /StellarMinds/);
-  assert.match(html, /Gestión de atenciones/);
-  assert.match(html, /Seguimiento nutricional/);
+  assert.match(html, /Appointment management/);
+  assert.match(html, /Nutrition tracking/);
   assert.match(html, /SONDA/);
   assert.match(html, /facundorobayna03@gmail\.com/);
-  assert.match(html, /lang="es"/);
+  assert.match(html, /lang="en"/);
   assert.match(html, /og\.png/);
   assert.match(html, /favicon-fr\.svg/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|Skeleton/i);
@@ -53,6 +53,8 @@ test("keeps truthful links and project metadata", async () => {
     projectShowcase,
     globalsCss,
     layout,
+    i18n,
+    languageContext,
     packageJson,
     favicon,
   ] =
@@ -62,46 +64,50 @@ test("keeps truthful links and project metadata", async () => {
       readFile(new URL("../app/ProjectShowcase.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
+      readFile(new URL("../app/LanguageContext.tsx", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
       readFile(new URL("../public/favicon-fr.svg", import.meta.url), "utf8"),
     ]);
 
-  assert.match(page, /Proyecto académico grupal/);
-  assert.match(page, /creado y validado mediante un flujo de agentes de IA/);
-  assert.match(page, /Algunos\s+repositorios están publicados/);
-  assert.match(page, /otros se mantienen privados/);
-  assert.doesNotMatch(page, /no está publicado actualmente/);
+  assert.match(i18n, /Proyecto académico grupal/);
+  assert.match(i18n, /Academic group project/);
+  assert.match(i18n, /creado y validado mediante un flujo de agentes de IA/);
+  assert.match(i18n, /created and validated through an AI-agent workflow/);
+  assert.match(i18n, /Algunos repositorios están publicados/);
+  assert.match(i18n, /Some repositories are public/);
+  assert.doesNotMatch(i18n, /no está publicado actualmente/);
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
   assert.match(page, /<ProjectShowcase projects=\{projects\} \/>/);
   assert.match(page, /\/profile\/facundo-robayna\.webp/);
-  assert.match(page, /Retrato de Facundo Robayna/);
-  assert.match(page, /Facundo Robayna, desarrollador de software junior/);
-  assert.match(page, /\/projects\/gestion-atenciones\/vista-general\.webp/);
-  assert.match(page, /\/projects\/gestion-atenciones\/servicios\.png/);
-  assert.match(page, /\/projects\/gestion-atenciones\/tabla-atenciones\.webp/);
-  assert.match(page, /\/projects\/gestion-atenciones\/resumen\.png/);
-  assert.match(page, /\/projects\/stellarminds\/presentacion\.svg/);
-  assert.match(page, /\/projects\/stellarminds\/casos-de-uso\.png/);
-  assert.match(page, /\/projects\/stellarminds\/login\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/arquitectura-capas\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/swagger-api\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/equipos-admin\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/alta-prestamo-coordinador\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/devoluciones-coordinador\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/mis-prestamos-socio\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/auditoria-admin\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/socios-telescopio-admin\.webp/);
-  assert.match(page, /\/projects\/stellarminds\/ranking-objetos\.webp/);
-  assert.match(page, /\/projects\/portfolio\/vista-inicio\.webp/);
-  assert.match(page, /\/projects\/portfolio\/seccion-proyectos\.webp/);
-  assert.match(page, /\/projects\/portfolio\/sobre-mi-desktop\.webp/);
-  assert.match(page, /\/projects\/portfolio\/tecnologias-desktop\.webp/);
-  assert.match(page, /\/projects\/portfolio\/inicio-mobile\.webp/);
-  assert.match(page, /\/projects\/portfolio\/sobre-mi-mobile\.webp/);
-  assert.match(page, /\/projects\/portfolio\/tecnologias-mobile\.webp/);
-  assert.match(page, /\/projects\/portfolio\/proyectos-mobile\.webp/);
-  assert.match(page, /\/projects\/portfolio\/contacto-mobile\.webp/);
+  assert.match(i18n, /Retrato de Facundo Robayna/);
+  assert.match(i18n, /Portrait of Facundo Robayna/);
+  assert.match(i18n, /\/projects\/gestion-atenciones\/vista-general\.webp/);
+  assert.match(i18n, /\/projects\/gestion-atenciones\/servicios\.png/);
+  assert.match(i18n, /\/projects\/gestion-atenciones\/tabla-atenciones\.webp/);
+  assert.match(i18n, /\/projects\/gestion-atenciones\/resumen\.png/);
+  assert.match(i18n, /\/projects\/stellarminds\/presentacion\.svg/);
+  assert.match(i18n, /\/projects\/stellarminds\/casos-de-uso\.png/);
+  assert.match(i18n, /\/projects\/stellarminds\/login\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/arquitectura-capas\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/swagger-api\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/equipos-admin\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/alta-prestamo-coordinador\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/devoluciones-coordinador\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/mis-prestamos-socio\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/auditoria-admin\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/socios-telescopio-admin\.webp/);
+  assert.match(i18n, /\/projects\/stellarminds\/ranking-objetos\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/vista-inicio\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/seccion-proyectos\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/sobre-mi-desktop\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/tecnologias-desktop\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/inicio-mobile\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/sobre-mi-mobile\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/tecnologias-mobile\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/proyectos-mobile\.webp/);
+  assert.match(i18n, /\/projects\/portfolio\/contacto-mobile\.webp/);
   assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
@@ -113,25 +119,28 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /placement === "contact"/);
   assert.match(contactControls, /className="connect-avatar"/);
   assert.match(contactControls, /\/profile\/facundo-robayna\.webp/);
-  assert.match(contactControls, /Disponible para oportunidades junior/);
+  assert.match(i18n, /Disponible para oportunidades junior/);
+  assert.match(i18n, /Open to junior opportunities/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
   assert.match(projectShowcase, /showModal/);
   assert.match(projectShowcase, /aria-haspopup="dialog"/);
-  assert.match(projectShowcase, /Abrir detalles de \$\{project\.title\}/);
-  assert.match(projectShowcase, /Ver código en GitHub/);
-  assert.match(projectShowcase, /Capturas disponibles próximamente/);
-  assert.match(projectShowcase, /Abrir imagen en tamaño completo/);
+  assert.match(projectShowcase, /copy\.openDetails/);
+  assert.match(projectShowcase, /copy\.viewCode/);
+  assert.match(projectShowcase, /copy\.comingSoon/);
+  assert.match(projectShowcase, /copy\.openFullImage/);
   assert.match(projectShowcase, /project-gallery-thumbnails--compact/);
-  assert.match(projectShowcase, /Ver contenido anterior/);
-  assert.match(projectShowcase, /Ver contenido siguiente/);
-  assert.match(projectShowcase, /Mostrar todo el contenido/);
-  assert.match(projectShowcase, /Mostrar menos/);
+  assert.match(projectShowcase, /copy\.previous/);
+  assert.match(projectShowcase, /copy\.next/);
+  assert.match(projectShowcase, /copy\.showAll/);
+  assert.match(projectShowcase, /copy\.showLess/);
   assert.match(projectShowcase, /event\.key === "ArrowLeft"/);
   assert.match(projectShowcase, /event\.key === "ArrowRight"/);
   assert.match(projectShowcase, /mediaType === "video"/);
   assert.doesNotMatch(projectShowcase, /className="project-card-link"/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /\.project-dialog::backdrop/);
+  assert.match(globalsCss, /\.language-dialog::backdrop/);
+  assert.match(globalsCss, /\.language-options/);
   assert.match(globalsCss, /\.project-gallery-thumbnails/);
   assert.match(globalsCss, /overflow-anchor:\s*none/);
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
@@ -150,11 +159,22 @@ test("keeps truthful links and project metadata", async () => {
     /\.contact-copy\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto/s,
   );
   assert.match(globalsCss, /\.contact-connect\s*\{[^}]*min-width:\s*178px/s);
-  assert.match(page, /Servidor FiveM/);
-  assert.match(page, /Desarrollé y adapté scripts en Lua/);
+  assert.match(i18n, /Servidor FiveM/);
+  assert.match(i18n, /FiveM server/);
+  assert.match(i18n, /Desarrollé y adapté scripts en Lua/);
+  assert.match(i18n, /I developed and adapted Lua scripts/);
   assert.match(contactControls, /href="\/cv-facundo-robayna\.pdf"/);
   assert.match(contactControls, /download="Facundo-Robayna-CV\.pdf"/);
   assert.doesNotMatch(page, /aria-disabled="true"/);
+  assert.match(languageContext, /navigator\.language\.toLowerCase\(\)/);
+  assert.match(languageContext, /\? "es"\s*:\s*"en"/);
+  assert.match(languageContext, /dialog\.showModal\(\)/);
+  assert.match(languageContext, /event\.preventDefault\(\)/);
+  assert.doesNotMatch(languageContext, /localStorage|sessionStorage/);
+  assert.match(i18n, /¿Cómo querés ver el portfolio\?/);
+  assert.match(i18n, /How would you like to view the portfolio\?/);
+  assert.match(layout, /<LanguageProvider>\{children\}<\/LanguageProvider>/);
+  assert.match(layout, /<html lang="en">/);
   assert.match(layout, /https:\/\/fakudll\.github\.io\//);
   assert.match(layout, /url:\s*"\/favicon-fr\.svg"/);
   assert.match(favicon, />FR<\/text>/);
