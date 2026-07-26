@@ -111,6 +111,8 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /showModal/);
   assert.match(contactControls, /const titleId = useId\(\)/);
   assert.match(contactControls, /placement === "contact"/);
+  assert.match(contactControls, /className="connect-avatar"/);
+  assert.match(contactControls, /\/profile\/facundo-robayna\.webp/);
   assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
   assert.match(projectShowcase, /showModal/);

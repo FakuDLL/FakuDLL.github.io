@@ -154,9 +154,13 @@ export function ConnectProfileButton({
           </div>
 
           <div className="connect-identity">
-            <span className="connect-monogram" aria-hidden="true">
-              FR
-            </span>
+            <img
+              className="connect-avatar"
+              src="/profile/facundo-robayna.webp"
+              alt=""
+              width="900"
+              height="900"
+            />
             <div>
               <p className="connect-availability">
                 <span className="status-dot" aria-hidden="true" />

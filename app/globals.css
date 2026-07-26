@@ -292,18 +292,14 @@ a {
   gap: 24px;
 }
 
-.connect-monogram {
-  display: grid;
+.connect-avatar {
   width: 80px;
   height: 80px;
-  place-items: center;
   border: 1px solid rgba(184, 242, 74, 0.32);
   border-radius: 20px;
   background: rgba(184, 242, 74, 0.08);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  font-weight: 700;
+  object-fit: cover;
+  box-shadow: 0 0 0 5px rgba(184, 242, 74, 0.04);
 }
 
 .connect-availability {
@@ -2035,11 +2031,10 @@ a {
     gap: 14px;
   }
 
-  .connect-monogram {
+  .connect-avatar {
     width: 56px;
     height: 56px;
     border-radius: 15px;
-    font-size: 0.86rem;
   }
 
   .connect-availability {
