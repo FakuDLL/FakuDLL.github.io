@@ -78,6 +78,10 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /\/projects\/gestion-atenciones\/servicios\.png/);
   assert.match(page, /\/projects\/gestion-atenciones\/tabla-atenciones\.webp/);
   assert.match(page, /\/projects\/gestion-atenciones\/resumen\.png/);
+  assert.match(page, /\/projects\/stellarminds\/presentacion\.svg/);
+  assert.match(page, /\/projects\/stellarminds\/casos-de-uso\.png/);
+  assert.match(page, /\/projects\/portfolio\/vista-inicio\.webp/);
+  assert.match(page, /\/projects\/portfolio\/seccion-proyectos\.webp/);
   assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
@@ -94,6 +98,8 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(projectShowcase, /Abrir detalles de \$\{project\.title\}/);
   assert.match(projectShowcase, /Ver código en GitHub/);
   assert.match(projectShowcase, /Capturas disponibles próximamente/);
+  assert.match(projectShowcase, /Abrir imagen en tamaño completo/);
+  assert.match(projectShowcase, /project-gallery-thumbnails--compact/);
   assert.doesNotMatch(projectShowcase, /className="project-card-link"/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /\.project-dialog::backdrop/);

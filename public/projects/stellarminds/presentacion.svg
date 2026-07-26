@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">StellarMinds</title>
+  <desc id="desc">Sistema de gestión para un observatorio astronómico, construido con .NET, SQL Server y Gemini.</desc>
+  <defs>
+    <linearGradient id="space" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.5" stop-color="#102a43"/>
+      <stop offset="1" stop-color="#17123b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#64d8ff" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#64d8ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#59e1ff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="520" rx="28" fill="url(#space)"/>
+  <circle cx="1320" cy="100" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <circle cx="1120" cy="580" r="330" fill="#7c3aed" opacity=".08"/>
+
+  <g fill="#dff7ff">
+    <circle cx="92" cy="76" r="2"/>
+    <circle cx="180" cy="154" r="3" opacity=".65"/>
+    <circle cx="310" cy="88" r="2" opacity=".7"/>
+    <circle cx="520" cy="58" r="2"/>
+    <circle cx="694" cy="116" r="3" opacity=".55"/>
+    <circle cx="868" cy="68" r="2"/>
+    <circle cx="1020" cy="154" r="2" opacity=".65"/>
+    <circle cx="1190" cy="56" r="3"/>
+    <circle cx="1460" cy="160" r="2" opacity=".8"/>
+    <circle cx="1530" cy="64" r="2"/>
+    <circle cx="104" cy="422" r="2" opacity=".65"/>
+    <circle cx="370" cy="458" r="3" opacity=".45"/>
+    <circle cx="690" cy="430" r="2"/>
+    <circle cx="920" cy="472" r="2" opacity=".65"/>
+    <circle cx="1470" cy="420" r="3" opacity=".55"/>
+  </g>
+
+  <g fill="none" stroke="#8edfff" opacity=".3">
+    <ellipse cx="1295" cy="245" rx="250" ry="92" transform="rotate(-16 1295 245)"/>
+    <ellipse cx="1295" cy="245" rx="310" ry="130" transform="rotate(-16 1295 245)"/>
+  </g>
+  <circle cx="1430" cy="157" r="18" fill="#a78bfa"/>
+  <circle cx="1430" cy="157" r="30" fill="none" stroke="#a78bfa" opacity=".25"/>
+
+  <g transform="translate(1050 158)" stroke="url(#accent)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M54 70 245 20l25 92L80 162Z"/>
+    <path d="m243 28 55-14 24 86-54 15"/>
+    <path d="m91 157 36 42"/>
+    <path d="M128 199h105"/>
+    <path d="m179 199-76 148"/>
+    <path d="m190 199 86 148"/>
+    <path d="M142 250h93"/>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="105" y="226" fill="#f7fbff" font-size="82" font-weight="750" letter-spacing="-2">StellarMinds</text>
+    <rect x="108" y="254" width="470" height="7" rx="3.5" fill="url(#accent)"/>
+    <text x="108" y="314" fill="#b8d4e8" font-size="28">Observatorio · préstamos · sesiones · IA</text>
+    <text x="108" y="380" fill="#edf8ff" font-size="23" opacity=".9">ASP.NET Core  ·  Clean Architecture  ·  SQL Server  ·  Gemini</text>
+  </g>
+</svg>

@@ -43,6 +43,19 @@ const projects = [
       "Préstamos y devoluciones de equipamiento",
       "Sesiones de observación y evaluación asistida por Gemini",
     ],
+    galleryTitle: "Diseño y documentación",
+    gallery: [
+      {
+        src: "/projects/stellarminds/presentacion.svg",
+        alt: "Presentación visual del proyecto StellarMinds",
+        caption: "Presentación general del sistema",
+      },
+      {
+        src: "/projects/stellarminds/casos-de-uso.png",
+        alt: "Diagrama de casos de uso de StellarMinds",
+        caption: "Casos de uso, actores y funciones principales",
+      },
+    ],
     repositoryUrl: "https://github.com/FakuDLL/StellarMinds",
   },
   {
@@ -57,6 +70,18 @@ const projects = [
       "Diseño responsive para escritorio y dispositivos móviles",
       "Navegación accesible y fichas detalladas de proyectos",
       "Pruebas automatizadas y publicación continua",
+    ],
+    gallery: [
+      {
+        src: "/projects/portfolio/vista-inicio.webp",
+        alt: "Portada del portfolio personal de Facundo Robayna",
+        caption: "Portada y presentación profesional",
+      },
+      {
+        src: "/projects/portfolio/seccion-proyectos.webp",
+        alt: "Sección de proyectos del portfolio personal",
+        caption: "Selección de proyectos y fichas interactivas",
+      },
     ],
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",
   },

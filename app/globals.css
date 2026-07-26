@@ -1201,6 +1201,14 @@ a {
   grid-template-rows: minmax(0, 1fr) auto;
 }
 
+.project-gallery-image-link {
+  display: grid;
+  width: 100%;
+  height: 440px;
+  cursor: zoom-in;
+  place-items: center;
+}
+
 .project-gallery-main img {
   width: 100%;
   height: 440px;
@@ -1223,6 +1231,10 @@ a {
   margin-top: 12px;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+}
+
+.project-gallery-thumbnails--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .project-gallery-thumbnails button {
@@ -1778,6 +1790,10 @@ a {
   .project-gallery-main img {
     height: 380px;
     padding: 15px;
+  }
+
+  .project-gallery-image-link {
+    height: 380px;
   }
 
   .project-gallery-thumbnails {

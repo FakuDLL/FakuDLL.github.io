@@ -11,6 +11,7 @@ export type ProjectShowcaseItem = {
   stack: string[];
   highlights: string[];
   repositoryUrl?: string;
+  galleryTitle?: string;
   gallery?: {
     src: string;
     alt: string;
@@ -137,8 +138,10 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                 >
                   <div className="project-gallery-heading">
                     <div>
-                      <span>Vista del producto</span>
-                      <h3>Capturas reales</h3>
+                      <span>Material del proyecto</span>
+                      <h3>
+                        {activeProject.galleryTitle ?? "Capturas reales"}
+                      </h3>
                     </div>
                     <span>
                       {String(activeImageIndex + 1).padStart(2, "0")} /{" "}
@@ -147,16 +150,30 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                   </div>
 
                   <figure className="project-gallery-main">
-                    <img
-                      src={activeProject.gallery[activeImageIndex].src}
-                      alt={activeProject.gallery[activeImageIndex].alt}
-                    />
+                    <a
+                      className="project-gallery-image-link"
+                      href={activeProject.gallery[activeImageIndex].src}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Abrir imagen en tamaño completo: ${activeProject.gallery[activeImageIndex].caption}`}
+                    >
+                      <img
+                        src={activeProject.gallery[activeImageIndex].src}
+                        alt={activeProject.gallery[activeImageIndex].alt}
+                      />
+                    </a>
                     <figcaption>
                       {activeProject.gallery[activeImageIndex].caption}
                     </figcaption>
                   </figure>
 
-                  <div className="project-gallery-thumbnails">
+                  <div
+                    className={`project-gallery-thumbnails${
+                      activeProject.gallery.length <= 2
+                        ? " project-gallery-thumbnails--compact"
+                        : ""
+                    }`}
+                  >
                     {activeProject.gallery.map((image, imageIndex) => (
                       <button
                         className={
