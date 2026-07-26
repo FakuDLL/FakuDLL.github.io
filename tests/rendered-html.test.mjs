@@ -47,10 +47,19 @@ test("server-renders the final portfolio", async () => {
 });
 
 test("keeps truthful links and project metadata", async () => {
-  const [page, contactControls, globalsCss, layout, packageJson, favicon] =
+  const [
+    page,
+    contactControls,
+    projectShowcase,
+    globalsCss,
+    layout,
+    packageJson,
+    favicon,
+  ] =
     await Promise.all([
       readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/ContactControls.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/ProjectShowcase.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
@@ -64,6 +73,9 @@ test("keeps truthful links and project metadata", async () => {
   assert.doesNotMatch(page, /no está publicado actualmente/);
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
+  assert.match(page, /<ProjectShowcase projects=\{projects\} \/>/);
+  assert.match(page, /\/projects\/gestion-atenciones\/servicios\.png/);
+  assert.match(page, /\/projects\/gestion-atenciones\/resumen\.png/);
   assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
@@ -75,7 +87,15 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /placement === "contact"/);
   assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
+  assert.match(projectShowcase, /showModal/);
+  assert.match(projectShowcase, /aria-haspopup="dialog"/);
+  assert.match(projectShowcase, /Abrir detalles de \$\{project\.title\}/);
+  assert.match(projectShowcase, /Ver código en GitHub/);
+  assert.match(projectShowcase, /Capturas disponibles próximamente/);
+  assert.doesNotMatch(projectShowcase, /className="project-card-link"/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
+  assert.match(globalsCss, /\.project-dialog::backdrop/);
+  assert.match(globalsCss, /\.project-gallery-thumbnails/);
   assert.match(globalsCss, /overflow-anchor:\s*none/);
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
   assert.match(

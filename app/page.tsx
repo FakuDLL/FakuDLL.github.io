@@ -2,6 +2,7 @@ import {
   ConnectProfileButton,
   SectionLink,
 } from "./ContactControls";
+import { ProjectShowcase } from "./ProjectShowcase";
 
 const technologies = [
   "C#",
@@ -37,6 +38,11 @@ const projects = [
       "SQL Server",
       "REST API",
     ],
+    highlights: [
+      "Administración de socios y roles",
+      "Préstamos y devoluciones de equipamiento",
+      "Sesiones de observación y evaluación asistida por Gemini",
+    ],
     repositoryUrl: "https://github.com/FakuDLL/StellarMinds",
   },
   {
@@ -47,6 +53,11 @@ const projects = [
     description:
       "Portfolio web diseñado y desarrollado para presentar mi perfil profesional, tecnologías, proyectos y formas de contacto. Incluye una interfaz responsive, navegación accesible, metadatos para compartir el sitio y pruebas automatizadas de renderizado.",
     stack: ["Next.js", "React", "TypeScript", "CSS", "GitHub Pages"],
+    highlights: [
+      "Diseño responsive para escritorio y dispositivos móviles",
+      "Navegación accesible y fichas detalladas de proyectos",
+      "Pruebas automatizadas y publicación continua",
+    ],
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",
   },
   {
@@ -57,6 +68,34 @@ const projects = [
     description:
       "Aplicación orientada a centralizar el registro y análisis de atenciones de un equipo de cosmetología médica. Permite consultar métricas diarias, semanales y mensuales, filtrar servicios realizados y generar resúmenes de ingresos para facilitar el seguimiento operativo.",
     stack: ["Gestión de datos", "Métricas operativas", "Filtros", "Reportes"],
+    highlights: [
+      "Registro y edición de atenciones",
+      "Configuración de servicios, precios y porcentajes",
+      "Indicadores diarios, semanales, mensuales e históricos",
+      "Filtros, copias de seguridad e importación de datos",
+    ],
+    gallery: [
+      {
+        src: "/projects/gestion-atenciones/servicios.png",
+        alt: "Configuración de servicios y precios de la aplicación",
+        caption: "Administración de servicios y precios",
+      },
+      {
+        src: "/projects/gestion-atenciones/ganancia-semanal.png",
+        alt: "Consulta de ganancia semanal",
+        caption: "Consulta semanal por fecha",
+      },
+      {
+        src: "/projects/gestion-atenciones/ganancia-mensual.png",
+        alt: "Consulta de ganancia mensual",
+        caption: "Resumen mensual por período",
+      },
+      {
+        src: "/projects/gestion-atenciones/resumen.png",
+        alt: "Panel de resumen con métricas de atenciones",
+        caption: "Panel general de métricas",
+      },
+    ],
   },
   {
     number: "04",
@@ -66,6 +105,11 @@ const projects = [
     description:
       "Prototipo funcional creado y validado mediante un flujo de agentes de IA. Permitía registrar alimentos por texto, chat e imágenes, calcular calorías y macronutrientes y consultar una base precargada de alimentos. Gemini apoyaba el análisis de la información nutricional. No fue publicado comercialmente.",
     stack: ["Inteligencia artificial", "Gemini", "Desarrollo Android"],
+    highlights: [
+      "Registro de alimentos por texto, chat e imágenes",
+      "Cálculo de calorías y macronutrientes",
+      "Análisis nutricional asistido por Gemini",
+    ],
   },
   {
     number: "05",
@@ -75,6 +119,12 @@ const projects = [
     description:
       "Desarrollé y adapté scripts en Lua, diseñé y administré una base de datos de jugadores con MySQL y HeidiSQL, y trabajé sobre la configuración, estabilidad, seguridad y rendimiento del servidor. También desarrollé su página promocional con HTML, CSS y JavaScript.",
     stack: ["Lua", "MySQL", "HeidiSQL", "HTML", "CSS", "JavaScript"],
+    highlights: [
+      "Desarrollo y adaptación de scripts en Lua",
+      "Administración de jugadores y datos con MySQL",
+      "Mejoras de estabilidad, seguridad y rendimiento",
+      "Sitio web promocional del servidor",
+    ],
   },
 ];
 
@@ -322,48 +372,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="projects-list">
-              {projects.map((project) => (
-                <article
-                  className={`project-card${project.repositoryUrl ? " project-card--linked" : ""}`}
-                  key={project.number}
-                >
-                  {project.repositoryUrl && (
-                    <a
-                      className="project-card-link"
-                      href={project.repositoryUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Ver el código de ${project.title} en GitHub`}
-                    />
-                  )}
-                  <div className="project-header">
-                    <span className="project-number">{project.number}</span>
-                    {project.repositoryUrl && (
-                      <span className="project-arrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    )}
-                  </div>
-                  <div className="project-content">
-                    <p className="project-type">{project.type}</p>
-                    <h3>{project.title}</h3>
-                    <p className="project-subtitle">{project.subtitle}</p>
-                    <p className="project-description">
-                      {project.description}
-                    </p>
-                    <ul
-                      className="tags"
-                      aria-label={`Tecnologías de ${project.title}`}
-                    >
-                      {project.stack.map((technology) => (
-                        <li key={technology}>{technology}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <ProjectShowcase projects={projects} />
           </div>
         </section>
 
