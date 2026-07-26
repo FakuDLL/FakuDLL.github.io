@@ -901,6 +901,27 @@ a {
   transform: scale(1.15);
 }
 
+.project-card--linked {
+  cursor: pointer;
+}
+
+.project-card--linked:focus-within {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.project-card-link {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.project-card-link:focus {
+  outline: none;
+}
+
 .project-header {
   display: flex;
   position: relative;
@@ -1233,7 +1254,7 @@ a {
   .mobile-nav summary::before {
     margin-right: 8px;
     color: var(--accent);
-    content: "●";
+    content: "â—";
     font-size: 0.5rem;
   }
 
@@ -1631,3 +1652,4 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
