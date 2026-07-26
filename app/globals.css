@@ -1252,10 +1252,15 @@ a {
   }
 
   .mobile-nav summary::before {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    flex: 0 0 auto;
     margin-right: 8px;
-    color: var(--accent);
-    content: "â—";
-    font-size: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(184, 242, 74, 0.1);
+    content: "";
   }
 
   .mobile-nav[open] summary {
