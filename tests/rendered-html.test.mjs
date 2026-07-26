@@ -47,19 +47,10 @@ test("server-renders the final portfolio", async () => {
 });
 
 test("keeps truthful links and project metadata", async () => {
-  const [
-    page,
-    contactControls,
-    customCursor,
-    globalsCss,
-    layout,
-    packageJson,
-    favicon,
-  ] =
+  const [page, contactControls, globalsCss, layout, packageJson, favicon] =
     await Promise.all([
       readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/ContactControls.tsx", import.meta.url), "utf8"),
-      readFile(new URL("../app/CustomCursor.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
@@ -84,18 +75,6 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /placement === "contact"/);
   assert.match(contactControls, /Disponible para oportunidades junior/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
-  assert.match(layout, /<CustomCursor \/>/);
-  assert.match(customCursor, /requestAnimationFrame\(paint\)/);
-  assert.match(customCursor, /\(hover: hover\) and \(pointer: fine\)/);
-  assert.match(customCursor, /prefers-reduced-motion: reduce/);
-  assert.match(customCursor, /passive:\s*true/);
-  assert.doesNotMatch(customCursor, /useState/);
-  assert.match(globalsCss, /\.custom-cursor\s*\{/);
-  assert.match(globalsCss, /will-change:\s*transform/);
-  assert.match(
-    globalsCss,
-    /@media \(hover: hover\) and \(pointer: fine\)/,
-  );
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /overflow-anchor:\s*none/);
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);

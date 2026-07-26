@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { CustomCursor } from "./CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -66,10 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
-        {children}
-        <CustomCursor />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
