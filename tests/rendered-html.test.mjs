@@ -74,7 +74,9 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
   assert.match(page, /<ProjectShowcase projects=\{projects\} \/>/);
+  assert.match(page, /\/projects\/gestion-atenciones\/vista-general\.webp/);
   assert.match(page, /\/projects\/gestion-atenciones\/servicios\.png/);
+  assert.match(page, /\/projects\/gestion-atenciones\/tabla-atenciones\.webp/);
   assert.match(page, /\/projects\/gestion-atenciones\/resumen\.png/);
   assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);

@@ -76,9 +76,19 @@ const projects = [
     ],
     gallery: [
       {
+        src: "/projects/gestion-atenciones/vista-general.webp",
+        alt: "Vista general de la aplicación de gestión de atenciones",
+        caption: "Vista general del sistema",
+      },
+      {
         src: "/projects/gestion-atenciones/servicios.png",
         alt: "Configuración de servicios y precios de la aplicación",
         caption: "Administración de servicios y precios",
+      },
+      {
+        src: "/projects/gestion-atenciones/tabla-atenciones.webp",
+        alt: "Tabla de atenciones con filtros, importación y copias de seguridad",
+        caption: "Gestión y edición de atenciones",
       },
       {
         src: "/projects/gestion-atenciones/ganancia-semanal.png",
