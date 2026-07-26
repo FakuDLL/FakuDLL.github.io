@@ -71,16 +71,52 @@ const projects = [
       "Navegación accesible y fichas detalladas de proyectos",
       "Pruebas automatizadas y publicación continua",
     ],
+    galleryTitle: "Escritorio y celular",
     gallery: [
       {
         src: "/projects/portfolio/vista-inicio.webp",
-        alt: "Portada del portfolio personal de Facundo Robayna",
-        caption: "Portada y presentación profesional",
+        alt: "Portada del portfolio personal vista en escritorio",
+        caption: "Inicio · versión de escritorio",
+      },
+      {
+        src: "/projects/portfolio/sobre-mi-desktop.webp",
+        alt: "Sección Sobre mí del portfolio vista en escritorio",
+        caption: "Sobre mí · versión de escritorio",
+      },
+      {
+        src: "/projects/portfolio/tecnologias-desktop.webp",
+        alt: "Sección de tecnologías del portfolio vista en escritorio",
+        caption: "Tecnologías · versión de escritorio",
       },
       {
         src: "/projects/portfolio/seccion-proyectos.webp",
-        alt: "Sección de proyectos del portfolio personal",
-        caption: "Selección de proyectos y fichas interactivas",
+        alt: "Sección de proyectos del portfolio vista en escritorio",
+        caption: "Proyectos · versión de escritorio",
+      },
+      {
+        src: "/projects/portfolio/inicio-mobile.webp",
+        alt: "Portada del portfolio adaptada a un teléfono celular",
+        caption: "Inicio · versión para celular",
+      },
+      {
+        src: "/projects/portfolio/sobre-mi-mobile.webp",
+        alt: "Sección Sobre mí del portfolio adaptada a un teléfono celular",
+        caption: "Sobre mí · versión para celular",
+      },
+      {
+        src: "/projects/portfolio/tecnologias-mobile.webp",
+        alt: "Sección de tecnologías adaptada a un teléfono celular",
+        caption: "Tecnologías · versión para celular",
+      },
+      {
+        src: "/projects/portfolio/proyectos-mobile.webp",
+        alt: "Sección de proyectos adaptada a un teléfono celular",
+        caption: "Proyectos · versión para celular",
+      },
+      {
+        src: "/projects/portfolio/contacto-mobile.webp",
+        alt: "Sección de contacto adaptada a un teléfono celular",
+        caption: "Contacto · versión para celular",
       },
     ],
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",

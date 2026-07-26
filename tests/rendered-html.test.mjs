@@ -82,6 +82,13 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /\/projects\/stellarminds\/casos-de-uso\.png/);
   assert.match(page, /\/projects\/portfolio\/vista-inicio\.webp/);
   assert.match(page, /\/projects\/portfolio\/seccion-proyectos\.webp/);
+  assert.match(page, /\/projects\/portfolio\/sobre-mi-desktop\.webp/);
+  assert.match(page, /\/projects\/portfolio\/tecnologias-desktop\.webp/);
+  assert.match(page, /\/projects\/portfolio\/inicio-mobile\.webp/);
+  assert.match(page, /\/projects\/portfolio\/sobre-mi-mobile\.webp/);
+  assert.match(page, /\/projects\/portfolio\/tecnologias-mobile\.webp/);
+  assert.match(page, /\/projects\/portfolio\/proyectos-mobile\.webp/);
+  assert.match(page, /\/projects\/portfolio\/contacto-mobile\.webp/);
   assert.doesNotMatch(page, /<CopyEmailButton \/>/);
   assert.match(page, /<SectionLink/);
   assert.doesNotMatch(page, /mailto:/);
