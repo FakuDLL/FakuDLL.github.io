@@ -24,11 +24,11 @@ const technologies = [
 const projects = [
   {
     number: "01",
-    type: "Proyecto acadÃ©mico grupal",
+    type: "Proyecto académico grupal",
     title: "StellarMinds",
-    subtitle: "GestiÃ³n para un observatorio astronÃ³mico",
+    subtitle: "Gestión para un observatorio astronómico",
     description:
-      "Sistema desarrollado en equipo para administrar socios, equipamiento astronÃ³mico, prÃ©stamos, devoluciones y sesiones de observaciÃ³n. La soluciÃ³n aplica arquitectura en capas, DTOs, mappers y control de roles. TambiÃ©n integra Gemini como apoyo para evaluar equipamiento de observaciÃ³n.",
+      "Sistema desarrollado en equipo para administrar socios, equipamiento astronómico, préstamos, devoluciones y sesiones de observación. La solución aplica arquitectura en capas, DTOs, mappers y control de roles. También integra Gemini como apoyo para evaluar equipamiento de observación.",
     stack: [
       "C#",
       ".NET",
@@ -45,53 +45,53 @@ const projects = [
     title: "Portfolio personal",
     subtitle: "Sitio web para presentar mi perfil y proyectos",
     description:
-      "Portfolio web diseÃ±ado y desarrollado para presentar mi perfil profesional, tecnologÃ­as, proyectos y formas de contacto. Incluye una interfaz responsive, navegaciÃ³n accesible, metadatos para compartir el sitio y pruebas automatizadas de renderizado.",
+      "Portfolio web diseñado y desarrollado para presentar mi perfil profesional, tecnologías, proyectos y formas de contacto. Incluye una interfaz responsive, navegación accesible, metadatos para compartir el sitio y pruebas automatizadas de renderizado.",
     stack: ["Next.js", "React", "TypeScript", "CSS", "GitHub Pages"],
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",
   },
   {
     number: "03",
     type: "Proyecto personal",
-    title: "GestiÃ³n de atenciones",
-    subtitle: "Herramienta interna para cosmetologÃ­a mÃ©dica",
+    title: "Gestión de atenciones",
+    subtitle: "Herramienta interna para cosmetología médica",
     description:
-      "AplicaciÃ³n orientada a centralizar el registro y anÃ¡lisis de atenciones de un equipo de cosmetologÃ­a mÃ©dica. Permite consultar mÃ©tricas diarias, semanales y mensuales, filtrar servicios realizados y generar resÃºmenes de ingresos para facilitar el seguimiento operativo.",
-    stack: ["GestiÃ³n de datos", "MÃ©tricas operativas", "Filtros", "Reportes"],
+      "Aplicación orientada a centralizar el registro y análisis de atenciones de un equipo de cosmetología médica. Permite consultar métricas diarias, semanales y mensuales, filtrar servicios realizados y generar resúmenes de ingresos para facilitar el seguimiento operativo.",
+    stack: ["Gestión de datos", "Métricas operativas", "Filtros", "Reportes"],
   },
   {
     number: "04",
     type: "Prototipo con agentes de IA",
     title: "Seguimiento nutricional",
-    subtitle: "Prototipo Android de calorÃ­as y macronutrientes",
+    subtitle: "Prototipo Android de calorías y macronutrientes",
     description:
-      "Prototipo funcional creado y validado mediante un flujo de agentes de IA. PermitÃ­a registrar alimentos por texto, chat e imÃ¡genes, calcular calorÃ­as y macronutrientes y consultar una base precargada de alimentos. Gemini apoyaba el anÃ¡lisis de la informaciÃ³n nutricional. No fue publicado comercialmente.",
+      "Prototipo funcional creado y validado mediante un flujo de agentes de IA. Permitía registrar alimentos por texto, chat e imágenes, calcular calorías y macronutrientes y consultar una base precargada de alimentos. Gemini apoyaba el análisis de la información nutricional. No fue publicado comercialmente.",
     stack: ["Inteligencia artificial", "Gemini", "Desarrollo Android"],
   },
   {
     number: "05",
-    type: "Proyecto independiente Â· Mar 2023 â€” Ene 2024",
+    type: "Proyecto independiente · Mar 2023 — Ene 2024",
     title: "Servidor FiveM",
     subtitle: "Desarrollo para servidor multijugador de GTA V",
     description:
-      "DesarrollÃ© y adaptÃ© scripts en Lua, diseÃ±Ã© y administrÃ© una base de datos de jugadores con MySQL y HeidiSQL, y trabajÃ© sobre la configuraciÃ³n, estabilidad, seguridad y rendimiento del servidor. TambiÃ©n desarrollÃ© su pÃ¡gina promocional con HTML, CSS y JavaScript.",
+      "Desarrollé y adapté scripts en Lua, diseñé y administré una base de datos de jugadores con MySQL y HeidiSQL, y trabajé sobre la configuración, estabilidad, seguridad y rendimiento del servidor. También desarrollé su página promocional con HTML, CSS y JavaScript.",
     stack: ["Lua", "MySQL", "HeidiSQL", "HTML", "CSS", "JavaScript"],
   },
 ];
 
 const experience = [
   {
-    period: "Mar 2025 â€” May 2025",
-    role: "Soporte tÃ©cnico presencial",
+    period: "Mar 2025 — May 2025",
+    role: "Soporte técnico presencial",
     place: "SONDA",
     description:
-      "DiagnÃ³stico y resoluciÃ³n de incidencias de hardware y software, ademÃ¡s de configuraciÃ³n y mantenimiento de equipos.",
+      "Diagnóstico y resolución de incidencias de hardware y software, además de configuración y mantenimiento de equipos.",
   },
 ];
 
 const navItems = [
   ["Inicio", "inicio"],
-  ["Sobre mÃ­", "sobre-mi"],
-  ["TecnologÃ­as", "tecnologias"],
+  ["Sobre mí", "sobre-mi"],
+  ["Tecnologías", "tecnologias"],
   ["Proyectos", "proyectos"],
   ["Contacto", "contacto"],
 ];
@@ -109,7 +109,7 @@ export default function Home() {
             <span aria-hidden="true">FR</span>
           </SectionLink>
 
-          <nav className="desktop-nav" aria-label="NavegaciÃ³n principal">
+          <nav className="desktop-nav" aria-label="Navegación principal">
             {navItems.map(([label, targetId], index) => (
               <SectionLink targetId={targetId} key={targetId}>
                 <span aria-hidden="true">0{index + 1}</span>
@@ -120,7 +120,7 @@ export default function Home() {
 
           <details className="mobile-nav">
             <summary>Secciones</summary>
-            <nav aria-label="NavegaciÃ³n mÃ³vil">
+            <nav aria-label="Navegación móvil">
               {navItems.map(([label, targetId], index) => (
                 <SectionLink targetId={targetId} key={targetId}>
                   <span aria-hidden="true">0{index + 1}</span>
@@ -165,7 +165,7 @@ export default function Home() {
                     className="button button-primary"
                     targetId="proyectos"
                   >
-                    Ver proyectos <span aria-hidden="true">â†˜</span>
+                    Ver proyectos <span aria-hidden="true">↘</span>
                   </SectionLink>
                   <a
                     className="button button-ghost"
@@ -173,7 +173,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    GitHub <span aria-hidden="true">â†—</span>
+                    GitHub <span aria-hidden="true">↗</span>
                   </a>
                   <a
                     className="button button-ghost"
@@ -181,7 +181,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    LinkedIn <span aria-hidden="true">â†—</span>
+                    LinkedIn <span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </div>
@@ -189,31 +189,31 @@ export default function Home() {
               <aside className="profile-panel" aria-label="Resumen profesional">
                 <div className="panel-header">
                   <span>perfil.json</span>
-                  <span className="panel-state">â— activo</span>
+                  <span className="panel-state">● activo</span>
                 </div>
                 <dl>
                   <div>
-                    <dt>FormaciÃ³n</dt>
-                    <dd>Analista en TI Â· ORT</dd>
+                    <dt>Formación</dt>
+                    <dd>Analista en TI · ORT</dd>
                   </div>
                   <div>
                     <dt>Avance</dt>
-                    <dd>4.Âº semestre</dd>
+                    <dd>4.º semestre</dd>
                   </div>
                   <div>
-                    <dt>GraduaciÃ³n</dt>
+                    <dt>Graduación</dt>
                     <dd>Julio 2027</dd>
                   </div>
                   <div>
                     <dt>Foco</dt>
-                    <dd>Web Â· APIs Â· Datos</dd>
+                    <dd>Web · APIs · Datos</dd>
                   </div>
                 </dl>
               </aside>
             </div>
 
             <SectionLink className="scroll-cue" targetId="sobre-mi">
-              Scroll para explorar <span aria-hidden="true">â†“</span>
+              Scroll para explorar <span aria-hidden="true">↓</span>
             </SectionLink>
           </div>
         </section>
@@ -222,23 +222,23 @@ export default function Home() {
           <div className="container">
             <div className="section-label">
               <span>01</span>
-              <p>Sobre mÃ­</p>
+              <p>Sobre mí</p>
               <span className="label-line" aria-hidden="true" />
             </div>
 
             <div className="about-grid">
               <h2>
                 Desarrollo con curiosidad,
-                <span>estructura y propÃ³sito.</span>
+                <span>estructura y propósito.</span>
               </h2>
               <div className="about-copy">
                 <p className="large-copy">
-                  Soy estudiante de Analista en TecnologÃ­as de la InformaciÃ³n en
+                  Soy estudiante de Analista en Tecnologías de la Información en
                   ORT Uruguay, actualmente cursando el cuarto semestre y
                   orientado al desarrollo de software.
                 </p>
                 <p>
-                  Me interesa construir soluciones Ãºtiles, mantenibles y bien
+                  Me interesa construir soluciones útiles, mantenibles y bien
                   estructuradas, con foco en desarrollo web, APIs, bases de datos
                   e inteligencia artificial aplicada al desarrollo. Valoro
                   entender el problema antes de elegir la herramienta y
@@ -249,18 +249,18 @@ export default function Home() {
 
             <div className="principles">
               <article>
-                <span>01 / MÃ©todo</span>
+                <span>01 / Método</span>
                 <h3>Aprender haciendo</h3>
                 <p>
                   Convertir conceptos en soluciones concretas y revisar cada
-                  decisiÃ³n con criterio.
+                  decisión con criterio.
                 </p>
               </article>
               <article>
                 <span>02 / Estructura</span>
                 <h3>Orden antes de escala</h3>
                 <p>
-                  Priorizar cÃ³digo entendible, responsabilidades claras y bases
+                  Priorizar código entendible, responsabilidades claras y bases
                   mantenibles.
                 </p>
               </article>
@@ -268,7 +268,7 @@ export default function Home() {
                 <span>03 / Producto</span>
                 <h3>Construir para personas</h3>
                 <p>
-                  DiseÃ±ar experiencias directas, accesibles y enfocadas en el
+                  Diseñar experiencias directas, accesibles y enfocadas en el
                   problema real.
                 </p>
               </article>
@@ -280,19 +280,19 @@ export default function Home() {
           <div className="container">
             <div className="section-label">
               <span>02</span>
-              <p>TecnologÃ­as</p>
+              <p>Tecnologías</p>
               <span className="label-line" aria-hidden="true" />
             </div>
 
             <div className="section-heading">
               <h2>Mi stack actual.</h2>
               <p>
-                Herramientas y conceptos que uso en proyectos acadÃ©micos y
+                Herramientas y conceptos que uso en proyectos académicos y
                 personales, sin inflar experiencia.
               </p>
             </div>
 
-            <ul className="tech-grid" aria-label="TecnologÃ­as y conocimientos">
+            <ul className="tech-grid" aria-label="Tecnologías y conocimientos">
               {technologies.map((technology, index) => (
                 <li key={technology}>
                   <span aria-hidden="true">
@@ -316,9 +316,9 @@ export default function Home() {
             <div className="section-heading">
               <h2>Trabajo seleccionado.</h2>
               <p>
-                Proyectos acadÃ©micos, personales y experimentales. Algunos
-                repositorios estÃ¡n publicados y otros se mantienen privados
-                segÃºn el proyecto.
+                Proyectos académicos, personales y experimentales. Algunos
+                repositorios están publicados y otros se mantienen privados
+                según el proyecto.
               </p>
             </div>
 
@@ -334,14 +334,14 @@ export default function Home() {
                       href={project.repositoryUrl}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`Ver el cÃ³digo de ${project.title} en GitHub`}
+                      aria-label={`Ver el código de ${project.title} en GitHub`}
                     />
                   )}
                   <div className="project-header">
                     <span className="project-number">{project.number}</span>
                     {project.repositoryUrl && (
                       <span className="project-arrow" aria-hidden="true">
-                        â†—
+                        ↗
                       </span>
                     )}
                   </div>
@@ -354,7 +354,7 @@ export default function Home() {
                     </p>
                     <ul
                       className="tags"
-                      aria-label={`TecnologÃ­as de ${project.title}`}
+                      aria-label={`Tecnologías de ${project.title}`}
                     >
                       {project.stack.map((technology) => (
                         <li key={technology}>{technology}</li>
@@ -377,10 +377,10 @@ export default function Home() {
 
             <div className="experience-grid">
               <div className="section-heading">
-                <h2>MÃ¡s allÃ¡ del cÃ³digo.</h2>
+                <h2>Más allá del código.</h2>
                 <p>
-                  Experiencias que fortalecieron mi autonomÃ­a, diagnÃ³stico y
-                  atenciÃ³n al detalle.
+                  Experiencias que fortalecieron mi autonomía, diagnóstico y
+                  atención al detalle.
                 </p>
               </div>
               <div className="timeline">
@@ -411,13 +411,13 @@ export default function Home() {
 
             <div className="contact-grid">
               <div className="contact-heading">
-                <p className="contact-kicker">Â¿TenÃ©s una oportunidad o idea?</p>
+                <p className="contact-kicker">¿Tenés una oportunidad o idea?</p>
                 <h2>Hablemos.</h2>
               </div>
               <div className="contact-copy">
                 <p>
                   Estoy abierto a conversar sobre oportunidades junior,
-                  prÃ¡cticas y proyectos donde pueda aportar, aprender y crecer.
+                  prácticas y proyectos donde pueda aportar, aprender y crecer.
                 </p>
                 <ConnectProfileButton placement="contact" />
               </div>
@@ -434,9 +434,9 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <p>Â© {new Date().getFullYear()} Facundo Robayna</p>
-          <p>Desarrollador de Software Junior Â· Montevideo</p>
-          <SectionLink targetId="inicio">Volver arriba â†‘</SectionLink>
+          <p>© {new Date().getFullYear()} Facundo Robayna</p>
+          <p>Desarrollador de Software Junior · Montevideo</p>
+          <SectionLink targetId="inicio">Volver arriba ↑</SectionLink>
         </div>
       </footer>
     </>
