@@ -74,6 +74,9 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
   assert.match(page, /<ProjectShowcase projects=\{projects\} \/>/);
+  assert.match(page, /\/profile\/facundo-robayna\.webp/);
+  assert.match(page, /Retrato de Facundo Robayna/);
+  assert.match(page, /Facundo Robayna, desarrollador de software junior/);
   assert.match(page, /\/projects\/gestion-atenciones\/vista-general\.webp/);
   assert.match(page, /\/projects\/gestion-atenciones\/servicios\.png/);
   assert.match(page, /\/projects\/gestion-atenciones\/tabla-atenciones\.webp/);

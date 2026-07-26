@@ -362,6 +362,18 @@ export default function Home() {
                   <span>perfil.json</span>
                   <span className="panel-state">● activo</span>
                 </div>
+                <div className="profile-identity">
+                  <img
+                    src="/profile/facundo-robayna.webp"
+                    alt="Retrato de Facundo Robayna"
+                    width="900"
+                    height="900"
+                  />
+                  <div>
+                    <strong>Facundo Robayna</strong>
+                    <span>Desarrollador de Software Junior</span>
+                  </div>
+                </div>
                 <dl>
                   <div>
                     <dt>Formación</dt>
@@ -403,6 +415,19 @@ export default function Home() {
                 <span>estructura y propósito.</span>
               </h2>
               <div className="about-copy">
+                <figure className="about-portrait">
+                  <img
+                    src="/profile/facundo-robayna.webp"
+                    alt="Facundo Robayna, desarrollador de software junior"
+                    width="900"
+                    height="900"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <span>Facundo Robayna</span>
+                    <span>Montevideo · UY</span>
+                  </figcaption>
+                </figure>
                 <p className="large-copy">
                   Soy estudiante de Analista en Tecnologías de la Información en
                   ORT Uruguay, actualmente cursando el cuarto semestre y
