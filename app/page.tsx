@@ -51,6 +51,21 @@ const projects = [
         caption: "Presentación general del sistema",
       },
       {
+        src: "/projects/stellarminds/login.webp",
+        alt: "Pantalla de inicio de sesión de StellarMinds ejecutándose localmente",
+        caption: "Acceso al cliente web MVC",
+      },
+      {
+        src: "/projects/stellarminds/arquitectura-capas.webp",
+        alt: "Estructura de carpetas por capas de la solución StellarMinds",
+        caption: "Solución organizada por dominio, aplicación, DTOs, datos y API",
+      },
+      {
+        src: "/projects/stellarminds/swagger-api.webp",
+        alt: "Documentación Swagger de la API REST de StellarMinds",
+        caption: "Contratos y endpoints de la Web API",
+      },
+      {
         src: "/projects/stellarminds/casos-de-uso.png",
         alt: "Diagrama de casos de uso de StellarMinds",
         caption: "Casos de uso, actores y funciones principales",

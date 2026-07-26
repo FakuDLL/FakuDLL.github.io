@@ -80,6 +80,9 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /\/projects\/gestion-atenciones\/resumen\.png/);
   assert.match(page, /\/projects\/stellarminds\/presentacion\.svg/);
   assert.match(page, /\/projects\/stellarminds\/casos-de-uso\.png/);
+  assert.match(page, /\/projects\/stellarminds\/login\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/arquitectura-capas\.webp/);
+  assert.match(page, /\/projects\/stellarminds\/swagger-api\.webp/);
   assert.match(page, /\/projects\/portfolio\/vista-inicio\.webp/);
   assert.match(page, /\/projects\/portfolio\/seccion-proyectos\.webp/);
   assert.match(page, /\/projects\/portfolio\/sobre-mi-desktop\.webp/);
@@ -107,6 +110,13 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(projectShowcase, /Capturas disponibles próximamente/);
   assert.match(projectShowcase, /Abrir imagen en tamaño completo/);
   assert.match(projectShowcase, /project-gallery-thumbnails--compact/);
+  assert.match(projectShowcase, /Ver contenido anterior/);
+  assert.match(projectShowcase, /Ver contenido siguiente/);
+  assert.match(projectShowcase, /Mostrar todo el contenido/);
+  assert.match(projectShowcase, /Mostrar menos/);
+  assert.match(projectShowcase, /event\.key === "ArrowLeft"/);
+  assert.match(projectShowcase, /event\.key === "ArrowRight"/);
+  assert.match(projectShowcase, /mediaType === "video"/);
   assert.doesNotMatch(projectShowcase, /className="project-card-link"/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /\.project-dialog::backdrop/);

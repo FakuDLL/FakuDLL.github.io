@@ -16,6 +16,8 @@ export type ProjectShowcaseItem = {
     src: string;
     alt: string;
     caption: string;
+    mediaType?: "image" | "video";
+    poster?: string;
   }[];
 };
 
@@ -32,9 +34,17 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
     null,
   );
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showAllMedia, setShowAllMedia] = useState(false);
 
   const activeProject =
     activeProjectIndex === null ? null : projects[activeProjectIndex];
+  const activeGalleryLength = activeProject?.gallery?.length ?? 0;
+  const activeMedia = activeProject?.gallery?.[activeImageIndex];
+  const visibleGallery = activeProject?.gallery
+    ? showAllMedia
+      ? activeProject.gallery
+      : activeProject.gallery.slice(0, 3)
+    : [];
 
   useEffect(() => {
     if (activeProjectIndex === null || dialogRef.current?.open) return;
@@ -43,13 +53,66 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
     closeButtonRef.current?.focus();
   }, [activeProjectIndex]);
 
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog || activeProjectIndex === null || activeGalleryLength < 2) {
+      return;
+    }
+
+    const handleArrowNavigation = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setActiveImageIndex(
+          (currentIndex) =>
+            (currentIndex - 1 + activeGalleryLength) % activeGalleryLength,
+        );
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setActiveImageIndex(
+          (currentIndex) => (currentIndex + 1) % activeGalleryLength,
+        );
+      }
+    };
+
+    dialog.addEventListener("keydown", handleArrowNavigation);
+    return () => dialog.removeEventListener("keydown", handleArrowNavigation);
+  }, [activeGalleryLength, activeProjectIndex]);
+
   const openProject = (projectIndex: number) => {
     setActiveImageIndex(0);
+    setShowAllMedia(false);
     setActiveProjectIndex(projectIndex);
   };
 
   const closeProject = () => {
     dialogRef.current?.close();
+  };
+
+  const showPreviousMedia = () => {
+    if (activeGalleryLength < 2) return;
+
+    setActiveImageIndex(
+      (currentIndex) =>
+        (currentIndex - 1 + activeGalleryLength) % activeGalleryLength,
+    );
+  };
+
+  const showNextMedia = () => {
+    if (activeGalleryLength < 2) return;
+
+    setActiveImageIndex(
+      (currentIndex) => (currentIndex + 1) % activeGalleryLength,
+    );
+  };
+
+  const toggleAllMedia = () => {
+    if (showAllMedia && activeImageIndex >= 3) {
+      setActiveImageIndex(0);
+    }
+
+    setShowAllMedia((currentValue) => !currentValue);
   };
 
   return (
@@ -131,7 +194,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                 </p>
               </section>
 
-              {activeProject.gallery?.length ? (
+              {activeProject.gallery?.length && activeMedia ? (
                 <section
                   className="project-gallery"
                   aria-label={`Galería de ${activeProject.title}`}
@@ -150,46 +213,113 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                   </div>
 
                   <figure className="project-gallery-main">
-                    <a
-                      className="project-gallery-image-link"
-                      href={activeProject.gallery[activeImageIndex].src}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Abrir imagen en tamaño completo: ${activeProject.gallery[activeImageIndex].caption}`}
-                    >
-                      <img
-                        src={activeProject.gallery[activeImageIndex].src}
-                        alt={activeProject.gallery[activeImageIndex].alt}
-                      />
-                    </a>
-                    <figcaption>
-                      {activeProject.gallery[activeImageIndex].caption}
+                    {activeGalleryLength > 1 && (
+                      <>
+                        <button
+                          className="project-gallery-arrow project-gallery-arrow--previous"
+                          type="button"
+                          onClick={showPreviousMedia}
+                          aria-label="Ver contenido anterior"
+                        >
+                          ←
+                        </button>
+                        <button
+                          className="project-gallery-arrow project-gallery-arrow--next"
+                          type="button"
+                          onClick={showNextMedia}
+                          aria-label="Ver contenido siguiente"
+                        >
+                          →
+                        </button>
+                      </>
+                    )}
+
+                    {activeMedia.mediaType === "video" ? (
+                      <video
+                        className="project-gallery-video"
+                        controls
+                        preload="metadata"
+                        poster={activeMedia.poster}
+                      >
+                        <source src={activeMedia.src} />
+                        Tu navegador no puede reproducir este video.
+                      </video>
+                    ) : (
+                      <a
+                        className="project-gallery-image-link"
+                        href={activeMedia.src}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Abrir imagen en tamaño completo: ${activeMedia.caption}`}
+                      >
+                        <img src={activeMedia.src} alt={activeMedia.alt} />
+                      </a>
+                    )}
+                    <figcaption aria-live="polite">
+                      {activeMedia.caption}
                     </figcaption>
                   </figure>
 
                   <div
                     className={`project-gallery-thumbnails${
-                      activeProject.gallery.length <= 2
+                      visibleGallery.length <= 2
                         ? " project-gallery-thumbnails--compact"
                         : ""
                     }`}
                   >
-                    {activeProject.gallery.map((image, imageIndex) => (
+                    {visibleGallery.map((media, imageIndex) => (
                       <button
                         className={
                           imageIndex === activeImageIndex ? "is-active" : ""
                         }
                         type="button"
-                        key={image.src}
+                        key={media.src}
                         onClick={() => setActiveImageIndex(imageIndex)}
-                        aria-label={`Ver captura ${imageIndex + 1}: ${image.caption}`}
+                        aria-label={`Ver contenido ${imageIndex + 1}: ${media.caption}`}
                         aria-pressed={imageIndex === activeImageIndex}
                       >
-                        <img src={image.src} alt="" />
-                        <span>{String(imageIndex + 1).padStart(2, "0")}</span>
+                        {media.mediaType === "video" ? (
+                          media.poster ? (
+                            <img src={media.poster} alt="" />
+                          ) : (
+                            <span
+                              className="project-gallery-video-icon"
+                              aria-hidden="true"
+                            >
+                              ▶
+                            </span>
+                          )
+                        ) : (
+                          <img src={media.src} alt="" />
+                        )}
+                        <span className="project-gallery-thumbnail-index">
+                          {String(imageIndex + 1).padStart(2, "0")}
+                        </span>
                       </button>
                     ))}
                   </div>
+
+                  {activeGalleryLength > 3 && (
+                    <div className="project-gallery-toggle">
+                      <p>
+                        {showAllMedia
+                          ? `${activeGalleryLength} contenidos visibles`
+                          : `Mostrando 3 de ${activeGalleryLength} contenidos`}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={toggleAllMedia}
+                        aria-expanded={showAllMedia}
+                      >
+                        {showAllMedia
+                          ? "Mostrar menos"
+                          : "Mostrar todo el contenido"}
+                        <span aria-hidden="true">
+                          {showAllMedia ? "↑" : "↓"}
+                        </span>
+                      </button>
+                    </div>
+                  )}
                 </section>
               ) : (
                 <div className="project-gallery-empty">
