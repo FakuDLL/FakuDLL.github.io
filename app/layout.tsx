@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Facundo Robayna" }],
   creator: "Facundo Robayna",
+  other: {
+    google: "notranslate",
+  },
   icons: {
     icon: [{ url: "/favicon-fr.svg", type: "image/svg+xml" }],
     shortcut: "/favicon-fr.svg",
@@ -66,8 +69,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" translate="no" className="notranslate">
+      <body translate="no">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

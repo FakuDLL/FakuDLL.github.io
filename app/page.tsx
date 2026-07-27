@@ -207,7 +207,11 @@ export default function Home() {
               <p>{copy.technologies.description}</p>
             </div>
 
-            <ul className="tech-grid" aria-label={copy.technologies.listLabel}>
+            <ul
+              className="tech-grid notranslate"
+              aria-label={copy.technologies.listLabel}
+              translate="no"
+            >
               {technologies.map((technology, index) => (
                 <li key={technology}>
                   <span aria-hidden="true">

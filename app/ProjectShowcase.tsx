@@ -146,8 +146,9 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
               <p className="project-subtitle">{project.subtitle}</p>
               <p className="project-description">{project.description}</p>
               <ul
-                className="tags"
+                className="tags notranslate"
                 aria-label={`${copy.technologiesOf} ${project.title}`}
+                translate="no"
               >
                 {project.stack.map((technology) => (
                   <li key={technology}>{technology}</li>
@@ -352,8 +353,9 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                     {copy.technologies}
                   </p>
                   <ul
-                    className="tags project-dialog-tags"
+                    className="tags project-dialog-tags notranslate"
                     aria-label={`${copy.technologiesOf} ${activeProject.title}`}
+                    translate="no"
                   >
                     {activeProject.stack.map((technology) => (
                       <li key={technology}>{technology}</li>

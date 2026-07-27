@@ -41,6 +41,9 @@ test("server-renders the final portfolio", async () => {
   assert.match(html, /SONDA/);
   assert.match(html, /facundorobayna03@gmail\.com/);
   assert.match(html, /lang="en"/);
+  assert.match(html, /<meta name="google" content="notranslate"/i);
+  assert.match(html, /translate="no"/i);
+  assert.match(html, /class="notranslate"/i);
   assert.match(html, /og\.png/);
   assert.match(html, /favicon-fr\.svg/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|Skeleton/i);
@@ -174,7 +177,13 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(i18n, /¿Cómo querés ver el portfolio\?/);
   assert.match(i18n, /How would you like to view the portfolio\?/);
   assert.match(layout, /<LanguageProvider>\{children\}<\/LanguageProvider>/);
-  assert.match(layout, /<html lang="en">/);
+  assert.match(
+    layout,
+    /<html lang="en" translate="no" className="notranslate">/,
+  );
+  assert.match(layout, /google:\s*"notranslate"/);
+  assert.match(page, /className="tech-grid notranslate"/);
+  assert.match(projectShowcase, /className="tags notranslate"/);
   assert.match(layout, /https:\/\/fakudll\.github\.io\//);
   assert.match(layout, /url:\s*"\/favicon-fr\.svg"/);
   assert.match(favicon, />FR<\/text>/);
