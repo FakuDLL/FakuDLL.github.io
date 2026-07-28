@@ -1210,6 +1210,47 @@ a {
   min-height: 440px;
 }
 
+.project-card--revealed {
+  animation: project-card-reveal 280ms ease-out both;
+}
+
+.project-card--revealed:nth-child(6) {
+  animation-delay: 40ms;
+}
+
+.project-card--revealed:nth-child(7) {
+  animation-delay: 80ms;
+}
+
+@keyframes project-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-toggle-shell {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.projects-toggle {
+  min-width: 210px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.projects-toggle span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
 .project-card::after {
   position: absolute;
   right: -120px;
@@ -1844,6 +1885,16 @@ a {
 
 .project-actions .button {
   width: 100%;
+}
+
+.project-hosting-note {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: left;
 }
 
 .project-repository-link {
@@ -2598,6 +2649,10 @@ a {
   .project-card--featured:not(:first-child) h3,
   .project-card:not(:first-child) h3 {
     font-size: clamp(2.5rem, 12vw, 3.7rem);
+  }
+
+  .projects-toggle {
+    width: 100%;
   }
 
   .timeline-item {

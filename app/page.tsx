@@ -96,6 +96,13 @@ export default function Home() {
                   </SectionLink>
                   <a
                     className="button button-ghost"
+                    href="/cv-facundo-robayna.pdf"
+                    download="Facundo-Robayna-CV.pdf"
+                  >
+                    {copy.hero.cvButton} <span aria-hidden="true">↓</span>
+                  </a>
+                  <a
+                    className="button button-ghost"
                     href="https://github.com/FakuDLL"
                     target="_blank"
                     rel="noopener noreferrer"

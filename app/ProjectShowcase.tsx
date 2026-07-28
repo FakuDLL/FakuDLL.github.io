@@ -22,6 +22,7 @@ export type ProjectShowcaseItem = {
     url: string;
     label: string;
   };
+  hostingNote?: string;
   secondaryAction?: {
     url: string;
     label: string;
@@ -47,11 +48,17 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
   const descriptionId = useId();
+  const projectsListId = useId();
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(
     null,
   );
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [showAllMedia, setShowAllMedia] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const initialProjectCount = 4;
+  const visibleProjects = showAllProjects
+    ? projects
+    : projects.slice(0, initialProjectCount);
 
   const activeProject =
     activeProjectIndex === null ? null : projects[activeProjectIndex];
@@ -134,11 +141,15 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
 
   return (
     <>
-      <div className="projects-list">
-        {projects.map((project, projectIndex) => (
+      <div className="projects-list" id={projectsListId}>
+        {visibleProjects.map((project, projectIndex) => (
           <article
             className={`project-card project-card--interactive${
               project.featured ? " project-card--featured" : ""
+            }${
+              projectIndex >= initialProjectCount
+                ? " project-card--revealed"
+                : ""
             }`}
             key={project.number}
           >
@@ -178,6 +189,22 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
           </article>
         ))}
       </div>
+      {projects.length > initialProjectCount && (
+        <div className="projects-toggle-shell">
+          <button
+            className="button button-ghost projects-toggle"
+            type="button"
+            onClick={() => setShowAllProjects((currentValue) => !currentValue)}
+            aria-expanded={showAllProjects}
+            aria-controls={projectsListId}
+          >
+            {showAllProjects
+              ? uiCopy[locale].projectsSection.showLess
+              : uiCopy[locale].projectsSection.showMore}
+            <span aria-hidden="true">{showAllProjects ? "↑" : "↓"}</span>
+          </button>
+        </div>
+      )}
 
       <dialog
         className="project-dialog"
@@ -430,6 +457,11 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         </a>
                       )}
                     </div>
+                  )}
+                  {activeProject.hostingNote && (
+                    <p className="project-hosting-note">
+                      {activeProject.hostingNote}
+                    </p>
                   )}
                   {activeProject.repositoryUrl && (
                     <a

@@ -17,6 +17,8 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+const LANGUAGE_STORAGE_KEY = "portfolio-language";
+
 function detectDeviceLocale(): Locale {
   const deviceLanguage = navigator.language.toLowerCase();
   return deviceLanguage === "es" || deviceLanguage.startsWith("es-")
@@ -35,13 +37,30 @@ export function LanguageProvider({
   const [locale, setLocale] = useState<Locale>("en");
   const [deviceLocale, setDeviceLocale] = useState<Locale>("en");
   const [isReady, setIsReady] = useState(false);
-  const [hasSelected, setHasSelected] = useState(false);
-  const [isSelectorOpen, setIsSelectorOpen] = useState(true);
+  const [hasPreference, setHasPreference] = useState(false);
+  const [isSelectorOpen, setIsSelectorOpen] = useState(false);
 
   useEffect(() => {
     const detectedLocale = detectDeviceLocale();
+    let savedLocale: string | null = null;
+
+    try {
+      savedLocale = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    } catch {
+      // Storage can be unavailable in hardened browser contexts.
+    }
+
     setDeviceLocale(detectedLocale);
-    setLocale(detectedLocale);
+
+    if (savedLocale === "es" || savedLocale === "en") {
+      setLocale(savedLocale);
+      setHasPreference(true);
+      setIsSelectorOpen(false);
+    } else {
+      setLocale(detectedLocale);
+      setIsSelectorOpen(true);
+    }
+
     setIsReady(true);
   }, []);
 
@@ -73,11 +92,17 @@ export function LanguageProvider({
 
   const selectLanguage = (nextLocale: Locale) => {
     setLocale(nextLocale);
-    setHasSelected(true);
+    setHasPreference(true);
     setIsSelectorOpen(false);
+
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLocale);
+    } catch {
+      // The selected language still applies to the current visit.
+    }
   };
 
-  const selectorLocale = hasSelected ? locale : deviceLocale;
+  const selectorLocale = hasPreference ? locale : deviceLocale;
   const selectorCopy = uiCopy[selectorLocale].selector;
 
   return (

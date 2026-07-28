@@ -39,8 +39,11 @@ test("server-renders the final portfolio", async () => {
   assert.match(html, /RepoSignal/);
   assert.match(html, /In production/);
   assert.match(html, /StellarMinds/);
-  assert.match(html, /Appointment management/);
-  assert.match(html, /Nutrition tracking/);
+  assert.match(html, /Download CV/);
+  assert.match(html, /Personal portfolio/);
+  assert.doesNotMatch(html, /Appointment management/);
+  assert.doesNotMatch(html, /Nutrition tracking/);
+  assert.doesNotMatch(html, /FiveM server/);
   assert.match(html, /SONDA/);
   assert.match(html, /facundorobayna03@gmail\.com/);
   assert.match(html, /lang="en"/);
@@ -92,6 +95,8 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(page, /<ConnectProfileButton \/>/);
   assert.match(page, /<ConnectProfileButton placement="contact" \/>/);
   assert.match(page, /<ProjectShowcase projects=\{projects\} \/>/);
+  assert.match(page, /copy\.hero\.cvButton/);
+  assert.match(page, /download="Facundo-Robayna-CV\.pdf"/);
   assert.match(page, /\/profile\/facundo-robayna\.webp/);
   assert.match(i18n, /Retrato de Facundo Robayna/);
   assert.match(i18n, /Portrait of Facundo Robayna/);
@@ -164,6 +169,12 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(projectShowcase, /event\.key === "ArrowLeft"/);
   assert.match(projectShowcase, /event\.key === "ArrowRight"/);
   assert.match(projectShowcase, /mediaType === "video"/);
+  assert.match(projectShowcase, /projects\.slice\(0, initialProjectCount\)/);
+  assert.match(projectShowcase, /aria-expanded=\{showAllProjects\}/);
+  assert.match(projectShowcase, /aria-controls=\{projectsListId\}/);
+  assert.match(projectShowcase, /projectsSection\.showMore/);
+  assert.match(projectShowcase, /projectsSection\.showLess/);
+  assert.match(projectShowcase, /activeProject\.hostingNote/);
   assert.doesNotMatch(projectShowcase, /className="project-card-link"/);
   assert.match(globalsCss, /scroll-behavior:\s*auto/);
   assert.match(globalsCss, /\.project-dialog::backdrop/);
@@ -191,6 +202,14 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(i18n, /FiveM server/);
   assert.match(i18n, /Desarrollé y adapté scripts en Lua/);
   assert.match(i18n, /I developed and adapted Lua scripts/);
+  assert.match(
+    i18n,
+    /La primera carga puede demorar algunos segundos debido al hosting gratuito\./,
+  );
+  assert.match(
+    i18n,
+    /The first load may take a few seconds because the demo uses free-tier hosting\./,
+  );
   assert.match(contactControls, /href="\/cv-facundo-robayna\.pdf"/);
   assert.match(contactControls, /download="Facundo-Robayna-CV\.pdf"/);
   assert.doesNotMatch(page, /aria-disabled="true"/);
@@ -198,7 +217,23 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(languageContext, /\? "es"\s*:\s*"en"/);
   assert.match(languageContext, /dialog\.showModal\(\)/);
   assert.match(languageContext, /event\.preventDefault\(\)/);
-  assert.doesNotMatch(languageContext, /localStorage|sessionStorage/);
+  assert.match(
+    languageContext,
+    /const LANGUAGE_STORAGE_KEY = "portfolio-language"/,
+  );
+  assert.match(
+    languageContext,
+    /localStorage\.getItem\(LANGUAGE_STORAGE_KEY\)/,
+  );
+  assert.match(
+    languageContext,
+    /localStorage\.setItem\(LANGUAGE_STORAGE_KEY, nextLocale\)/,
+  );
+  assert.match(
+    languageContext,
+    /savedLocale === "es" \|\| savedLocale === "en"/,
+  );
+  assert.doesNotMatch(languageContext, /sessionStorage/);
   assert.match(i18n, /¿Cómo querés ver el portfolio\?/);
   assert.match(i18n, /How would you like to view the portfolio\?/);
   assert.match(layout, /<LanguageProvider>\{children\}<\/LanguageProvider>/);

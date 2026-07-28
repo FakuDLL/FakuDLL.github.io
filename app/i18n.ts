@@ -15,7 +15,7 @@ export const uiCopy = {
       eyebrow: "Preferencia de idioma",
       title: "¿Cómo querés ver el portfolio?",
       description:
-        "Elegí el idioma para esta visita. Esta pantalla volverá a aparecer la próxima vez que entres.",
+        "Elegí tu idioma. Guardaremos esta preferencia para tus próximas visitas.",
       deviceHint: "Sugerencia basada en el idioma de tu dispositivo",
       recommended: "Recomendado",
       spanish: "Continuar en español",
@@ -42,6 +42,7 @@ export const uiCopy = {
       intro:
         "Estudiante de TI y Desarrollador de Software Junior en Montevideo, Uruguay.",
       projectsButton: "Ver proyectos",
+      cvButton: "Descargar CV",
       panelLabel: "Resumen profesional",
       panelFile: "perfil.json",
       active: "● activo",
@@ -99,6 +100,8 @@ export const uiCopy = {
       heading: "Trabajo seleccionado.",
       description:
         "Proyectos académicos, personales y experimentales. Algunos repositorios están publicados y otros se mantienen privados según el proyecto.",
+      showMore: "Ver más proyectos",
+      showLess: "Ver menos proyectos",
     },
     experience: {
       label: "Experiencia adicional",
@@ -179,7 +182,7 @@ export const uiCopy = {
       eyebrow: "Language preference",
       title: "How would you like to view the portfolio?",
       description:
-        "Choose a language for this visit. This screen will appear again the next time you enter.",
+        "Choose your language. We will remember this preference for future visits.",
       deviceHint: "Suggested from your device language",
       recommended: "Recommended",
       spanish: "Continuar en español",
@@ -206,6 +209,7 @@ export const uiCopy = {
       intro:
         "IT student and Junior Software Developer based in Montevideo, Uruguay.",
       projectsButton: "View projects",
+      cvButton: "Download CV",
       panelLabel: "Professional summary",
       panelFile: "profile.json",
       active: "● active",
@@ -262,6 +266,8 @@ export const uiCopy = {
       heading: "Selected work.",
       description:
         "Academic, personal and experimental projects. Some repositories are public, while others remain private depending on the project.",
+      showMore: "View more projects",
+      showLess: "View fewer projects",
     },
     experience: {
       label: "Additional experience",
@@ -399,6 +405,7 @@ type ProjectDefinition = {
     url: string;
     label: Localized<string>;
   };
+  hostingNote?: Localized<string>;
   secondaryAction?: {
     url: string;
     label: Localized<string>;
@@ -572,6 +579,10 @@ const projectDefinitions: ProjectDefinition[] = [
       url: "https://nexodesk-fakudll.pages.dev",
       label: localized("Probar aplicación", "Try application"),
     },
+    hostingNote: localized(
+      "La primera carga puede demorar algunos segundos debido al hosting gratuito.",
+      "The first load may take a few seconds because the demo uses free-tier hosting.",
+    ),
     repositoryNote: localized(
       "Código temporalmente privado",
       "Code temporarily private",
@@ -716,6 +727,10 @@ const projectDefinitions: ProjectDefinition[] = [
         "View sample report",
       ),
     },
+    hostingNote: localized(
+      "La primera carga puede demorar algunos segundos debido al hosting gratuito.",
+      "The first load may take a few seconds because the demo uses free-tier hosting.",
+    ),
     repositoryNote: localized(
       "Código temporalmente privado",
       "Code temporarily private",
@@ -1226,6 +1241,7 @@ export function getProjects(locale: Locale): ProjectShowcaseItem[] {
           label: project.primaryAction.label[locale],
         }
       : undefined,
+    hostingNote: project.hostingNote?.[locale],
     secondaryAction: project.secondaryAction
       ? {
           url: project.secondaryAction.url,
