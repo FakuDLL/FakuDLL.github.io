@@ -163,7 +163,10 @@ export const uiCopy = {
       showAll: "Mostrar todo el contenido",
       visualMaterial: "Material visual",
       comingSoon: "Capturas disponibles próximamente.",
+      status: "Estado",
+      problem: "Problema que resuelve",
       includes: "Qué incluye",
+      decisions: "Decisiones técnicas",
       technologies: "Tecnologías",
       viewCode: "Ver código en GitHub",
     },
@@ -323,7 +326,10 @@ export const uiCopy = {
       showAll: "Show all content",
       visualMaterial: "Visual material",
       comingSoon: "Screenshots coming soon.",
+      status: "Status",
+      problem: "Problem it solves",
       includes: "What it includes",
+      decisions: "Technical decisions",
       technologies: "Technologies",
       viewCode: "View code on GitHub",
     },
@@ -377,13 +383,26 @@ type GalleryDefinition = {
 
 type ProjectDefinition = {
   number: string;
+  featured?: boolean;
   type: Localized<string>;
   title: Localized<string>;
   subtitle: Localized<string>;
   description: Localized<string>;
+  status?: Localized<string>;
+  problem?: Localized<string>;
   stack: Localized<string[]>;
   highlights: Localized<string[]>;
+  decisions?: Localized<string[]>;
   repositoryUrl?: string;
+  repositoryNote?: Localized<string>;
+  primaryAction?: {
+    url: string;
+    label: Localized<string>;
+  };
+  secondaryAction?: {
+    url: string;
+    label: Localized<string>;
+  };
   galleryTitle?: Localized<string>;
   gallery?: GalleryDefinition[];
 };
@@ -391,6 +410,319 @@ type ProjectDefinition = {
 const projectDefinitions: ProjectDefinition[] = [
   {
     number: "01",
+    featured: true,
+    type: localized(
+      "Plataforma empresarial multiusuario",
+      "Multi-tenant enterprise platform",
+    ),
+    title: localized("NexoDesk", "NexoDesk"),
+    subtitle: localized(
+      "Gestión de soporte técnico para organizaciones",
+      "Technical support management for organizations",
+    ),
+    description: localized(
+      "Plataforma web en producción para registrar, asignar y seguir incidencias dentro de distintas organizaciones. Combina roles, SLA, auditoría, notificaciones y métricas operativas en una experiencia responsive en español e inglés.",
+      "A production web platform for creating, assigning and tracking incidents across separate organizations. It combines roles, SLAs, auditing, notifications and operational metrics in a responsive Spanish and English experience.",
+    ),
+    status: localized("En producción", "In production"),
+    problem: localized(
+      "Centraliza el trabajo de soporte y mantiene aislada la información de cada organización, para que administradores, agentes y solicitantes colaboren con trazabilidad y tiempos de atención claros.",
+      "It centralizes support work while keeping each organization's information isolated, so administrators, agents and requesters can collaborate with traceability and clear response targets.",
+    ),
+    stack: localized(
+      [
+        ".NET 10",
+        "ASP.NET Core Web API",
+        "React",
+        "TypeScript",
+        "Entity Framework Core",
+        "SQL Server / Azure SQL",
+        "Identity + JWT",
+        "SignalR",
+        "TanStack Query",
+        "xUnit",
+      ],
+      [
+        ".NET 10",
+        "ASP.NET Core Web API",
+        "React",
+        "TypeScript",
+        "Entity Framework Core",
+        "SQL Server / Azure SQL",
+        "Identity + JWT",
+        "SignalR",
+        "TanStack Query",
+        "xUnit",
+      ],
+    ),
+    highlights: localized(
+      [
+        "Registro e inicio de sesión con roles Administrador, Agente y Solicitante",
+        "Aislamiento de datos por organización",
+        "Incidencias con asignación, prioridades, estados y comentarios públicos o internos",
+        "Seguimiento de SLA, auditoría y notificaciones internas",
+        "Búsqueda, filtros, ordenamiento, paginación y dashboard operativo",
+      ],
+      [
+        "Registration and sign-in with Administrator, Agent and Requester roles",
+        "Organization-level data isolation",
+        "Incident assignment, priorities, statuses, and public or internal comments",
+        "SLA tracking, auditing and internal notifications",
+        "Search, filters, sorting, pagination and an operational dashboard",
+      ],
+    ),
+    decisions: localized(
+      [
+        "Autorización por roles y pertenencia a la organización en la API",
+        "Identity y JWT para autenticación; SignalR para actualizaciones internas",
+        "Pruebas unitarias y de integración dentro del flujo de GitHub Actions",
+        "Frontend en Cloudflare Pages y API con Azure SQL en Azure",
+      ],
+      [
+        "API authorization based on role and organization membership",
+        "Identity and JWT for authentication; SignalR for internal updates",
+        "Unit and integration tests in the GitHub Actions workflow",
+        "Frontend on Cloudflare Pages and API with Azure SQL on Azure",
+      ],
+    ),
+    galleryTitle: localized(
+      "Operaciones, incidencias y trazabilidad",
+      "Operations, incidents and traceability",
+    ),
+    gallery: [
+      {
+        src: "/projects/nexodesk/dashboard-desktop.png",
+        alt: localized(
+          "Dashboard operativo de NexoDesk con métricas de incidencias y SLA",
+          "NexoDesk operational dashboard with incident and SLA metrics",
+        ),
+        caption: localized(
+          "Dashboard · carga operativa y señales de SLA",
+          "Dashboard · operational workload and SLA signals",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/incidents-desktop.png",
+        alt: localized(
+          "Cola de incidencias de NexoDesk con búsqueda, filtros, estados y responsables",
+          "NexoDesk incident queue with search, filters, statuses and assignees",
+        ),
+        caption: localized(
+          "Incidencias · búsqueda, filtros, estados y prioridades",
+          "Incidents · search, filters, statuses and priorities",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/create-incident-desktop.png",
+        alt: localized(
+          "Formulario de NexoDesk para crear una incidencia y definir su prioridad",
+          "NexoDesk form for creating an incident and setting its priority",
+        ),
+        caption: localized(
+          "Nueva incidencia · contexto, categoría y prioridad",
+          "New incident · context, category and priority",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/conversation-desktop.png",
+        alt: localized(
+          "Detalle de una incidencia de NexoDesk con conversación, nota interna y controles",
+          "NexoDesk incident detail with conversation, internal note and controls",
+        ),
+        caption: localized(
+          "Detalle · conversación, responsables y cronología del SLA",
+          "Detail · conversation, ownership and SLA timeline",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/audit-desktop.png",
+        alt: localized(
+          "Detalle de auditoría e historial inalterable de una incidencia en NexoDesk",
+          "Immutable audit and status history for a NexoDesk incident",
+        ),
+        caption: localized(
+          "Auditoría · cambios importantes e historial de estados",
+          "Audit · important changes and status history",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/dashboard-mobile.png",
+        alt: localized(
+          "Dashboard operativo de NexoDesk adaptado a un teléfono celular",
+          "NexoDesk operational dashboard adapted to a mobile phone",
+        ),
+        caption: localized(
+          "Dashboard · versión para celular",
+          "Dashboard · mobile version",
+        ),
+      },
+      {
+        src: "/projects/nexodesk/login-en-desktop.png",
+        alt: localized(
+          "Inicio de sesión de NexoDesk en inglés con accesos a los roles de demostración",
+          "NexoDesk English sign-in page with demo role access",
+        ),
+        caption: localized(
+          "Acceso · experiencia bilingüe y roles de demostración",
+          "Sign-in · bilingual experience and demo roles",
+        ),
+      },
+    ],
+    primaryAction: {
+      url: "https://nexodesk-fakudll.pages.dev",
+      label: localized("Probar aplicación", "Try application"),
+    },
+    repositoryNote: localized(
+      "Código temporalmente privado",
+      "Code temporarily private",
+    ),
+  },
+  {
+    number: "02",
+    featured: true,
+    type: localized(
+      "Herramienta de ingeniería",
+      "Engineering tool",
+    ),
+    title: localized("RepoSignal", "RepoSignal"),
+    subtitle: localized(
+      "Evidencias observables de ingeniería en repositorios GitHub",
+      "Observable engineering evidence from GitHub repositories",
+    ),
+    description: localized(
+      "Herramienta en producción que analiza repositorios públicos de GitHub y genera informes determinísticos sobre documentación, pruebas, integración continua, seguridad observable, mantenibilidad y experiencia de desarrollo.",
+      "A production tool that analyzes public GitHub repositories and produces deterministic reports covering documentation, testing, continuous integration, observable security, maintainability and developer experience.",
+    ),
+    status: localized("En producción", "In production"),
+    problem: localized(
+      "Convierte señales públicas dispersas de un repositorio en un informe explicable con puntuación, confianza y evidencias, sin presentar su resultado como una evaluación absoluta de la calidad del código.",
+      "It turns scattered public repository signals into an explainable report with scores, confidence and evidence, without presenting the result as an absolute judgment of code quality.",
+    ),
+    stack: localized(
+      [
+        ".NET 10",
+        "ASP.NET Core Web API",
+        "React",
+        "TypeScript",
+        "Entity Framework Core",
+        "PostgreSQL + Neon",
+        "TanStack Query",
+        "GitHub API",
+        "xUnit + Testcontainers",
+        "Vitest",
+      ],
+      [
+        ".NET 10",
+        "ASP.NET Core Web API",
+        "React",
+        "TypeScript",
+        "Entity Framework Core",
+        "PostgreSQL + Neon",
+        "TanStack Query",
+        "GitHub API",
+        "xUnit + Testcontainers",
+        "Vitest",
+      ],
+    ),
+    highlights: localized(
+      [
+        "Puntuación, confianza, categorías y evidencias observables",
+        "Documentación, pruebas, CI, higiene, seguridad, mantenibilidad, releases y DX",
+        "Estructura relevante, historial de informes y comparación",
+        "Procesamiento en segundo plano con GitHub API autenticada",
+      ],
+      [
+        "Scores, confidence, categories and observable evidence",
+        "Documentation, tests, CI, hygiene, security, maintainability, releases and DX",
+        "Relevant structure, report history and comparison",
+        "Background processing with the authenticated GitHub API",
+      ],
+    ),
+    decisions: localized(
+      [
+        "Reglas determinísticas: la IA no decide la puntuación",
+        "El análisis no clona ni ejecuta código del repositorio",
+        "Cada resultado expone evidencia y confianza para explicar sus límites",
+        "API en Azure Container Apps, datos en Neon y frontend en Cloudflare Pages",
+      ],
+      [
+        "Deterministic rules: AI does not decide the score",
+        "The analysis never clones or executes repository code",
+        "Every result exposes evidence and confidence to explain its limits",
+        "API on Azure Container Apps, data on Neon and frontend on Cloudflare Pages",
+      ],
+    ),
+    galleryTitle: localized(
+      "Producto e informe real",
+      "Product and real report",
+    ),
+    gallery: [
+      {
+        src: "/projects/reposignal/landing-desktop.png",
+        alt: localized(
+          "Página principal de RepoSignal con el formulario para analizar un repositorio público",
+          "RepoSignal home page with the form for analyzing a public repository",
+        ),
+        caption: localized(
+          "Inicio · análisis de un repositorio público",
+          "Home · public repository analysis",
+        ),
+      },
+      {
+        src: "/projects/reposignal/report-overview-desktop.png",
+        alt: localized(
+          "Resumen de un informe de RepoSignal con puntuación, confianza y categorías",
+          "RepoSignal report overview with score, confidence and categories",
+        ),
+        caption: localized(
+          "Informe · puntuación, confianza y señales por categoría",
+          "Report · score, confidence and category signals",
+        ),
+      },
+      {
+        src: "/projects/reposignal/ci-evidence-desktop.png",
+        alt: localized(
+          "Detalle de evidencia de integración continua en un informe de RepoSignal",
+          "Continuous integration evidence detail in a RepoSignal report",
+        ),
+        caption: localized(
+          "Evidencias · detalle de integración continua",
+          "Evidence · continuous integration detail",
+        ),
+      },
+      {
+        src: "/projects/reposignal/report-mobile.png",
+        alt: localized(
+          "Informe de RepoSignal adaptado a un teléfono celular",
+          "RepoSignal report adapted to a mobile phone",
+        ),
+        caption: localized(
+          "Informe · versión para celular",
+          "Report · mobile version",
+        ),
+      },
+    ],
+    primaryAction: {
+      url: "https://reposignal-fakudll.pages.dev",
+      label: localized(
+        "Analizar un repositorio",
+        "Analyze a repository",
+      ),
+    },
+    secondaryAction: {
+      url: "https://reposignal-fakudll.pages.dev/reports/019fa647-08f2-76c2-b693-9c532fb3b58b",
+      label: localized(
+        "Ver informe de ejemplo",
+        "View sample report",
+      ),
+    },
+    repositoryNote: localized(
+      "Código temporalmente privado",
+      "Code temporarily private",
+    ),
+  },
+  {
+    number: "03",
     type: localized("Proyecto académico grupal", "Academic group project"),
     title: localized("StellarMinds", "StellarMinds"),
     subtitle: localized(
@@ -572,7 +904,7 @@ const projectDefinitions: ProjectDefinition[] = [
     repositoryUrl: "https://github.com/FakuDLL/StellarMinds",
   },
   {
-    number: "02",
+    number: "04",
     type: localized("Proyecto personal", "Personal project"),
     title: localized("Portfolio personal", "Personal portfolio"),
     subtitle: localized(
@@ -707,7 +1039,7 @@ const projectDefinitions: ProjectDefinition[] = [
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",
   },
   {
-    number: "03",
+    number: "05",
     type: localized("Proyecto personal", "Personal project"),
     title: localized("Gestión de atenciones", "Appointment management"),
     subtitle: localized(
@@ -806,7 +1138,7 @@ const projectDefinitions: ProjectDefinition[] = [
     ],
   },
   {
-    number: "04",
+    number: "06",
     type: localized(
       "Prototipo con agentes de IA",
       "AI-agent prototype",
@@ -838,7 +1170,7 @@ const projectDefinitions: ProjectDefinition[] = [
     ),
   },
   {
-    number: "05",
+    number: "07",
     type: localized(
       "Proyecto independiente · Mar 2023 — Ene 2024",
       "Independent project · Mar 2023 — Jan 2024",
@@ -876,13 +1208,30 @@ const projectDefinitions: ProjectDefinition[] = [
 export function getProjects(locale: Locale): ProjectShowcaseItem[] {
   return projectDefinitions.map((project) => ({
     number: project.number,
+    featured: project.featured,
     type: project.type[locale],
     title: project.title[locale],
     subtitle: project.subtitle[locale],
     description: project.description[locale],
+    status: project.status?.[locale],
+    problem: project.problem?.[locale],
     stack: project.stack[locale],
     highlights: project.highlights[locale],
+    decisions: project.decisions?.[locale],
     repositoryUrl: project.repositoryUrl,
+    repositoryNote: project.repositoryNote?.[locale],
+    primaryAction: project.primaryAction
+      ? {
+          url: project.primaryAction.url,
+          label: project.primaryAction.label[locale],
+        }
+      : undefined,
+    secondaryAction: project.secondaryAction
+      ? {
+          url: project.secondaryAction.url,
+          label: project.secondaryAction.label[locale],
+        }
+      : undefined,
     galleryTitle: project.galleryTitle?.[locale],
     gallery: project.gallery?.map((media) => ({
       src: media.src,

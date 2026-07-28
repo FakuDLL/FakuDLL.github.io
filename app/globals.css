@@ -1199,6 +1199,12 @@ a {
   min-height: 470px;
 }
 
+.project-card--featured {
+  min-height: 470px;
+  border-color: rgba(184, 242, 74, 0.24);
+  grid-column: 1 / -1;
+}
+
 .project-card:last-child:nth-child(even) {
   grid-column: 1 / -1;
   min-height: 440px;
@@ -1293,6 +1299,14 @@ a {
   max-width: 760px;
 }
 
+.project-card-meta,
+.project-dialog-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .project-type {
   margin: 0 0 14px;
   color: var(--accent);
@@ -1302,8 +1316,25 @@ a {
   text-transform: uppercase;
 }
 
-.project-card h3 {
+.project-card-meta .project-type {
   margin: 0;
+}
+
+.project-status,
+.project-dialog-status {
+  padding: 5px 8px;
+  border: 1px solid rgba(184, 242, 74, 0.26);
+  border-radius: 999px;
+  background: rgba(184, 242, 74, 0.07);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-card h3 {
+  margin: 14px 0 0;
   font-size: clamp(2.3rem, 5vw, 5rem);
   font-weight: 520;
   letter-spacing: -0.055em;
@@ -1312,6 +1343,10 @@ a {
 
 .project-card:not(:first-child) h3 {
   font-size: clamp(2.2rem, 3.7vw, 3.6rem);
+}
+
+.project-card--featured:not(:first-child) h3 {
+  font-size: clamp(2.3rem, 5vw, 5rem);
 }
 
 .project-subtitle {
@@ -1450,6 +1485,10 @@ a {
 
 .project-dialog-hero {
   max-width: 880px;
+}
+
+.project-dialog-meta {
+  align-items: center;
 }
 
 .project-dialog-type,
@@ -1778,9 +1817,52 @@ a {
   margin-top: 22px;
 }
 
+.project-problem {
+  margin-bottom: 34px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.project-problem > p:last-child {
+  margin: 14px 0 0;
+  color: #c7cdc7;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.project-decisions {
+  margin-top: 38px;
+}
+
+.project-actions {
+  display: grid;
+  margin-top: 28px;
+  gap: 10px;
+}
+
+.project-actions .button {
+  width: 100%;
+}
+
 .project-repository-link {
   width: 100%;
   margin-top: 28px;
+}
+
+.project-actions + .project-repository-link {
+  margin-top: 10px;
+}
+
+.project-repository-note {
+  margin: 16px 0 0;
+  color: var(--muted-dark);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .experience-section {
@@ -2504,6 +2586,7 @@ a {
   }
 
   .project-card,
+  .project-card--featured,
   .project-card:first-child,
   .project-card:last-child:nth-child(even) {
     min-height: 520px;
@@ -2512,6 +2595,7 @@ a {
   }
 
   .project-card h3,
+  .project-card--featured:not(:first-child) h3,
   .project-card:not(:first-child) h3 {
     font-size: clamp(2.5rem, 12vw, 3.7rem);
   }

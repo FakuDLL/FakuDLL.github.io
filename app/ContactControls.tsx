@@ -191,14 +191,14 @@ export function ConnectProfileButton({
             <a
               href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               LinkedIn ↗
             </a>
             <a
               href="https://github.com/FakuDLL"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               GitHub ↗
             </a>

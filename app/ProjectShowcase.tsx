@@ -6,13 +6,26 @@ import { useLanguage } from "./LanguageContext";
 
 export type ProjectShowcaseItem = {
   number: string;
+  featured?: boolean;
   type: string;
   title: string;
   subtitle: string;
   description: string;
+  status?: string;
+  problem?: string;
   stack: string[];
   highlights: string[];
+  decisions?: string[];
   repositoryUrl?: string;
+  repositoryNote?: string;
+  primaryAction?: {
+    url: string;
+    label: string;
+  };
+  secondaryAction?: {
+    url: string;
+    label: string;
+  };
   galleryTitle?: string;
   gallery?: {
     src: string;
@@ -124,7 +137,9 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
       <div className="projects-list">
         {projects.map((project, projectIndex) => (
           <article
-            className="project-card project-card--interactive"
+            className={`project-card project-card--interactive${
+              project.featured ? " project-card--featured" : ""
+            }`}
             key={project.number}
           >
             <button
@@ -141,7 +156,12 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
               </span>
             </div>
             <div className="project-content">
-              <p className="project-type">{project.type}</p>
+              <div className="project-card-meta">
+                <p className="project-type">{project.type}</p>
+                {project.status && (
+                  <span className="project-status">{project.status}</span>
+                )}
+              </div>
               <h3>{project.title}</h3>
               <p className="project-subtitle">{project.subtitle}</p>
               <p className="project-description">{project.description}</p>
@@ -191,7 +211,14 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
 
             <div className="project-dialog-body">
               <section className="project-dialog-hero">
-                <p className="project-dialog-type">{activeProject.type}</p>
+                <div className="project-dialog-meta">
+                  <p className="project-dialog-type">{activeProject.type}</p>
+                  {activeProject.status && (
+                    <span className="project-dialog-status">
+                      {copy.status} · {activeProject.status}
+                    </span>
+                  )}
+                </div>
                 <h2 id={titleId}>{activeProject.title}</h2>
                 <p className="project-dialog-subtitle">
                   {activeProject.subtitle}
@@ -256,7 +283,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                         className="project-gallery-image-link"
                         href={activeMedia.src}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         aria-label={`${copy.openFullImage}: ${activeMedia.caption}`}
                       >
                         <img src={activeMedia.src} alt={activeMedia.alt} />
@@ -340,12 +367,28 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
 
               <div className="project-dialog-details">
                 <section>
+                  {activeProject.problem && (
+                    <div className="project-problem">
+                      <p className="project-dialog-label">{copy.problem}</p>
+                      <p>{activeProject.problem}</p>
+                    </div>
+                  )}
                   <p className="project-dialog-label">{copy.includes}</p>
                   <ul className="project-highlights">
                     {activeProject.highlights.map((highlight) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
+                  {activeProject.decisions?.length && (
+                    <div className="project-decisions">
+                      <p className="project-dialog-label">{copy.decisions}</p>
+                      <ul className="project-highlights">
+                        {activeProject.decisions.map((decision) => (
+                          <li key={decision}>{decision}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </section>
 
                 <aside>
@@ -361,15 +404,47 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                       <li key={technology}>{technology}</li>
                     ))}
                   </ul>
+                  {(activeProject.primaryAction ||
+                    activeProject.secondaryAction) && (
+                    <div className="project-actions">
+                      {activeProject.primaryAction && (
+                        <a
+                          className="button button-primary"
+                          href={activeProject.primaryAction.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {activeProject.primaryAction.label}{" "}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                      {activeProject.secondaryAction && (
+                        <a
+                          className="button button-ghost"
+                          href={activeProject.secondaryAction.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {activeProject.secondaryAction.label}{" "}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                   {activeProject.repositoryUrl && (
                     <a
                       className="button button-primary project-repository-link"
                       href={activeProject.repositoryUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       {copy.viewCode} <span aria-hidden="true">↗</span>
                     </a>
+                  )}
+                  {activeProject.repositoryNote && (
+                    <p className="project-repository-note">
+                      {activeProject.repositoryNote}
+                    </p>
                   )}
                 </aside>
               </div>

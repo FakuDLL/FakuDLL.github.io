@@ -98,7 +98,7 @@ export default function Home() {
                     className="button button-ghost"
                     href="https://github.com/FakuDLL"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     GitHub <span aria-hidden="true">↗</span>
                   </a>
@@ -106,7 +106,7 @@ export default function Home() {
                     className="button button-ghost"
                     href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     LinkedIn <span aria-hidden="true">↗</span>
                   </a>
