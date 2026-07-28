@@ -1205,11 +1205,6 @@ a {
   grid-column: 1 / -1;
 }
 
-.project-card:last-child:nth-child(even) {
-  grid-column: 1 / -1;
-  min-height: 440px;
-}
-
 .project-card--revealed {
   animation: project-card-reveal 280ms ease-out both;
 }

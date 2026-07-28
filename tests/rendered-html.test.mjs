@@ -182,6 +182,10 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(globalsCss, /\.language-options/);
   assert.match(globalsCss, /\.project-gallery-thumbnails/);
   assert.match(globalsCss, /overflow-anchor:\s*none/);
+  assert.doesNotMatch(
+    globalsCss,
+    /\.project-card:last-child:nth-child\(even\)\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/s,
+  );
   assert.doesNotMatch(globalsCss, /animation-timeline:\s*view/);
   assert.match(
     globalsCss,
