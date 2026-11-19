@@ -1091,8 +1091,8 @@ const projectDefinitions: ProjectDefinition[] = [
           "Overview of the appointment management application",
         ),
         caption: localized(
-          "Vista general del sistema",
-          "System overview",
+          "Vista general con datos ficticios",
+          "Overview with fictional data",
         ),
       },
       {
@@ -1113,8 +1113,8 @@ const projectDefinitions: ProjectDefinition[] = [
           "Appointment table with filters, import and backups",
         ),
         caption: localized(
-          "Gestión y edición de atenciones",
-          "Appointment management and editing",
+          "Gestión de atenciones con datos ficticios",
+          "Appointment management with fictional data",
         ),
       },
       {
