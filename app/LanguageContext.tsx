@@ -50,15 +50,17 @@ export function LanguageProvider({
       // Storage can be unavailable in hardened browser contexts.
     }
 
+    const requestedLocale = new URLSearchParams(window.location.search).get("lang");
     setDeviceLocale(detectedLocale);
 
-    if (savedLocale === "es" || savedLocale === "en") {
+    if (requestedLocale === "es" || requestedLocale === "en") {
+      setLocale(requestedLocale);
+      setHasPreference(true);
+    } else if (savedLocale === "es" || savedLocale === "en") {
       setLocale(savedLocale);
       setHasPreference(true);
-      setIsSelectorOpen(false);
     } else {
       setLocale(detectedLocale);
-      setIsSelectorOpen(true);
     }
 
     setIsReady(true);
@@ -95,6 +97,12 @@ export function LanguageProvider({
     setHasPreference(true);
     setIsSelectorOpen(false);
 
+    const url = new URL(window.location.href);
+    if (url.searchParams.has("lang")) {
+      url.searchParams.delete("lang");
+      window.history.replaceState(window.history.state, "", url);
+    }
+
     try {
       localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLocale);
     } catch {
@@ -119,7 +127,10 @@ export function LanguageProvider({
         ref={dialogRef}
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        onCancel={(event) => event.preventDefault()}
+        onCancel={(event) => {
+          event.preventDefault();
+          setIsSelectorOpen(false);
+        }}
       >
         <article className="language-card">
           <div className="language-card-topline">

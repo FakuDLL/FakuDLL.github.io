@@ -54,7 +54,7 @@ export default function Home() {
               onClick={reopenLanguageSelector}
               aria-label={copy.nav.changeLanguage}
             >
-              {locale.toUpperCase()}
+              ES / EN
             </button>
             <ConnectProfileButton />
           </div>
@@ -87,36 +87,12 @@ export default function Home() {
               <div>
                 <p className="hero-intro">{copy.hero.intro}</p>
                 <div className="hero-actions">
-                  <SectionLink
-                    className="button button-primary"
-                    targetId="servicios"
-                  >
-                    {copy.hero.servicesButton}{" "}
-                    <span aria-hidden="true">↘</span>
+                  <a className="button button-primary" href={copy.hero.pilotUrl}>
+                    {copy.hero.pilotButton}
+                  </a>
+                  <SectionLink className="button button-ghost" targetId="perfil-dotnet">
+                    {copy.hero.developerButton}
                   </SectionLink>
-                  <a
-                    className="button button-ghost"
-                    href="/cv-facundo-robayna.pdf"
-                    download="Facundo-Robayna-CV.pdf"
-                  >
-                    {copy.hero.cvButton} <span aria-hidden="true">↓</span>
-                  </a>
-                  <a
-                    className="button button-ghost"
-                    href="https://github.com/FakuDLL"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub <span aria-hidden="true">↗</span>
-                  </a>
-                  <a
-                    className="button button-ghost"
-                    href="https://www.linkedin.com/in/facundo-robayna-6612a7290/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn <span aria-hidden="true">↗</span>
-                  </a>
                 </div>
               </div>
 
@@ -274,6 +250,19 @@ export default function Home() {
               <p>{copy.projectsSection.description}</p>
             </div>
 
+            <section className="developer-proof" id="perfil-dotnet" aria-labelledby="developer-title">
+              <h3 id="developer-title">{copy.developer.heading}</h3>
+              <p>{copy.developer.description}</p>
+              <div className="services-actions">
+                <a className="button button-primary" href="https://github.com/FakuDLL/StellarMinds">
+                  {copy.developer.projectButton}
+                </a>
+                <a className="button button-ghost" href="/cv-facundo-robayna.pdf" download="Facundo-Robayna-CV.pdf">
+                  {copy.hero.cvButton}
+                </a>
+                <a className="button button-ghost" href="https://github.com/FakuDLL">GitHub</a>
+              </div>
+            </section>
             <ProjectShowcase projects={projects} />
           </div>
         </section>

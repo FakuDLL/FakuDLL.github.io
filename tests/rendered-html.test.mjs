@@ -38,6 +38,10 @@ test("server-renders the final portfolio", async () => {
   assert.match(html, /How I can help/);
   assert.match(html, /Excel and CSV processing/);
   assert.match(html, /Try the Shopify demo/);
+  assert.match(html, /View Shopify pilot/);
+  assert.match(html, /href="\/services\/shopify-csv-audit\//);
+  assert.match(html, /href="#perfil-dotnet"/);
+  assert.match(html, /View StellarMinds/);
   assert.match(html, /Shopify price and stock updates/);
   assert.match(html, /Working prototype/);
   assert.match(html, /Naval Strategy Lab/);
@@ -226,6 +230,8 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(languageContext, /navigator\.language\.toLowerCase\(\)/);
   assert.match(languageContext, /\? "es"\s*:\s*"en"/);
   assert.match(languageContext, /dialog\.showModal\(\)/);
+  assert.doesNotMatch(languageContext, /setLocale\(detectedLocale\);\s*setIsSelectorOpen\(true\)/);
+  assert.match(languageContext, /new URLSearchParams\(window\.location\.search\)\.get\("lang"\)/);
   assert.match(languageContext, /event\.preventDefault\(\)/);
   assert.match(
     languageContext,

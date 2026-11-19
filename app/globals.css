@@ -157,7 +157,8 @@ a {
 
 .language-reopen {
   display: grid;
-  width: 42px;
+  width: 52px;
+  white-space: nowrap;
   height: 42px;
   cursor: pointer;
   place-items: center;
@@ -1216,6 +1217,29 @@ a {
     transform 260ms ease,
     border-color 260ms ease,
     background-color 260ms ease;
+}
+
+.developer-proof {
+  margin: 0 0 24px;
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.developer-proof h3 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.developer-proof p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.developer-proof .services-actions {
+  margin-top: 16px;
 }
 
 .project-card:first-child {
@@ -2309,7 +2333,7 @@ a {
   }
 
   .language-reopen {
-    width: 36px;
+    width: 48px;
     height: 36px;
     font-size: 0.55rem;
   }

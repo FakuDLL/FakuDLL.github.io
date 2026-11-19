@@ -1,0 +1,13 @@
+:root{--surface:#111514}
+.offer-title{margin-bottom:.9rem}
+.offer-price{font-size:1.35rem;font-weight:650;color:var(--accent);margin:.8rem 0 1rem}
+.offer-actions{margin-top:1.15rem}
+.offer-button{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;padding:.55rem .85rem;border:1px solid var(--line);border-radius:.5rem;font-weight:650;text-decoration:none;color:#ecf0eb}
+.offer-button.primary{color:#111508;background:var(--accent);border-color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1rem;margin:0}
+.facts div{padding:.8rem;border:1px solid var(--line);border-radius:.5rem}
+.facts dt{font-weight:650}
+.facts dd{margin:.3rem 0 0;color:var(--muted)}
+.sample-grid{margin:1rem 0}
+.source-list{padding-left:1.25rem;color:var(--muted)}
+.source-list li+li{margin-top:.5rem}

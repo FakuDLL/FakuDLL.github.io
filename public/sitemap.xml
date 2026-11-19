@@ -5,4 +5,10 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://fakudll.github.io/services/shopify-csv-audit/</loc>
+  </url>
+  <url>
+    <loc>https://fakudll.github.io/servicios/shopify/</loc>
+  </url>
 </urlset>

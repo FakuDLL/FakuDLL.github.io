@@ -42,7 +42,9 @@ export const uiCopy = {
       headlineSecond: "y desarrollo software.",
       intro:
         "Herramientas internas, integraciones API y flujos con Excel o CSV. Trabajo desde Montevideo, Uruguay.",
-      servicesButton: "Ver servicios",
+      pilotButton: "Ver piloto Shopify",
+      pilotUrl: "/servicios/shopify/",
+      developerButton: "Ver CV y proyectos .NET",
       cvButton: "Descargar CV",
       panelLabel: "Resumen profesional",
       panelFile: "perfil.json",
@@ -107,6 +109,11 @@ export const uiCopy = {
       description:
         "Herramientas y conceptos que uso en proyectos académicos y personales, sin inflar experiencia.",
       listLabel: "Tecnologías y conocimientos",
+    },
+    developer: {
+      heading: "Perfil .NET",
+      description: "C# y ASP.NET Core para APIs REST y aplicaciones con SQL Server. StellarMinds reúne código, arquitectura y puesta en marcha de un proyecto académico grupal.",
+      projectButton: "Ver StellarMinds",
     },
     projectsSection: {
       label: "Proyectos",
@@ -222,7 +229,9 @@ export const uiCopy = {
       headlineSecond: "and build software.",
       intro:
         "Internal tools, API integrations and Excel or CSV workflows. Based in Montevideo, Uruguay.",
-      servicesButton: "View services",
+      pilotButton: "View Shopify pilot",
+      pilotUrl: "/services/shopify-csv-audit/",
+      developerButton: "View CV and .NET projects",
       cvButton: "Download CV",
       panelLabel: "Professional summary",
       panelFile: "profile.json",
@@ -286,6 +295,11 @@ export const uiCopy = {
       description:
         "Tools and concepts I use in academic and personal projects, without overstating my experience.",
       listLabel: "Technologies and skills",
+    },
+    developer: {
+      heading: ".NET developer profile",
+      description: "C# and ASP.NET Core for REST APIs and applications backed by SQL Server. StellarMinds is a group academic project with source code, architecture and setup instructions.",
+      projectButton: "View StellarMinds",
     },
     projectsSection: {
       label: "Projects",

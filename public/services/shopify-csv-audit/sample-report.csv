@@ -1,0 +1,13 @@
+﻿SKU,Previous row,Current row,Status,Previous cost,Current cost,Previous stock,Current stock,Proposed price,Currency,Review note
+,,12,Held for review,,4.00,,23,,USD,Missing SKU
+00017,2,2,Changed,80.00,88.00,12,8,110.00,USD,
+RAD-17B,3,3,Unchanged,90.00,90.00,7,7,,USD,
+05220,4,4,Changed,50.00,50.00,10,0,,USD,
+CON-400,5,5,Changed,64.00,72.00,18,21,90.00,USD,
+VENT-12,6,6,Held for review,42.00,90.00,14,14,112.50,USD,Price change exceeds limit
+TAP-20,7,7,Held for review,7.00,7.00,30,,,USD,Missing stock
+BRD-15,8,8,Held for review,8.00,8.00,20,20,,EUR,Currency mismatch: EUR instead of USD
+EMP-44,9,"9, 10",Held for review,12.00,12.00,10,15,,USD,Duplicate SKU
+SEL-09,10,,Missing,9.00,,5,,,USD,
+CMP-22,11,13,Unchanged,70.00,70.00,3,3,,USD,
+SOP-88,,11,New,,18.00,,6,,USD,
