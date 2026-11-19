@@ -1104,6 +1104,30 @@ a {
   font-size: 0.86rem;
 }
 
+.services-grid {
+  margin-top: 0;
+}
+
+.services-grid article {
+  min-height: 0;
+}
+
+.services-grid h3 {
+  margin: 0 0 12px;
+}
+
+.services-grid p {
+  max-width: none;
+  font-size: 1rem;
+}
+
+.services-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 .technologies-section {
   background: var(--bg-soft);
 }
@@ -2607,7 +2631,16 @@ a {
     border-bottom: 0;
   }
 
-  .principles h3 {
+  .services-grid article {
+    padding: 20px 0;
+    min-height: 0;
+  }
+
+  .services-grid h3 {
+    margin-top: 0;
+  }
+
+  .principles:not(.services-grid) h3 {
     margin-top: 40px;
   }
 

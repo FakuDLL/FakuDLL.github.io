@@ -33,14 +33,20 @@ test("server-renders the final portfolio", async () => {
     html,
     /<title>Facundo Robayna — Junior Software Developer<\/title>/i,
   );
-  assert.match(html, /I build web and/);
-  assert.match(html, /software solutions/);
+  assert.match(html, /I automate workflows/);
+  assert.match(html, /and build software/);
+  assert.match(html, /How I can help/);
+  assert.match(html, /Excel and CSV processing/);
+  assert.match(html, /Try the Shopify demo/);
+  assert.match(html, /Shopify price and stock updates/);
+  assert.match(html, /Working prototype/);
+  assert.match(html, /Naval Strategy Lab/);
   assert.match(html, /NexoDesk/);
   assert.match(html, /RepoSignal/);
-  assert.match(html, /In production/);
+  assert.match(html, /Public demo/);
   assert.match(html, /StellarMinds/);
   assert.match(html, /Download CV/);
-  assert.match(html, /Personal portfolio/);
+  assert.doesNotMatch(html, /Personal portfolio/);
   assert.doesNotMatch(html, /Appointment management/);
   assert.doesNotMatch(html, /Nutrition tracking/);
   assert.doesNotMatch(html, /FiveM server/);
@@ -147,8 +153,8 @@ test("keeps truthful links and project metadata", async () => {
   assert.match(contactControls, /placement === "contact"/);
   assert.match(contactControls, /className="connect-avatar"/);
   assert.match(contactControls, /\/profile\/facundo-robayna\.webp/);
-  assert.match(i18n, /Disponible para oportunidades junior/);
-  assert.match(i18n, /Open to junior opportunities/);
+  assert.match(i18n, /Disponible para proyectos freelance y oportunidades junior/);
+  assert.match(i18n, /Open to freelance work and junior roles/);
   assert.match(contactControls, /navigator\.clipboard\.writeText/);
   assert.match(projectShowcase, /showModal/);
   assert.match(projectShowcase, /aria-haspopup="dialog"/);

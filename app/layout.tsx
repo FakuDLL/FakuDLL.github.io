@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   ),
   title: "Facundo Robayna — Junior Software Developer",
   description:
-    "Portfolio of Facundo Robayna, an IT student and junior software developer based in Montevideo, Uruguay.",
+    "Facundo Robayna, software developer in Montevideo. Freelance workflow automation, Excel and CSV processing, API integrations and web development.",
   keywords: [
     "Facundo Robayna",
     "desarrollador junior",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     alternateLocale: ["es_UY"],
     title: "Facundo Robayna — Junior Software Developer",
     description:
-      "Purposeful software. Projects, technologies and experience from Facundo Robayna.",
+      "Workflow automation, Excel and CSV processing, API integrations and web development.",
     siteName: "Portfolio de Facundo Robayna",
     images: [
       {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Facundo Robayna — Junior Software Developer",
     description:
-      "Purposeful software. Projects, technologies and experience.",
+      "Workflow automation, data processing and software development.",
     images: ["/og.png"],
   },
   robots: {

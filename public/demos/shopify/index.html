@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare fictional supplier files and prepare Shopify price and inventory CSVs for review.">
+  <meta name="theme-color" content="#080a0b">
+  <link rel="icon" href="/favicon-fr.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="demo.css">
+  <script src="archivos.js" defer></script>
+  <script src="catalogo.js" defer></script>
+  <script src="datos.js" defer></script>
+  <script src="demo.js" defer></script>
+  <title>Shopify supplier updates · Facundo Robayna</title>
+</head>
+<body>
+  <header class="bar">
+    <a id="back" href="/#servicios" data-copy="back">Back to portfolio</a>
+    <nav aria-label="Language / Idioma">
+      <a lang="es" hreflang="es" href="?lang=es">Español</a>
+      <a lang="en" hreflang="en" href="?lang=en">English</a>
+    </nav>
+  </header>
+  <main>
+    <header class="intro">
+      <p class="label" data-copy="label">Working prototype · Fictional data</p>
+      <h1 data-copy="title">Shopify supplier updates</h1>
+      <p data-copy="intro">Compare two supplier files by SKU, recalculate prices and download sample CSVs. This demo uses fictional data and has no connection to a store.</p>
+    </header>
+    <noscript>JavaScript is required for the demo. · La demo requiere JavaScript.</noscript>
+    <div id="interactive" hidden>
+      <section class="panel" aria-labelledby="rules-title">
+        <h2 id="rules-title" data-copy="rules">Pricing rule</h2>
+        <form id="rules" class="rules">
+          <label>
+            <span data-copy="method">Method</span>
+            <select id="method">
+              <option value="markup" data-copy="markup">Markup on cost</option>
+              <option value="margin" data-copy="margin">Target gross margin</option>
+            </select>
+          </label>
+          <label>
+            <span data-copy="rate">Percentage (%)</span>
+            <input id="rate" type="number" min="1" max="99" step="0.01" value="25" required>
+          </label>
+          <button type="submit" data-copy="compare">Recalculate</button>
+        </form>
+        <p class="hint" data-copy="limits">The sample uses USD, a 15% minimum gross margin, and a 30% limit on price changes.</p>
+        <p id="error" role="alert" hidden></p>
+      </section>
+      <section class="panel" aria-labelledby="results-title">
+        <h2 id="results-title" data-copy="results">Comparison results</h2>
+        <dl id="summary" class="summary" aria-live="polite"></dl>
+        <div class="table-scroll" tabindex="0" role="region" aria-labelledby="results-title">
+          <table>
+            <thead><tr>
+              <th scope="col">SKU</th><th scope="col" data-copy="status">Status</th><th scope="col" data-copy="cost">Cost (USD)</th>
+              <th scope="col" data-copy="stock">Stock</th><th scope="col" data-copy="price">Proposed price</th><th scope="col" data-copy="review">Review note</th>
+            </tr></thead>
+            <tbody id="records"></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="exports-title">
+        <h2 id="exports-title" data-copy="files">Sample files</h2>
+        <p class="hint" data-copy="reviewFiles">The export uses a fictional Shopify catalog. Price and stock files include only changes that pass the checks and are for review before any import.</p>
+        <div class="actions">
+          <button class="secondary" id="download-report" type="button" data-copy="report">Change report</button>
+          <button class="secondary" id="download-prices" type="button" data-copy="prices">Price CSV</button>
+          <button class="secondary" id="download-stock" type="button" data-copy="inventory">Inventory CSV</button>
+        </div>
+        <details>
+          <summary data-copy="sourceTitle">View the fictional source files</summary>
+          <h3 data-copy="before">Previous supplier file</h3>
+          <pre id="before"></pre>
+          <h3 data-copy="after">Current supplier file</h3>
+          <pre id="after"></pre>
+        </details>
+      </section>
+    </div>
+    <p class="contact"><a href="/#contacto" data-copy="contact">Discuss a workflow for your store</a></p>
+  </main>
+</body>
+</html>

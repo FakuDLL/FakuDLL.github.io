@@ -89,9 +89,9 @@ export default function Home() {
                 <div className="hero-actions">
                   <SectionLink
                     className="button button-primary"
-                    targetId="proyectos"
+                    targetId="servicios"
                   >
-                    {copy.hero.projectsButton}{" "}
+                    {copy.hero.servicesButton}{" "}
                     <span aria-hidden="true">↘</span>
                   </SectionLink>
                   <a
@@ -151,16 +151,46 @@ export default function Home() {
               </aside>
             </div>
 
-            <SectionLink className="scroll-cue" targetId="sobre-mi">
+            <SectionLink className="scroll-cue" targetId="servicios">
               {copy.hero.scroll} <span aria-hidden="true">↓</span>
             </SectionLink>
+          </div>
+        </section>
+
+        <section className="section services-section" id="servicios">
+          <div className="container">
+            <div className="section-label">
+              <span aria-hidden="true">01</span>
+              <p>{copy.services.label}</p>
+              <span className="label-line" aria-hidden="true" />
+            </div>
+            <div className="section-heading">
+              <h2>{copy.services.heading}</h2>
+              <p>{copy.services.description}</p>
+            </div>
+            <div className="principles services-grid">
+              {copy.services.items.map((service) => (
+                <article key={service.title}>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="services-actions">
+              <SectionLink className="button button-primary" targetId="contacto">
+                {copy.services.contactButton}
+              </SectionLink>
+              <a className="button button-ghost" href={`/demos/shopify/?lang=${locale}`}>
+                {copy.services.demoButton}
+              </a>
+            </div>
           </div>
         </section>
 
         <section className="section about-section" id="sobre-mi">
           <div className="container">
             <div className="section-label">
-              <span>01</span>
+              <span>02</span>
               <p>{copy.about.label}</p>
               <span className="label-line" aria-hidden="true" />
             </div>
@@ -204,7 +234,7 @@ export default function Home() {
         <section className="section technologies-section" id="tecnologias">
           <div className="container">
             <div className="section-label">
-              <span>02</span>
+              <span>03</span>
               <p>{copy.technologies.label}</p>
               <span className="label-line" aria-hidden="true" />
             </div>
@@ -234,7 +264,7 @@ export default function Home() {
         <section className="section projects-section" id="proyectos">
           <div className="container">
             <div className="section-label">
-              <span>03</span>
+              <span>04</span>
               <p>{copy.projectsSection.label}</p>
               <span className="label-line" aria-hidden="true" />
             </div>
@@ -251,7 +281,7 @@ export default function Home() {
         <section className="section experience-section" id="experiencia">
           <div className="container">
             <div className="section-label">
-              <span>04</span>
+              <span>05</span>
               <p>{copy.experience.label}</p>
               <span className="label-line" aria-hidden="true" />
             </div>
@@ -282,7 +312,7 @@ export default function Home() {
           <div className="contact-glow" aria-hidden="true" />
           <div className="container">
             <div className="section-label">
-              <span>05</span>
+              <span>06</span>
               <p>{copy.contact.label}</p>
               <span className="label-line" aria-hidden="true" />
             </div>

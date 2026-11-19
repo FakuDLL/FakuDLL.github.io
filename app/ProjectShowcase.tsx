@@ -55,7 +55,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [showAllMedia, setShowAllMedia] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const initialProjectCount = 4;
+  const initialProjectCount = 5;
   const visibleProjects = showAllProjects
     ? projects
     : projects.slice(0, initialProjectCount);

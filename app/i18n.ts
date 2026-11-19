@@ -10,7 +10,7 @@ export const uiCopy = {
   es: {
     metaTitle: "Facundo Robayna — Desarrollador de Software Junior",
     metaDescription:
-      "Portfolio de Facundo Robayna, estudiante de TI y desarrollador de software junior en Montevideo, Uruguay.",
+      "Facundo Robayna, desarrollador en Montevideo. Automatización, Excel, CSV, integraciones API y desarrollo web para proyectos freelance.",
     selector: {
       eyebrow: "Preferencia de idioma",
       title: "¿Cómo querés ver el portfolio?",
@@ -29,6 +29,7 @@ export const uiCopy = {
       changeLanguage: "Cambiar idioma",
       items: [
         ["Inicio", "inicio"],
+        ["Servicios", "servicios"],
         ["Sobre mí", "sobre-mi"],
         ["Tecnologías", "tecnologias"],
         ["Proyectos", "proyectos"],
@@ -36,12 +37,12 @@ export const uiCopy = {
       ] as const,
     },
     hero: {
-      availability: "Disponible para oportunidades junior",
-      headlineFirst: "Construyo soluciones",
-      headlineSecond: "web y de software.",
+      availability: "Disponible para proyectos freelance y oportunidades junior",
+      headlineFirst: "Automatizo procesos",
+      headlineSecond: "y desarrollo software.",
       intro:
-        "Estudiante de TI y Desarrollador de Software Junior en Montevideo, Uruguay.",
-      projectsButton: "Ver proyectos",
+        "Herramientas internas, integraciones API y flujos con Excel o CSV. Trabajo desde Montevideo, Uruguay.",
+      servicesButton: "Ver servicios",
       cvButton: "Descargar CV",
       panelLabel: "Resumen profesional",
       panelFile: "perfil.json",
@@ -55,6 +56,18 @@ export const uiCopy = {
         ["Foco", "Web · APIs · Datos"],
       ] as const,
       scroll: "Scroll para explorar",
+    },
+    services: {
+      label: "Servicios",
+      heading: "Cómo puedo ayudarte.",
+      description: "Definimos el alcance y el resultado antes de empezar. Podés compartir una muestra ficticia o anonimizada para explicar el problema.",
+      contactButton: "Consultar por un proyecto",
+      demoButton: "Probar demo para Shopify",
+      items: [
+        { title: "Automatización de procesos", description: "Convierto tareas repetitivas en flujos con reglas y validaciones. Por ejemplo, comparar listas de proveedores y generar un informe de cambios." },
+        { title: "Procesamiento de Excel y CSV", description: "Limpio y cruzo archivos, normalizo columnas, detecto duplicados y preparo salidas para revisar antes de importar." },
+        { title: "Integraciones API y software", description: "Conecto aplicaciones mediante APIs y desarrollo herramientas internas, paneles o aplicaciones web para un flujo concreto." },
+      ],
     },
     about: {
       label: "Sobre mí",
@@ -123,7 +136,7 @@ export const uiCopy = {
       kicker: "¿Tenés una oportunidad o idea?",
       heading: "Hablemos.",
       description:
-        "Estoy abierto a conversar sobre oportunidades junior, prácticas y proyectos donde pueda aportar, aprender y crecer.",
+        "Si tenés un proyecto freelance, contame qué proceso querés mejorar y qué resultado necesitás. También estoy abierto a roles junior y prácticas.",
     },
     footer: {
       role: "Desarrollador de Software Junior · Montevideo",
@@ -133,7 +146,7 @@ export const uiCopy = {
       trigger: "Conectar",
       file: "perfil.local",
       close: "Cerrar perfil",
-      availability: "Disponible para oportunidades junior",
+      availability: "Disponible para proyectos freelance y oportunidades junior",
       role: "Estudiante de TI · Desarrollador de Software Junior",
       facts: [
         ["Ubicación", "Montevideo, Uruguay"],
@@ -177,7 +190,7 @@ export const uiCopy = {
   en: {
     metaTitle: "Facundo Robayna — Junior Software Developer",
     metaDescription:
-      "Portfolio of Facundo Robayna, an IT student and junior software developer based in Montevideo, Uruguay.",
+      "Facundo Robayna, software developer in Montevideo. Freelance workflow automation, Excel and CSV processing, API integrations and web development.",
     selector: {
       eyebrow: "Language preference",
       title: "How would you like to view the portfolio?",
@@ -196,6 +209,7 @@ export const uiCopy = {
       changeLanguage: "Change language",
       items: [
         ["Home", "inicio"],
+        ["Services", "servicios"],
         ["About", "sobre-mi"],
         ["Technologies", "tecnologias"],
         ["Projects", "proyectos"],
@@ -203,12 +217,12 @@ export const uiCopy = {
       ] as const,
     },
     hero: {
-      availability: "Open to junior opportunities",
-      headlineFirst: "I build web and",
-      headlineSecond: "software solutions.",
+      availability: "Open to freelance work and junior roles",
+      headlineFirst: "I automate workflows",
+      headlineSecond: "and build software.",
       intro:
-        "IT student and Junior Software Developer based in Montevideo, Uruguay.",
-      projectsButton: "View projects",
+        "Internal tools, API integrations and Excel or CSV workflows. Based in Montevideo, Uruguay.",
+      servicesButton: "View services",
       cvButton: "Download CV",
       panelLabel: "Professional summary",
       panelFile: "profile.json",
@@ -222,6 +236,18 @@ export const uiCopy = {
         ["Focus", "Web · APIs · Data"],
       ] as const,
       scroll: "Scroll to explore",
+    },
+    services: {
+      label: "Services",
+      heading: "How I can help.",
+      description: "We agree on the scope and deliverable before starting. You can share a sample with fictional or anonymized data to explain the problem.",
+      contactButton: "Discuss a project",
+      demoButton: "Try the Shopify demo",
+      items: [
+        { title: "Workflow automation", description: "I automate repeatable work with rules and validation. For example, comparing supplier lists and generating a change report." },
+        { title: "Excel and CSV processing", description: "I clean and match files, standardize columns, flag duplicates and prepare exports for review before import." },
+        { title: "API integrations and software", description: "I connect applications through APIs and build internal tools, dashboards or web applications for a specific workflow." },
+      ],
     },
     about: {
       label: "About me",
@@ -289,7 +315,7 @@ export const uiCopy = {
       kicker: "Do you have an opportunity or an idea?",
       heading: "Let's talk.",
       description:
-        "I am open to discussing junior opportunities, internships and projects where I can contribute, learn and grow.",
+        "For freelance work, tell me which process you want to improve and what you need delivered. I am also open to junior roles and internships.",
     },
     footer: {
       role: "Junior Software Developer · Montevideo",
@@ -299,7 +325,7 @@ export const uiCopy = {
       trigger: "Connect",
       file: "profile.local",
       close: "Close profile",
-      availability: "Open to junior opportunities",
+      availability: "Open to freelance work and junior roles",
       role: "IT Student · Junior Software Developer",
       facts: [
         ["Location", "Montevideo, Uruguay"],
@@ -388,7 +414,6 @@ type GalleryDefinition = {
 };
 
 type ProjectDefinition = {
-  number: string;
   featured?: boolean;
   type: Localized<string>;
   title: Localized<string>;
@@ -402,7 +427,7 @@ type ProjectDefinition = {
   repositoryUrl?: string;
   repositoryNote?: Localized<string>;
   primaryAction?: {
-    url: string;
+    url: string | Localized<string>;
     label: Localized<string>;
   };
   hostingNote?: Localized<string>;
@@ -416,8 +441,35 @@ type ProjectDefinition = {
 
 const projectDefinitions: ProjectDefinition[] = [
   {
-    number: "01",
     featured: true,
+    type: localized("Automatización de catálogo", "Catalog automation"),
+    title: localized("Precios y stock para Shopify", "Shopify price and stock updates"),
+    subtitle: localized("Comparación de listas de proveedores", "Supplier file comparison"),
+    description: localized(
+      "Compara listas de proveedores en Excel o CSV por SKU, aplica reglas de precio y separa los cambios revisables de las excepciones. Genera informes y prepara CSV de precios e inventario para Shopify a partir de exportaciones de origen.",
+      "Compares supplier Excel or CSV files by SKU, applies pricing rules and separates changes from exceptions. Generates reports and prepares Shopify price and inventory CSVs using source exports.",
+    ),
+    status: localized("Prototipo funcional", "Working prototype"),
+    stack: localized(["JavaScript", "Excel", "CSV", "Shopify"], ["JavaScript", "Excel", "CSV", "Shopify"]),
+    highlights: localized(
+      ["Conserva identificadores con ceros iniciales.", "Marca duplicados, monedas distintas y stock faltante.", "Prepara archivos para revisión antes de importar."],
+      ["Preserves identifiers with leading zeroes.", "Flags duplicates, currency mismatches and missing stock.", "Prepares files for review before import."],
+    ),
+    primaryAction: {
+      url: localized("/demos/shopify/?lang=es", "/demos/shopify/?lang=en"),
+      label: localized("Probar con datos ficticios", "Try with sample data"),
+    },
+    hostingNote: localized(
+      "La demo pública usa un catálogo ficticio. No carga archivos de visitantes ni accede a tiendas Shopify.",
+      "The public demo uses a fictional catalog. It accepts no visitor files and has no access to Shopify stores.",
+    ),
+    gallery: [
+      { src: "/projects/shopify-pilot/comparacion.png", alt: localized("Prototipo local con reglas y cambios de SKU", "Local prototype with pricing rules and SKU changes"), caption: localized("Comparación por SKU con datos ficticios", "SKU comparison using fictional data") },
+      { src: "/projects/shopify-pilot/excepciones.png", alt: localized("Tabla del prototipo con duplicados y datos incompletos", "Prototype table of duplicates and incomplete data"), caption: localized("Excepciones retenidas para revisión", "Exceptions held for review") },
+      { src: "/projects/shopify-pilot/exportaciones.png", alt: localized("Vista previa de los CSV para Shopify", "Preview of the Shopify CSV exports"), caption: localized("Archivos de precios e inventario", "Price and inventory files") },
+    ],
+  },
+  {
     type: localized(
       "Plataforma empresarial multiusuario",
       "Multi-tenant enterprise platform",
@@ -428,10 +480,10 @@ const projectDefinitions: ProjectDefinition[] = [
       "Technical support management for organizations",
     ),
     description: localized(
-      "Plataforma web en producción para registrar, asignar y seguir incidencias dentro de distintas organizaciones. Combina roles, SLA, auditoría, notificaciones y métricas operativas en una experiencia responsive en español e inglés.",
-      "A production web platform for creating, assigning and tracking incidents across separate organizations. It combines roles, SLAs, auditing, notifications and operational metrics in a responsive Spanish and English experience.",
+      "Aplicación web para registrar, asignar y seguir incidencias dentro de distintas organizaciones. Combina roles, SLA, auditoría, notificaciones y métricas operativas en una experiencia responsive en español e inglés.",
+      "A web application for creating, assigning and tracking incidents across separate organizations. It combines roles, SLAs, auditing, notifications and operational metrics in a responsive Spanish and English experience.",
     ),
-    status: localized("En producción", "In production"),
+    status: localized("Demo pública", "Public demo"),
     problem: localized(
       "Centraliza el trabajo de soporte y mantiene aislada la información de cada organización, para que administradores, agentes y solicitantes colaboren con trazabilidad y tiempos de atención claros.",
       "It centralizes support work while keeping each organization's information isolated, so administrators, agents and requesters can collaborate with traceability and clear response targets.",
@@ -589,8 +641,6 @@ const projectDefinitions: ProjectDefinition[] = [
     ),
   },
   {
-    number: "02",
-    featured: true,
     type: localized(
       "Herramienta de ingeniería",
       "Engineering tool",
@@ -601,10 +651,10 @@ const projectDefinitions: ProjectDefinition[] = [
       "Observable engineering evidence from GitHub repositories",
     ),
     description: localized(
-      "Herramienta en producción que analiza repositorios públicos de GitHub y genera informes determinísticos sobre documentación, pruebas, integración continua, seguridad observable, mantenibilidad y experiencia de desarrollo.",
-      "A production tool that analyzes public GitHub repositories and produces deterministic reports covering documentation, testing, continuous integration, observable security, maintainability and developer experience.",
+      "Herramienta web que analiza repositorios públicos de GitHub y genera informes determinísticos sobre documentación, pruebas, integración continua, seguridad observable, mantenibilidad y experiencia de desarrollo.",
+      "A tool that analyzes public GitHub repositories and produces deterministic reports covering documentation, testing, continuous integration, observable security, maintainability and developer experience.",
     ),
-    status: localized("En producción", "In production"),
+    status: localized("Demo pública", "Public demo"),
     problem: localized(
       "Convierte señales públicas dispersas de un repositorio en un informe explicable con puntuación, confianza y evidencias, sin presentar su resultado como una evaluación absoluta de la calidad del código.",
       "It turns scattered public repository signals into an explainable report with scores, confidence and evidence, without presenting the result as an absolute judgment of code quality.",
@@ -737,9 +787,30 @@ const projectDefinitions: ProjectDefinition[] = [
     ),
   },
   {
-    number: "03",
+    type: localized("Proyecto académico individual", "Individual academic project"),
+    title: localized("Naval Strategy Lab", "Naval Strategy Lab"),
+    subtitle: localized("Simulador web de estrategia naval", "Browser-based naval strategy simulator"),
+    description: localized(
+      "Aplicación en Java y Spring Boot para configurar flotas, jugar combates por turnos y consultar una campaña compartida que se actualiza en tiempo real entre pestañas.",
+      "Java and Spring Boot application for deploying fleets, playing turn-based battles and following a shared campaign that updates live across browser tabs.",
+    ),
+    status: localized("Aplicación funcional", "Working application"),
+    stack: localized(["Java 21", "Spring Boot", "JavaScript", "SSE", "JUnit"], ["Java 21", "Spring Boot", "JavaScript", "SSE", "JUnit"]),
+    highlights: localized(
+      ["Valida posiciones, turnos y transiciones de combate.", "Incluye tácticas de oponente intercambiables.", "Actualiza la interfaz con Server-Sent Events."],
+      ["Validates ship positions, turns and battle state transitions.", "Includes interchangeable opponent tactics.", "Updates the browser using Server-Sent Events."],
+    ),
+    repositoryUrl: "https://github.com/FakuDLL/naval-strategy-lab",
+    repositoryNote: localized("El README incluye instrucciones de ejecución local y pruebas.", "The README includes local setup and test commands."),
+    gallery: [
+      { src: "/projects/naval-strategy-lab/campana.png", alt: localized("Sala de operaciones y lista de batallas", "Operations room and list of battles"), caption: localized("Campaña y estado de cada batalla", "Campaign and battle states") },
+      { src: "/projects/naval-strategy-lab/combate.png", alt: localized("Vista de combate con flota y tablero del oponente", "Battle view with the fleet and the opponent’s board"), caption: localized("Combate por turnos", "Turn-based combat") },
+    ],
+  },
+  {
     type: localized("Proyecto académico grupal", "Academic group project"),
     title: localized("StellarMinds", "StellarMinds"),
+    status: localized("Aplicación funcional", "Working application"),
     subtitle: localized(
       "Gestión para un observatorio astronómico",
       "Management system for an astronomical observatory",
@@ -919,7 +990,6 @@ const projectDefinitions: ProjectDefinition[] = [
     repositoryUrl: "https://github.com/FakuDLL/StellarMinds",
   },
   {
-    number: "04",
     type: localized("Proyecto personal", "Personal project"),
     title: localized("Portfolio personal", "Personal portfolio"),
     subtitle: localized(
@@ -1054,7 +1124,6 @@ const projectDefinitions: ProjectDefinition[] = [
     repositoryUrl: "https://github.com/FakuDLL/FakuDLL.github.io",
   },
   {
-    number: "05",
     type: localized("Proyecto personal", "Personal project"),
     title: localized("Gestión de atenciones", "Appointment management"),
     subtitle: localized(
@@ -1153,7 +1222,6 @@ const projectDefinitions: ProjectDefinition[] = [
     ],
   },
   {
-    number: "06",
     type: localized(
       "Prototipo con agentes de IA",
       "AI-agent prototype",
@@ -1185,7 +1253,6 @@ const projectDefinitions: ProjectDefinition[] = [
     ),
   },
   {
-    number: "07",
     type: localized(
       "Proyecto independiente · Mar 2023 — Ene 2024",
       "Independent project · Mar 2023 — Jan 2024",
@@ -1221,8 +1288,8 @@ const projectDefinitions: ProjectDefinition[] = [
 ];
 
 export function getProjects(locale: Locale): ProjectShowcaseItem[] {
-  return projectDefinitions.map((project) => ({
-    number: project.number,
+  return projectDefinitions.map((project, index) => ({
+    number: String(index + 1).padStart(2, "0"),
     featured: project.featured,
     type: project.type[locale],
     title: project.title[locale],
@@ -1237,7 +1304,9 @@ export function getProjects(locale: Locale): ProjectShowcaseItem[] {
     repositoryNote: project.repositoryNote?.[locale],
     primaryAction: project.primaryAction
       ? {
-          url: project.primaryAction.url,
+          url: typeof project.primaryAction.url === "string"
+            ? project.primaryAction.url
+            : project.primaryAction.url[locale],
           label: project.primaryAction.label[locale],
         }
       : undefined,
