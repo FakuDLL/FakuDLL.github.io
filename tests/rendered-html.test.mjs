@@ -89,8 +89,7 @@ test("keeps truthful links and project metadata", async () => {
       readFile(new URL("../public/favicon-fr.svg", import.meta.url), "utf8"),
     ]);
 
-  assert.match(i18n, /Proyecto académico grupal/);
-  assert.match(i18n, /Academic group project/);
+  assert.match(i18n, /type: localized\("Proyecto académico individual", "Individual academic project"\),\s*title: localized\("StellarMinds", "StellarMinds"\)/);
   assert.match(i18n, /creado y validado mediante un flujo de agentes de IA/);
   assert.match(i18n, /created and validated through an AI-agent workflow/);
   assert.match(i18n, /Algunos repositorios están publicados/);

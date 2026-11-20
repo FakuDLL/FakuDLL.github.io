@@ -112,7 +112,7 @@ export const uiCopy = {
     },
     developer: {
       heading: "Perfil .NET",
-      description: "C# y ASP.NET Core para APIs REST y aplicaciones con SQL Server. StellarMinds reúne código, arquitectura y puesta en marcha de un proyecto académico grupal.",
+      description: "C# y ASP.NET Core para APIs REST y aplicaciones con SQL Server. StellarMinds reúne el código, la arquitectura y las instrucciones de puesta en marcha de un proyecto académico que desarrollé individualmente.",
       projectButton: "Ver StellarMinds",
     },
     projectsSection: {
@@ -130,7 +130,7 @@ export const uiCopy = {
         "Experiencias que fortalecieron mi autonomía, diagnóstico y atención al detalle.",
       items: [
         {
-          period: "Mar 2025 — May 2025",
+          period: "Marzo a mayo de 2025",
           role: "Soporte técnico presencial",
           place: "SONDA",
           description:
@@ -298,7 +298,7 @@ export const uiCopy = {
     },
     developer: {
       heading: ".NET developer profile",
-      description: "C# and ASP.NET Core for REST APIs and applications backed by SQL Server. StellarMinds is a group academic project with source code, architecture and setup instructions.",
+      description: "C# and ASP.NET Core for REST APIs and applications backed by SQL Server. StellarMinds is an academic project I developed independently, with source code, architecture and setup instructions.",
       projectButton: "View StellarMinds",
     },
     projectsSection: {
@@ -316,7 +316,7 @@ export const uiCopy = {
         "Experiences that strengthened my autonomy, diagnostic skills and attention to detail.",
       items: [
         {
-          period: "Mar 2025 — May 2025",
+          period: "March to May 2025",
           role: "On-site technical support",
           place: "SONDA",
           description:
@@ -822,7 +822,7 @@ const projectDefinitions: ProjectDefinition[] = [
     ],
   },
   {
-    type: localized("Proyecto académico grupal", "Academic group project"),
+    type: localized("Proyecto académico individual", "Individual academic project"),
     title: localized("StellarMinds", "StellarMinds"),
     status: localized("Aplicación funcional", "Working application"),
     subtitle: localized(
@@ -830,8 +830,8 @@ const projectDefinitions: ProjectDefinition[] = [
       "Management system for an astronomical observatory",
     ),
     description: localized(
-      "Sistema desarrollado en equipo para administrar socios, equipamiento astronómico, préstamos, devoluciones y sesiones de observación. La solución aplica arquitectura en capas, DTOs, mappers y control de roles. También integra Gemini como apoyo para evaluar equipamiento de observación.",
-      "A team-built system for managing members, astronomical equipment, loans, returns and observation sessions. The solution uses layered architecture, DTOs, mappers and role-based access control. It also integrates Gemini to support the evaluation of observation equipment.",
+      "Desarrollé este proyecto académico individual para administrar socios, equipamiento astronómico, préstamos, devoluciones y sesiones de observación. La solución aplica arquitectura en capas, DTOs, mappers y control de roles. También integra Gemini como apoyo para evaluar equipamiento de observación.",
+      "I developed this individual academic project to manage members, astronomical equipment, loans, returns and observation sessions. The solution uses layered architecture, DTOs, mappers and role-based access control. It also integrates Gemini to support the evaluation of observation equipment.",
     ),
     stack: localized(
       [
